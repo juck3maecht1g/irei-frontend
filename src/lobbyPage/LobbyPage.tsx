@@ -3,11 +3,15 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const intervalltime = 1000
+const intervallTime = 1000
 const fetchAdress = "http://127.0.0.1:5000/"
 const redirection = "/choosefolder"
 const successCode = 200
-//
+
+/**this Method trys to fetch from the fetchAdress in intrvallTime intervalls
+ * and if successful redirects to redirection
+ * 
+ */
 function PingBackend() {
     const navigate = useNavigate();
       // fetch data
@@ -24,7 +28,7 @@ function PingBackend() {
             navigate(redirection)
           }
       }
-      , intervalltime)
+      , intervallTime)
       
 }
 
