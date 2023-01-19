@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 /**
  * The GripperButton is used to control the Gripper auf chosen Robots
  */

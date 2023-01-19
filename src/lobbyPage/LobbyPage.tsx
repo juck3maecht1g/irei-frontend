@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import { useNavigate } from 'react-router-dom';
 
 
@@ -22,7 +22,6 @@ function PingBackend() {
             fetchAdress
           )
         ).status;
-          console.log(data)
           if(data == successCode) {
             clearInterval(repeatedFunktion)
             navigate(redirection)
