@@ -11,7 +11,7 @@ class GripperButton extends React.Component {
     state = {  }
     render() { 
         return ( 
-            <button></button>
+            <button>gripper</button>
          );
     }
 }

@@ -3,7 +3,7 @@ import LoggerButton from './LoggerButton'
 import GrippperButton from "./GripperButton"
 import ResetButton from './ResetButton';
 import SavePositionButton from './SavePositionButton';
-import ApproachPositionActionButton from '../ApproachPositionActionButton';
+import ApproachPositionActionButton from './ActionPages/ApproachPositionActionButton';
 
 /**
  * The ControlPage is used to record an experiment
