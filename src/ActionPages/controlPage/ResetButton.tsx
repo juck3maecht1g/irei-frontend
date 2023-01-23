@@ -12,7 +12,8 @@ function informReset() {
             body : JSON.stringify(resetMassage)
         })
         
-    }
+    } 
+    post()
 }
 
 
@@ -28,7 +29,7 @@ class ResetButton extends React.Component {
     state = {  }
     render() { 
         return ( 
-            <button></button>
+            <button onClick={informReset()}>reset</button>
          );
     }
 }

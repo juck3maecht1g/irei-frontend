@@ -1,5 +1,9 @@
 import React from 'react'
 import LoggerButton from './LoggerButton'
+import GrippperButton from "./GripperButton"
+import ResetButton from './ResetButton';
+import SavePositionButton from './SavePositionButton';
+import ApproachPositionActionButton from '../ApproachPositionActionButton';
 
 /**
  * The ControlPage is used to record an experiment
@@ -15,6 +19,10 @@ class ControlPage extends React.Component {
         return ( 
             <div>
                 <h1>
+                    <ResetButton/>
+                    <SavePositionButton/>
+                    <GrippperButton/>
+                    <ApproachPositionActionButton/>
                     <LoggerButton state={false}/>
                 </h1>
             </div>

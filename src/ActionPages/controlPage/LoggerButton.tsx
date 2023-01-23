@@ -60,6 +60,7 @@ function stopLogging() {
        }
       
   }
+  post()
 };
 
 function startLogging() {
@@ -73,6 +74,7 @@ function startLogging() {
      })
     
  }
+ post()
 }
 
 function cancelLogging() {
@@ -86,4 +88,5 @@ function cancelLogging() {
      })
     
  }
+ post()
 }
