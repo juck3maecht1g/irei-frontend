@@ -1,9 +1,8 @@
-<<<<<<< HEAD
 import React from "react"
 import ReactDom from "react-dom"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import ControlPage from "./ActionPages/controlPage/ControlPage"
-import EditActionListPage from "./ActionPages/EditActionListPage"
+import ControlPage from "./controlPages/ControlPage"
+import EditActionListPage from "./controlPages/ActionPage/EditActionListPage"
 import ChooseActionListPage from "./choosePages/chooseActionListPage/ChooseActionListPage"
 import ChooseDirectoryPage from "./choosePages/chooseDirectoryPage/ChooseDirectoryPage"
 import ChooseLaboratoryPage from "./choosePages/chooseLaboratoryPage/ChooseLaboratoryPage"
@@ -11,19 +10,12 @@ import ChooseLanguagePage from "./choosePages/chooseLanguagePage/ChooseLanguageP
 import ChooseNamePage from "./choosePages/chooseNamePage/ChooseNamePage"
 import ChooseRobotPage from "./choosePages/chooseRobotPage/ChooseRobotPage"
 import ChooseVariablePage from "./choosePages/chooseVariablePage/ChooseVariablePage"
-=======
-import React from "react";
-import ReactDom from "react-dom";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ControlPage from "./controlPage/ControlPage";
->>>>>>> refs/remotes/origin/main
 
 export default function App (){
     return (
       <div>
         <BrowserRouter>
         <Routes >
-<<<<<<< HEAD
           <Route index element={<ChooseDirectoryPage/>} />
           <Route path="/ControlPage" element={<ControlPage/>} />
           <Route path="/EditActionListPage" element={<EditActionListPage/>} />
@@ -34,9 +26,7 @@ export default function App (){
           <Route path="/ChooseNamePage" element={<ChooseNamePage/>} />
           <Route path="/ChooseRobotPage" element={<ChooseRobotPage/>} />
           <Route path="/ChooseVariablePage" element={<ChooseVariablePage/>} />
-=======
           <Route index element={<ControlPage />} />
->>>>>>> refs/remotes/origin/main
         </Routes>
       </BrowserRouter>
       </div>

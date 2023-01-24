@@ -1,13 +1,10 @@
 import React from 'react'
 import LoggerButton from './LoggerButton'
-<<<<<<< HEAD:src/ActionPages/controlPage/ControlPage.tsx
-import TopBar from '../../TopBar';
-=======
+import TopBar from './../TopBar'
 import GrippperButton from "./GripperButton"
 import ResetButton from './ResetButton';
 import SavePositionButton from './SavePositionButton';
 //import ApproachPositionActionButton from '../ApproachPositionActionButton';
->>>>>>> refs/remotes/origin/main:src/controlPage/ControlPage.tsx
 
 /**
  * The ControlPage is used to record an experiment
@@ -23,13 +20,10 @@ class ControlPage extends React.Component {
         return ( 
             <div>
                 <h1>
-<<<<<<< HEAD:src/ActionPages/controlPage/ControlPage.tsx
                     <TopBar title="ControlPage"></TopBar>
-=======
                     <ResetButton/>
                     <SavePositionButton/>
                     <GrippperButton/>
->>>>>>> refs/remotes/origin/main:src/controlPage/ControlPage.tsx
                     <LoggerButton state={false}/>
                 </h1>
             </div>
