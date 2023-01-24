@@ -5,10 +5,6 @@ import React from 'react'
  * in the current directory the user is in
  */
 class NewDirectoryButton extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    state = {  }
     render() { 
         return ( 
             <button></button>

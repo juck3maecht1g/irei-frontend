@@ -2,10 +2,6 @@ import React from 'react'
 import NavigationButton from './NavigationButton';
 
 class SideBar extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    state = {  }
     render() { 
         return (  
             <div>

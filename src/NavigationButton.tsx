@@ -7,8 +7,8 @@ class NavigationButton extends React.Component {
     state = {  }
     render() { 
         return ( 
-            <Link to={this.destinationLink}>
-            <button>{this.destination}</button>
+            <Link to={this.props.destinationLink}>
+                <button className="navigationButton">{this.props.destination}</button>
             </Link>
          );
     }

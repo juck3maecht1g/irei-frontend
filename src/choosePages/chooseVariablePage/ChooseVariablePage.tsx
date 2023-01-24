@@ -6,10 +6,6 @@ import TopBar from '../../TopBar';
  * a variable
  */
 class ChooseVariablePage extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    state = {  }
     render() { 
         return (  
             <div>

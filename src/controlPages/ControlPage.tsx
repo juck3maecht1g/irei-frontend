@@ -12,15 +12,11 @@ import SavePositionButton from './SavePositionButton';
  */
 class ControlPage extends React.Component {
 
-    constructor(props) {
-        super(props);
-      }
-
     render() { 
         return ( 
             <div>
+                <TopBar title="ControlPage"></TopBar>
                 <h1>
-                    <TopBar title="ControlPage"></TopBar>
                     <ResetButton/>
                     <SavePositionButton/>
                     <GrippperButton/>

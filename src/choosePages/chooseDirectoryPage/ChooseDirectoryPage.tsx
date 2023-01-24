@@ -7,10 +7,6 @@ import TopBar from '../../TopBar';
  * and choose a directory
  */
 class ChooseDirectoryPage extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    state = {  }
     render() { 
         return ( 
             <div>

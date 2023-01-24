@@ -23,10 +23,6 @@ function informReset() {
  * The ResetButton is used to reset a scene
  */
 class ResetButton extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    state = {  }
     render() { 
         return ( 
             <button onClick={informReset}>reset</button>

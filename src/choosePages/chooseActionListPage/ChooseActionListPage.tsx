@@ -6,10 +6,6 @@ import TopBar from '../../TopBar';
  * or to add a new one
  */
 class ChooseActionListPage extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    state = {  }
     render() { 
         return ( 
             <div>

@@ -5,10 +5,6 @@ import React from 'react'
  * this button displays
  */
 class DirectoryButton extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    state = {  }
     render() { 
         return ( 
             <button>DirectoryButton</button>

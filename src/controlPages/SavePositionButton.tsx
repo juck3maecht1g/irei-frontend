@@ -23,10 +23,6 @@ function informSavePosition() {
  * for later use
  */
 class SavePositionButton extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    state = {  }
     render() { 
         return ( 
             <button onClick={informSavePosition}></button>

@@ -6,10 +6,6 @@ import ChoosePage from '../ChoosePage';
  * the user wants to work with
  */
 class ChooseRobotPage extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    state = {  }
     render() { 
         return ( 
             <div>
