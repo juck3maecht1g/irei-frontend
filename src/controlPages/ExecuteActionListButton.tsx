@@ -5,10 +5,6 @@ import React from 'react'
  * actions
  */
 class ExecuteActionListButton extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    state = {  }
     render() { 
         return ( 
             <button>actionlist</button>

@@ -5,10 +5,6 @@ import React from 'react'
  * to a list of actions
  */
 class WaitActionbutton extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    state = {  }
     render() { 
         return ( 
             <button></button>

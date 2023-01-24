@@ -5,10 +5,6 @@ import React from 'react'
  * the Laboratory which is displayed from this Button
  */
 class ChooseLaboratoryButton extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    state = {  }
     render() { 
         return ( 
             <button></button>

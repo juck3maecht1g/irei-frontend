@@ -25,10 +25,6 @@ function informExecuteActionList() {
  * to a list of actions
  */
 class ApproachPositionActionButton extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    state = {  }
     render() { 
         return ( 
             <button></button>

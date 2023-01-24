@@ -13,5 +13,5 @@ class NavigationButton extends React.Component {
          );
     }
 }
- 
+
 export default NavigationButton;
