@@ -1,4 +1,5 @@
 import React from 'react'
+import TopBar from '../TopBar';
 
 
 class ChoosePage extends React.Component {
@@ -7,8 +8,8 @@ class ChoosePage extends React.Component {
     }
     state = {  }
     render() { 
-        return (  
-            <></>
+        return (
+            <TopBar title={this.props.title}></TopBar>
         );
     }
 }

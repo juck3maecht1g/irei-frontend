@@ -1,0 +1,24 @@
+import React from 'react'
+import DirectoryButton from './DirectoryButton';
+import TopBar from '../../TopBar';
+
+/**
+ * The ChooseDirectoryPage is used to navigate in a Datastructure
+ * and choose a directory
+ */
+class ChooseDirectoryPage extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    state = {  }
+    render() { 
+        return ( 
+            <div>
+                <TopBar title="ChooseDirectoryPage"></TopBar>
+                <DirectoryButton/>
+            </div>
+         );
+    }
+}
+ 
+export default ChooseDirectoryPage;

@@ -1,10 +1,10 @@
 import React from 'react'
 
 /**
- * The NewFolderButton is used to create a new folder
+ * The NewDirectoryButton is used to create a new folder
  * in the current directory the user is in
  */
-class NewFolderButton extends React.Component {
+class NewDirectoryButton extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -16,4 +16,4 @@ class NewFolderButton extends React.Component {
     }
 }
  
-export default NewFolderButton;
+export default NewDirectoryButton;

@@ -1,0 +1,21 @@
+import React from 'react'
+import TopBar from '../../TopBar';
+
+/**
+ * The ChooseNamePage is used to choose a name
+ */
+class ChooseNamePage extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    state = {  }
+    render() { 
+        return ( 
+            <div>
+                <TopBar title="ChooseNamePage"></TopBar>
+            </div>
+         );
+    }
+}
+ 
+export default ChooseNamePage;

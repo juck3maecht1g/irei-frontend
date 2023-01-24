@@ -1,5 +1,6 @@
 import React from 'react'
 import LoggerButton from './LoggerButton'
+import TopBar from '../../TopBar';
 
 /**
  * The ControlPage is used to record an experiment
@@ -15,6 +16,7 @@ class ControlPage extends React.Component {
         return ( 
             <div>
                 <h1>
+                    <TopBar title="ControlPage"></TopBar>
                     <LoggerButton state={false}/>
                 </h1>
             </div>

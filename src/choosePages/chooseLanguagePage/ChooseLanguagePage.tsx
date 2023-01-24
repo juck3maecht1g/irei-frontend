@@ -1,4 +1,5 @@
 import React from 'react'
+import ChoosePage from '../ChoosePage';
 
 /**
  * The ChooseLanguageButton is used to choose the language
@@ -12,7 +13,7 @@ class ChooseLanguagePage extends React.Component {
     render() { 
         return ( 
             <div>
-                
+               <ChoosePage title="ChooseLanguagePage"></ChoosePage> 
             </div>
          );
     }
