@@ -5,10 +5,6 @@ import React from 'react'
  * the variable this button displays
  */
 class ChooseVariableButton extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    state = {  }
     render() { 
         return ( 
             <button></button>

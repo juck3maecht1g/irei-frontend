@@ -5,10 +5,6 @@ import React from 'react'
  * the language which this Button displays
  */
 class ChooseLanguageButton extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    state = {  }
     render() { 
         return ( 
             <button></button>
