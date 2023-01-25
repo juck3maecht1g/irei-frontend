@@ -1,5 +1,5 @@
 import React from "react";
-const fetchAdress = "http://127.0.0.1:5000/reset"
+const fetchAdress = "http://127.0.0.1:5000/api/reset"
 const resetMassage = "reset"
 
 function informReset() {

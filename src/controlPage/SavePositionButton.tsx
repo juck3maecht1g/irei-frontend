@@ -1,5 +1,5 @@
 import React from 'react'
-const fetchAdress = "http://127.0.0.1:5000/savePosition"
+const fetchAdress = "http://127.0.0.1:5000/api/savePosition"
 const savePositionMassage = "savePosition"
 
 function informSavePosition() {
