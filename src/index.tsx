@@ -26,7 +26,6 @@ export default function App (){
           <Route path="/ChooseNamePage" element={<ChooseNamePage/>} />
           <Route path="/ChooseRobotPage" element={<ChooseRobotPage/>} />
           <Route path="/ChooseVariablePage" element={<ChooseVariablePage/>} />
-          <Route index element={<ChooseDirectoryPage/>} />
         </Routes>
       </BrowserRouter>
       </div>

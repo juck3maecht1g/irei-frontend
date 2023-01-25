@@ -10,7 +10,7 @@ class ChooseDirectoryPage extends React.Component {
     render() { 
         return ( 
             <div>
-                <TopBar title="ChooseDirectoryPage"></TopBar>
+                <TopBar title="Choose Directory"></TopBar>
                 <DirectoryButton/>
             </div>
          );

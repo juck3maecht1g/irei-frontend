@@ -9,7 +9,7 @@ class ChooseActionListPage extends React.Component {
     render() { 
         return ( 
             <div>
-                <TopBar title="ChooseActionListPage"></TopBar>
+                <TopBar title="Choose Actionlist"></TopBar>
             </div>
          );
     }

@@ -3,7 +3,7 @@ import React from 'react'
 class BottomBar extends React.Component {
     render() { 
         return (  
-            <div>
+            <div className="BottomBar">
                 
             </div>
         );

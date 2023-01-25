@@ -8,7 +8,7 @@ class ChooseNamePage extends React.Component {
     render() { 
         return ( 
             <div>
-                <TopBar title="ChooseNamePage"></TopBar>
+                <TopBar title="Choose a Name"></TopBar>
             </div>
          );
     }

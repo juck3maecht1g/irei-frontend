@@ -8,7 +8,7 @@ class EditActionListPage extends React.Component {
     render() { 
         return ( 
             <div>
-                <TopBar title="EditActionListPage"></TopBar>
+                <TopBar title="Edit Actionlist"></TopBar>
             </div>
          );
     }

@@ -9,7 +9,7 @@ class ChooseVariablePage extends React.Component {
     render() { 
         return (  
             <div>
-                <TopBar title="ChooseVariablePage"></TopBar>
+                <TopBar title="Choose Variable"></TopBar>
             </div>
         );
     }

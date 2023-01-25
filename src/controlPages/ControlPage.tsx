@@ -15,7 +15,7 @@ class ControlPage extends React.Component {
     render() { 
         return ( 
             <div>
-                <TopBar title="ControlPage"></TopBar>
+                <TopBar title="Control"></TopBar>
                 <h1>
                     <ResetButton/>
                     <SavePositionButton/>

@@ -9,7 +9,7 @@ class ChooseLaboratoryPage extends React.Component {
     render() { 
         return ( 
             <div>
-                <TopBar title="ChooseLaboratoryPage"></TopBar>
+                <TopBar title="Choose Laboratory"></TopBar>
             </div>
          );
     }

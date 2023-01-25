@@ -9,7 +9,7 @@ class ChooseRobotPage extends React.Component {
     render() { 
         return ( 
             <div>
-                <ChoosePage title="ChooseRobotPage"></ChoosePage>
+                <ChoosePage title="Choose Robot"></ChoosePage>
             </div>
          );
     }

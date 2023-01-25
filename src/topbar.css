@@ -36,7 +36,7 @@ nav {
     background-color: pink;
     top: 80px;
     right: 0%;
-    position: fixed;
+    position: absolute;
     align-items: center;
 }
 
@@ -69,8 +69,8 @@ nav {
 
 .title{
     position: absolute;
-    right: 50%;
+    left: 2%;
     color: black;
     text-align: center;
-    font-size: 30px;
+    font-size: 200%;
 }

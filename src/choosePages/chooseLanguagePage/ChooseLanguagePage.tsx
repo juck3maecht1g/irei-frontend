@@ -9,7 +9,7 @@ class ChooseLanguagePage extends React.Component {
     render() { 
         return ( 
             <div>
-               <ChoosePage title="ChooseLanguagePage"></ChoosePage> 
+               <ChoosePage title="Choose Language"></ChoosePage> 
             </div>
          );
     }
