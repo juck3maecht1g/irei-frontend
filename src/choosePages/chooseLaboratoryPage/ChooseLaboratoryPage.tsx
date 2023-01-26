@@ -8,9 +8,24 @@ const Massage = ""
  * the Laboratory the user wants to work in
  */
 export function ChooseLaboratoryPage() {
-    var [labs, setLabs] = useState(new Map()); // key = labname, value = robot list
+    var [labs, setLabs] = useState(new Map<string, Map<string, string>>()); // key = labname, value = robot list
     var [fetched, setfetched] = useState(false)
     getLabs(setLabs, fetched, setfetched)
+
+    //shema für labornamen 
+    for (let key of labs.keys()) {
+      console.log(key) //laborname
+    }
+
+    // shema um roboter namen zu kriegen
+    for (let key of labs.keys()) {
+      if(typeof labs.get(key) != "undefined") {
+        for (let koy of labs.get(key).keys()) { // is catched one line above
+          console.log(koy); // roboternamen
+      }          
+      }
+
+    }
 
     return ( 
       
@@ -40,7 +55,11 @@ async function getLabs(setLabs, fetched, setfetched){
     ).json().then(data => {
       var labs = new Map()
       for(let i = 0; i < data.length; i++) {
-        labs.set(data[i].name, data[i].robots)
+          var robots = new Map()
+          for(let j = 0; j < data[i].robots.length; j++) {
+            robots.set(data[i].robots[j].name, data[i].robots[j].ip)
+          }
+        labs.set(data[i].name, robots)
       }
       setLabs(labs)
     }

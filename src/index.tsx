@@ -1,5 +1,6 @@
 import React from "react"
 import ReactDom from "react-dom"
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import ControlPage from "./controlPages/ControlPage"
 import EditActionListPage from "./controlPages/ActionPage/EditActionListPage"
