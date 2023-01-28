@@ -1,9 +1,9 @@
 import React from 'react';
-const fetchAdressStop = "http://127.0.0.1:5000/stop"
+const fetchAdressStop = "http://127.0.0.1:5000/api/stop"
 const stopMessage = "stopLogger"
-const fetchAdressStart = "http://127.0.0.1:5000/start"
+const fetchAdressStart = "http://127.0.0.1:5000/api/start"
 const startMessage = "start"
-const fetchAdressCancel = "http://127.0.0.1:5000/cancel"
+const fetchAdressCancel = "http://127.0.0.1:5000/api/cancel"
 const cancelMessage = "cancel"
 
 export default class LoggerButton extends React.Component {
@@ -72,6 +72,8 @@ function startLogging() {
          },
          body : JSON.stringify(startMessage)
      })
+
+     console.log(response)
     
  }
  post()
