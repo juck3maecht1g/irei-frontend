@@ -22,12 +22,10 @@ function informexecChangeGripper() {
 /**
  * The GripperButton is used to control the Gripper auf chosen Robots
  */
-class GripperButton extends React.Component {
-    render() { 
-        return ( 
-            <button>gripper</button>
-         );
-    }
+function GripperButton () {
+    return ( 
+        <button onClick={informexecChangeGripper}>gripper</button>
+     );
 }
  
 export default GripperButton;

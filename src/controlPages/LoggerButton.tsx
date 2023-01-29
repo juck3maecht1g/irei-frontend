@@ -6,24 +6,7 @@ const startMessage = "start"
 const fetchAdressCancel = "http://127.0.0.1:5000/cancel"
 const cancelMessage = "cancel"
 
-export default class LoggerButton extends React.Component {
-  constructor(props) {
-    super(props);
-      this.state = {
-        start: true
-      };
-      this.handleClick = this.handleClick.bind(this);
-  }
-  
-    handleClick() {
-      this.setState(previousState => {
-        return {
-          start: !previousState.start
-        };
-      });
-    }
-  
-    render() {
+export default function LoggerButton (props) {
 
       const start = (
         <div>
@@ -39,11 +22,10 @@ export default class LoggerButton extends React.Component {
       )
   
       return (
-        <div onClick={this.handleClick.bind(this)}>
-          {this.state.start ? start : stop}
+        <div onClick={props.action}>
+          {props.state ? start : stop}
         </div>
       )
-    }
   };
 
 function stopLogging() {

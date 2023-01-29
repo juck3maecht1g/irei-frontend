@@ -22,12 +22,10 @@ function informSavePosition() {
  * The SavePositionButton is used to save a Position 
  * for later use
  */
-class SavePositionButton extends React.Component {
-    render() { 
-        return ( 
-            <button onClick={informSavePosition}></button>
-         );
-    }
+function SavePositionButton () {
+    return ( 
+        <button onClick={informSavePosition}>save position</button>
+     );
 }
  
 export default SavePositionButton;
