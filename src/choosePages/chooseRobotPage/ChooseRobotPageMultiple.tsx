@@ -2,6 +2,7 @@ import { data } from 'browserslist'
 import React, { useEffect, useState } from 'react'
 import TopBar from '../../TopBar';
 import ChoosePage from '../ChoosePage';
+import { GetGripperRobots, GetExpRobots, GetLabRobots } from './FetchRobots';
 const fetchAdressGripperRobots = "http://127.0.0.1:5000/test_robots_gripper" 
 const fetchAdressLabRobots = "http://127.0.0.1:5000/test"
 const fetchAdressExpRobots = "http://127.0.0.1:5000/test_robots_experiment"
@@ -17,8 +18,8 @@ export function ChooseRobotPageMultiple(){
     var [fetchedChosen, setfetchedChosen] = useState(false) 
     var [fetchedrobots, setfetchedRobots] = useState(false)     //sets fetchbolean for robot
     if(key == "gripper") { // specifies which methods to call when choosing gripper robots
-        getGripperRobots(setChosenRobots, fetchedChosen, setfetchedChosen)
-        getExpRobots(setRobots, fetchedrobots, setfetchedRobots)
+        GetGripperRobots(setChosenRobots, fetchedChosen, setfetchedChosen)
+        GetExpRobots(setRobots, fetchedrobots, setfetchedRobots)
     }
         return ( 
             <div>
@@ -31,10 +32,12 @@ export function ChooseRobotPageMultiple(){
 export default ChooseRobotPageMultiple;
 
 
-
+/** everything below semingly not needed
+ * 
+ */
 //gets the tobots chosen for gripper on controll page
 
-async function getGripperRobots(setChosenRobots, fetched, setfetched){
+/*async function getGripperRobots(setChosenRobots, fetched, setfetched){
   if(fetched) {
     return
   }
@@ -76,7 +79,7 @@ async function getExpRobots(setRobots, fetched, setfetchedRobots){
     }
 
 
-/*totest
+totest
 for (let key of .keys()) {
     console.log(key) //laborname
   }
