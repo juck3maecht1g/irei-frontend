@@ -1,3 +1,4 @@
+import { Action } from '@remix-run/router';
 import React from 'react';
 const fetchAdressStop = "http://127.0.0.1:5000/api/stop"
 const stopMessage = "stopLogger"
@@ -6,89 +7,74 @@ const startMessage = "start"
 const fetchAdressCancel = "http://127.0.0.1:5000/api/cancel"
 const cancelMessage = "cancel"
 
-export default class LoggerButton extends React.Component {
-  constructor(props) {
-    super(props);
-      this.state = {
-        start: true
-      };
-      this.handleClick = this.handleClick.bind(this);
+export default function LoggerButton (props) {
+
+  function stopLogging() {
+    async function post (){
+         const response = await fetch(fetchAdressStop, {
+             'method': 'POST',
+             headers : {
+             'Content-Type': 'application/json'
+             },
+             body : JSON.stringify(stopMessage)
+         })
+         if(response.ok) {
+             //todo
+         }
+        
+    }
+    post()
+    props.action();
   }
-  
-    handleClick() {
-      this.setState(previousState => {
-        return {
-          start: !previousState.start
-        };
-      });
-    }
-  
-    render() {
 
-      const start = (
-        <div>
-            <button onClick={startLogging}>Start</button>
-        </div>
-      )
-  
-      const stop = (
-        <div>
-          <button onClick={stopLogging}>Stop</button>
-          <button onClick={cancelLogging}>Abort</button>
-        </div>
-      )
-  
-      return (
-        <div onClick={this.handleClick.bind(this)}>
-          {this.state.start ? start : stop}
-        </div>
-      )
-    }
-  };
-
-function stopLogging() {
-  async function post (){
-       const response = await fetch(fetchAdressStop, {
+  function startLogging() {
+    async function post (){
+       const response = await fetch(fetchAdressStart, {
            'method': 'POST',
            headers : {
            'Content-Type': 'application/json'
            },
-           body : JSON.stringify(stopMessage)
+           body : JSON.stringify(startMessage)
        })
-       if(response.ok) {
-           //todo
-       }
+  
+       console.log(response)
       
+   }
+   post()
+   props.action();
   }
-  post()
+
+  function cancelLogging() {
+    async function post (){
+       const response = await fetch(fetchAdressCancel, {
+           'method': 'POST',
+           headers : {
+           'Content-Type': 'application/json'
+           },
+           body : JSON.stringify(cancelMessage)
+       })
+      
+   }
+   post()
+   props.action();
+  }
+
+  const start = (
+    <div>
+        <button onClick={startLogging}>Start</button>
+    </div>
+  )
+
+  const stop = (
+    <div>
+      <button onClick={stopLogging}>Stop</button>
+      <button onClick={cancelLogging}>Abort</button>
+    </div>
+  )
+
+  return (
+    <>
+    {props.state ? start : stop}
+    </>
+  )
 };
-
-function startLogging() {
-  async function post (){
-     const response = await fetch(fetchAdressStart, {
-         'method': 'POST',
-         headers : {
-         'Content-Type': 'application/json'
-         },
-         body : JSON.stringify(startMessage)
-     })
-
-     console.log(response)
-    
- }
- post()
-}
-
-function cancelLogging() {
-  async function post (){
-     const response = await fetch(fetchAdressCancel, {
-         'method': 'POST',
-         headers : {
-         'Content-Type': 'application/json'
-         },
-         body : JSON.stringify(cancelMessage)
-     })
-    
- }
- post()
-}

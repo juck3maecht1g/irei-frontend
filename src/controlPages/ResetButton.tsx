@@ -22,12 +22,10 @@ function informReset() {
 /**
  * The ResetButton is used to reset a scene
  */
-class ResetButton extends React.Component {
-    render() { 
-        return ( 
-            <button onClick={informReset}>reset</button>
-         );
-    }
+function ResetButton () {
+    return ( 
+        <button onClick={informReset}>reset</button>
+     );
 }
  
 export default ResetButton;

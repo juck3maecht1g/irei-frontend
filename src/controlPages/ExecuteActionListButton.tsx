@@ -22,12 +22,10 @@ function informSavePosition() {
  * The ExecuteActionListButton is used to execute a list of
  * actions
  */
-class ExecuteActionListButton extends React.Component {
-    render() { 
-        return ( 
-            <button>actionlist</button>
-         );
-    }
+function ExecuteActionListButton () {
+    return ( 
+        <button onClick={informSavePosition}>actionlist</button>
+     );
 }
  
 export default ExecuteActionListButton;
