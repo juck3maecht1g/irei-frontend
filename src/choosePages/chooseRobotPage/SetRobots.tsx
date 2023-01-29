@@ -28,5 +28,25 @@ async function informRobots (robotIp, postAdress){
         },
         body : JSON.stringify(robotIp)
     })
+
 }  
 
+
+
+
+// contains an example od potential error handling
+/*
+
+async function informRobots (robotIp, postAdress){
+    const response = await fetch(postAdress, {
+        'method': 'POST',
+        headers : {
+        'Content-Type': 'application/json'
+        },
+        body : JSON.stringify(robotIp)
+    })
+    if(response.statusText != "CREATED") {
+        some error stuff
+    }
+
+}  */
