@@ -1,36 +1,31 @@
-import { data } from 'browserslist'
-import React, { useEffect, useState } from 'react'
+import React from 'react';
+import { useState } from 'react';
 import TopBar from '../../TopBar';
-const fetchAdress = "http://127.0.0.1:5000/test"
-const Massage = ""
+import ChooseLaboratoryButton from './ChooseLaboratoryButton';
+const fetchAdress = "http://127.0.0.1:5000/test";
+
 /**
  * The ChooseLaboratoryPage is used to choose 
  * the Laboratory the user wants to work in
  */
 export function ChooseLaboratoryPage() {
-    var [labs, setLabs] = useState(new Map<string, Map<string, string>>()); // key = labname, value = robot list
+    const [labs, setLabs] = useState(new Map<string, Map<string, string>>()); // key = labname, value = robot list
     var [fetched, setfetched] = useState(false)
     getLabs(setLabs, fetched, setfetched)
 
-    //shema für labornamen 
-    for (let key of labs.keys()) {
-      console.log(key) //laborname
-    }
-
-    // shema um roboter namen zu kriegen
-    for (let key of labs.keys()) {
-      if(typeof labs.get(key) != "undefined") {
-        for (let koy of labs.get(key).keys()) { // is catched one line above
-          console.log(koy); // roboternamen
-      }          
-      }
-
-    }
+    const arrLabs = Array.from(labs, function (entry) {
+      return { key: entry[0]};
+    });
+    
 
     return ( 
-      
       <div>
         <TopBar title="Choose Laboratory"></TopBar>
+        {
+          arrLabs.map((number) => {
+            return <ChooseLaboratoryButton name={number.key}/>
+          })
+        }
       </div>
     );
 
@@ -67,3 +62,19 @@ async function getLabs(setLabs, fetched, setfetched){
    
         // set state when the data received
 }
+/**
+ * //shema für labornamen 
+    for (let key of labs.keys()) {
+      console.log(key) //laborname
+    }
+
+    // shema um roboter namen zu kriegen
+    for (let key of labs.keys()) {
+      if(typeof labs.get(key) != "undefined") {
+        for (let koy of labs.get(key).keys()) { // is catched one line above
+          console.log(koy); // roboternamen
+      }          
+      }
+
+    }
+ */

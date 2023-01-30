@@ -1,0 +1,11 @@
+.controlbutton {
+    background-color: lightblue;
+    border-width: 5px;
+    border-color: midnightblue;
+    text-align: center;
+    margin: 20px;
+    color: midnightblue;
+    font-size: xx-large;
+    padding:20px;
+    cursor: pointer;
+}

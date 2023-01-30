@@ -24,7 +24,7 @@ function informSavePosition() {
  */
 function SavePositionButton () {
     return ( 
-        <button onClick={informSavePosition}>save position</button>
+        <button className='controlbutton' onClick={informSavePosition}>save position</button>
      );
 }
  

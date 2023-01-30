@@ -24,7 +24,7 @@ function informReset() {
  */
 function ResetButton () {
     return ( 
-        <button onClick={informReset}>reset</button>
+        <button className='controlbutton' onClick={informReset}>reset</button>
      );
 }
  

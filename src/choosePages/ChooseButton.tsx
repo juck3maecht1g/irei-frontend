@@ -1,12 +1,27 @@
-import React from 'react'
+import React, {useState} from 'react'
+import './Choose.css'
 
+export default function ChooseButton (props) {
 
-class ChooseButton extends React.Component {
-    render() { 
-        return (  
-            <button></button>
-        );
+    const [state, setState] = useState(false);
+
+    const startedLogging = () => {
+        setState(current => !current)
     }
-}
- 
-export default ChooseButton;
+    
+    const chosen = (
+      <button className="chosen">{this.props.name}</button>
+      )
+  
+      const notChosen = (
+        <button className="not_chosen">{this.props.name}</button>
+      )
+  
+      return (
+        <div>
+          {state ? chosen : notChosen}
+        </div>
+      )
+};
+      
+  

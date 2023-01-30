@@ -24,7 +24,7 @@ function informexecChangeGripper() {
  */
 function GripperButton () {
     return ( 
-        <button onClick={informexecChangeGripper}>gripper</button>
+        <button className='controlbutton' onClick={informexecChangeGripper}>gripper</button>
      );
 }
  
