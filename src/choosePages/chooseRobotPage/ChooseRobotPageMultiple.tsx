@@ -15,18 +15,18 @@ export function ChooseRobotPageMultiple(){
     var key = "gripper"                     // indicator for what action this page is used
     var [chosenRobots, setChosenRobots] = useState(new Map<string, string>());
     var [robots, setRobots] = useState(new Map<string, string>());
-    var [fetchedChosen, setfetchedChosen] = useState(false) 
-    var [fetchedrobots, setfetchedRobots] = useState(false)     //sets fetchbolean for robot
     if(key == "gripper") { // specifies which methods to call when choosing gripper robots
-        GetGripperRobots(setChosenRobots, fetchedChosen, setfetchedChosen)
-        GetExpRobots(setRobots, fetchedrobots, setfetchedRobots)
+        GetGripperRobots(setChosenRobots)
+        GetExpRobots(setRobots) 
+      
     }
+
         return ( 
             <div>
-                <ChoosePage title="Choose Robot"></ChoosePage>
+               
             </div>
          );
-    
+         //<ChoosePage title="Choose Robot"></ChoosePage>
 }
  
 export default ChooseRobotPageMultiple;
@@ -79,7 +79,7 @@ async function getExpRobots(setRobots, fetched, setfetchedRobots){
     }
 
 
-totest
+/*totest
 for (let key of .keys()) {
     console.log(key) //laborname
   }

@@ -1,5 +1,7 @@
 // this file contains multiple methods used to fetch robots from the backend
 
+import { useEffect, useState } from "react"
+
 
 
 const fetchAdressGripperRobots = "http://127.0.0.1:5000/test_robots_gripper" 
@@ -11,20 +13,24 @@ const fetchAdressExpRobots = "http://127.0.0.1:5000/test_robots_experiment"
 
 //gets the robots chosen for gripper on controll page
 
-export async function GetGripperRobots(setRobots, fetched, setFetched){
-   getRobots(setRobots, fetched, setFetched, fetchAdressGripperRobots)
+export async function GetGripperRobots(setRobots){
+    var [fetched, setfetched] = useState(false) 
+    getRobots(setRobots, fetched, setfetched, fetchAdressGripperRobots)
+ 
+    
   }
   
 
   //gets the robots chosen for experiment
-  export async function GetExpRobots(setRobots, fetched, setfetched){
+  export async function GetExpRobots(setRobots){
+      var [fetched, setfetched] = useState(false) 
       getRobots(setRobots, fetched, setfetched, fetchAdressExpRobots)
     }
 
 
 
-    export async function GetLabRobots(setRobots, fetched, setfetched, labName){
-        
+    export async function GetLabRobots(setRobots, labName){
+        var [fetched, setfetched] = useState(false) 
         
         informLabChoise(labName).then(res => {
         getRobots(setRobots, fetched, setfetched, fetchAdressLabRobots)
