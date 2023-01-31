@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import TopBar from '../../TopBar';
 import ChooseLaboratoryButton from './ChooseLaboratoryButton';
+import ChooseExperimentRobots from './ChooseExperimentRobots';
 const fetchAdress = "http://127.0.0.1:5000/test";
 
 /**
@@ -14,20 +15,34 @@ export function ChooseLaboratoryPage() {
     getLabs(setLabs, fetched, setfetched)
 
     const arrLabs = Array.from(labs, function (entry) {
-      return { key: entry[0]};
+      return { key: entry[0], value: entry[1]};
     });
-    
+
+    const arrRobots = (key) => {
+      const robotMap = labs.get(key);
+      const array = Array.from(robotMap, function (entry) {
+      return { key: entry[0], value: entry[1]};
+    })}
+
+
+    arrLabs.map((number) => {
+      return <ChooseLaboratoryButton name={number.key} 
+      map = {number.value} />
+    })
 
     return ( 
       <div>
         <TopBar title="Choose Laboratory"></TopBar>
         {
           arrLabs.map((number) => {
-            return <ChooseLaboratoryButton name={number.key}/>
+            return <ChooseLaboratoryButton name={number.key} 
+            map = {number.value} />
           })
         }
       </div>
     );
+    
+    
 
     
   
