@@ -13,7 +13,6 @@ export function ChooseLaboratoryPage() {
     const [labs, setLabs] = useState(new Map<string, Map<string, string>>()); // key = labname, value = robot list
     var [fetched, setfetched] = useState(false)
     getLabs(setLabs, fetched, setfetched)
-
     const arrLabs = Array.from(labs, function (entry) {
       return { key: entry[0], value: entry[1]};
     });
