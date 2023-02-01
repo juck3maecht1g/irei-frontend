@@ -8,19 +8,19 @@ import '../Choose.css';
  */
 export default function ChooseLaboratoryButton (props) {
 
-    const arrLabs = Array.from(props.map, function (entry) {
-        return { key: entry[0], value: entry[1]};
-      });
+    const robots = props.function(props.name);
 
     return ( 
+        <div>
         <Link
            to = {"/ChooseExperimentRobots"}
-           state = {props.map}
+           state = {{help: robots}}
         >
         <button className='not_chosen'>
             {props.name}
         </button>
         </Link>
+        </div>
         
      );
 }

@@ -10,19 +10,14 @@ import { useLocation } from "react-router-dom";
 export default function ChooseExperimentRobots(props){
 
     const location = useLocation();
-    const { from } = location.state;
+    const { help } = location.state;
 
-    const [robots, setRobots] = useState(new Map<string, string>());
-    setRobots(from);
+    console.log(help)
 
     return ( 
         <div>
         <TopBar title="Choose Robot"></TopBar>
-        {
-        arrLabs.map((number) => {
-          return <ChooseButton name={number.key}/>
-        })
-        }
+        {help}
         </div>
     );
 }
