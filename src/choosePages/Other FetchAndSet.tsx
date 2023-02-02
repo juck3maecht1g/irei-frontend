@@ -1,19 +1,17 @@
+import { useState } from "react"
+
 const fetchAdressGetExperiments = "" 
 const postAdressChosenExperiment = ""
 const fetchAdressGetDirectories = ""
 const postAdressNavigateUP = ""
 const postAdressNavigateDown = ""
+const postAdressCreateDirectory = ""
+const postAdressDeleteDirectory = ""
 
 
-export async function GetExperiments(setExperiments, fetched, setfetched){
-    getStringList(setExperiments, fetched, setfetched, fetchAdressGetExperiments)
-
-
-}
-
-
-export async function GetDirectories(setDirectories, fetched, setfetched){
-    getStringList(setDirectories, fetched, setfetched, fetchAdressGetDirectories)
+export async function GetExperiments(setExperiments){
+    var [fetched, setfetched] = useState(false) 
+    passDataDirect(setExperiments, fetched, setfetched, fetchAdressGetExperiments)
 
 
 }
@@ -23,33 +21,54 @@ export async function SetExperiment(experiment){
 
 }
 
-const markerNavUP = "navigate_up"
-export async function NavigateUP(){
-    var message =  new Map()
-    message.set("marker", markerNavUP)
-    post(message, postAdressNavigateUP)
+export async function GetDirectories(setDirectories){
+    var [fetched, setfetched] = useState(false) 
+    passDataDirect(setDirectories, fetched, setfetched, fetchAdressGetDirectories)
+
 
 }
-const markerNavDown = "navigate_down"
-export async function NavigateDown(directory){
+
+
+
+const markerNavUP = "navigate_up"
+export async function NavigateUP(setDirectories){
     var message =  new Map()
+    message.set("marker", markerNavUP)
+    post(message, postAdressNavigateUP).then(res => {
+        GetDirectories(setDirectories)})
+}
+const markerNavDown = "navigate_down"
+export async function NavigateDown(setDirectories,directory){
+    /*var message =  new Map()
     message.set("marker", markerNavDown)
-    message.set("dir", directory)
-    post(message, postAdressNavigateDown)
+    message.set("dir", directory)*/
+    post(directory, postAdressNavigateDown).then(res => {
+        GetDirectories(setDirectories)})
 
 }
 
 const markerCreate = "crerate"
-export async function Create(name){
-    var message =  new Map()
-    message.set("marker", markerNavDown)
+export async function Create(setDirectories,name){
+    /*var message =  new Map()
+    message.set("marker", markerCreate)
+    message.set("name", name)*/
+    post(name, postAdressCreateDirectory).then(res => {
+        GetDirectories(setDirectories)})
+
+}
+const markerDeleteDirectory = "delete_directory"
+export async function DeleteDirectory(setDirectories,name){
+    /*var message =  new Map()
+    message.set("marker", markerDeleteDirectory)
     message.set("name", name)
-    post(message, postAdressNavigateDown)
+    */
+    post(name, postAdressDeleteDirectory).then(res => {
+        GetDirectories(setDirectories)})
 
 }
 
-
-async function getStringList(setList, fetched, setfetched, adress){
+//todo unclean
+export async function passDataDirect(setList, fetched, setfetched, adress){
 
     if(fetched) {
         return
@@ -67,7 +86,7 @@ async function getStringList(setList, fetched, setfetched, adress){
 
 
 
-async function post (content, postAdress){
+export async function post (content, postAdress){
     const response = await fetch(postAdress, {
         'method': 'POST',
         headers : {
