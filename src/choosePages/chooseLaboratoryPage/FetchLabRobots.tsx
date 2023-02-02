@@ -1,4 +1,5 @@
 
+import {post} from "../Other FetchAndSet"
 const fetchAdressLabRobots = "http://127.0.0.1:5000/test_lab_robots"
 const postAdressLab = "http://127.0.0.1:5000/test_chosen_lab"
 
@@ -16,13 +17,10 @@ export async function GetLabRobots(setRobots, fetched, setfetched, labName){
  * @param labName  name of the chosen lab
  */
 async function informLabChoise (labName){
-  const response = await fetch(postAdressLab, {
-      'method': 'POST',
-      headers : {
-      'Content-Type': 'application/json'
-      },
-      body : JSON.stringify(labName)
-  })
+  var message =  new Map()
+  message.set("marker", "setCurrentLab")
+  message.set("name", labName)
+  post(message, postAdressLab)
 }
 
 
