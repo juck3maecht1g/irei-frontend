@@ -17,7 +17,10 @@ export async function GetExperiments(setExperiments){
 }
 
 export async function SetExperiment(experiment){
-    post(experiment, postAdressChosenExperiment)
+    var message =  new Map()
+    message.set("marker", "SetExperiment")
+    message.set("experiment", experiment)
+    post(message, postAdressChosenExperiment)
 
 }
 
@@ -39,30 +42,30 @@ export async function NavigateUP(setDirectories){
 }
 const markerNavDown = "navigate_down"
 export async function NavigateDown(setDirectories,directory){
-    /*var message =  new Map()
+    var message =  new Map()
     message.set("marker", markerNavDown)
-    message.set("dir", directory)*/
-    post(directory, postAdressNavigateDown).then(res => {
+    message.set("dir", directory)
+    post(message, postAdressNavigateDown).then(res => {
         GetDirectories(setDirectories)})
 
 }
 
 const markerCreate = "crerate"
 export async function Create(setDirectories,name){
-    /*var message =  new Map()
+    var message =  new Map()
     message.set("marker", markerCreate)
-    message.set("name", name)*/
-    post(name, postAdressCreateDirectory).then(res => {
+    message.set("name", name)
+    post(message, postAdressCreateDirectory).then(res => {
         GetDirectories(setDirectories)})
 
 }
 const markerDeleteDirectory = "delete_directory"
 export async function DeleteDirectory(setDirectories,name){
-    /*var message =  new Map()
+    var message =  new Map()
     message.set("marker", markerDeleteDirectory)
     message.set("name", name)
-    */
-    post(name, postAdressDeleteDirectory).then(res => {
+    
+    post(message, postAdressDeleteDirectory).then(res => {
         GetDirectories(setDirectories)})
 
 }

@@ -34,25 +34,37 @@ export async function GetActionListContent(setContent){ // returns string list
 }
 
 /** here will be append Action when definit and finished in backend
+ * marker == "append_action"
+ */
+
+/** here will be getPositions when definit and finished in backend
  * 
  */
 
 
 
+
 export async function SetActionList(setContent, name:String){
-    post(name, postAdressActionList).then(res =>{
+    var toPost =  new Map()
+    toPost.set("marker", "set_action_list")
+    toPost.set("name", name)
+    post(toPost, postAdressActionList).then(res =>{
     GetActionListContent(setContent)
     })
 }
 
 export async function DeleteAction(setContent,position){
-    post(position, postAdressDeleteAction).then(res =>{
+    var toPost =  new Map()
+    toPost.set("marker", "delete_action")
+    toPost.set("position", position)
+    post(toPost, postAdressDeleteAction).then(res =>{
         GetActionListContent(setContent)
         })
 
 }
 export async function SwapActions(setContent,first, second){
     var toPost =  new Map()
+    toPost.set("marker", "swap")
     toPost.set("first", first)
     toPost.set("second", second)
     post(toPost, postAdressSwapActions).then(res =>{
@@ -62,13 +74,19 @@ export async function SwapActions(setContent,first, second){
 }
 
 export async function CreatetActionList(setContent, name:String){
-    post(name, postAdressCreateActionList).then(res =>{
+    var message =  new Map()
+    message.set("marker", "create_action_list")
+    message.set("name", name)
+    post(message, postAdressCreateActionList).then(res =>{
         GetActionListContent(setContent)
         })
 
 }
 
 export async function ExecuteActionList(name:String){
-    post(name, postAdressExecuteList)
+    var message =  new Map()
+    message.set("marker", "execute_action_list")
+    message.set("name", name)
+    post(message, postAdressExecuteList)
 
 }

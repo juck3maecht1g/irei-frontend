@@ -1,4 +1,4 @@
-
+import {post} from "../Other FetchAndSet"
 const postAdressExpRobots = "/api/set_exp_robots"
 const postAdressChangeGripperRobots= "/api/set_change_gripper_robots"
 const postAdressSavePositionRobots = "/api/set_save_position_robot"
@@ -6,20 +6,32 @@ const postAdressSavePositionRobots = "/api/set_save_position_robot"
 
 
 export async function SetExpRobots(robotIps){
-    informRobots(robotIps, postAdressExpRobots)
+    var message =  new Map()
+    message.set("marker", "SetExpRobots")
+    message.set("robot_ips", robotIps)
+    post(robotIps, postAdressExpRobots)
   }
 export async function SetChangeGripperRobots(robotIps){
-informRobots(robotIps, postAdressChangeGripperRobots)
+    var message =  new Map()
+    message.set("marker", "SetChangeGripperRobots")
+    message.set("robot_ips", robotIps)
+    post(message, postAdressChangeGripperRobots)
 }
 export async function SetSavePositionRobots(robotIps){
-informRobots(robotIps, postAdressSavePositionRobots)
+    var message =  new Map()
+    message.set("marker", "SetSavePositionRobots")
+    message.set("robot_ip", robotIps)
+    post(robotIps, postAdressSavePositionRobots)
 }
 
+
+
+//redundant method
 /** used to send arrays of ip adreses or single ip adresses
  * 
  * @param robotIp 
  * @param postAdress 
- */
+ 
 async function informRobots (robotIp, postAdress){
     const response = await fetch(postAdress, {
         'method': 'POST',
@@ -30,6 +42,7 @@ async function informRobots (robotIp, postAdress){
     })
 
 }  
+*/
 
 
 
