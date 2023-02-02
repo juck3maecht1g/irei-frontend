@@ -10,11 +10,11 @@ export default function ChooseButton (props) {
     }
     
     const chosen = (
-      <button className="chosen">{props.name}</button>
+      <button className="chosen" onClick={startedLogging}>{props.name}</button>
       )
   
       const notChosen = (
-        <button className="not_chosen">{props.name}</button>
+        <button className="not_chosen" onClick={startedLogging}>{props.name}</button>
       )
   
       return (
@@ -24,4 +24,5 @@ export default function ChooseButton (props) {
       )
 };
       
+     
   

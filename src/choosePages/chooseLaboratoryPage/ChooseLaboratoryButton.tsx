@@ -1,6 +1,8 @@
-import React from 'react'
+import React from 'react';
+import {useState} from 'react';
 import { Link } from 'react-router-dom';
 import '../Choose.css';
+import ChooseButton from '../ChooseButton';
 
 /**
  * The ChooseLaboratoryButton is used to choose 
@@ -8,19 +10,18 @@ import '../Choose.css';
  */
 export default function ChooseLaboratoryButton (props) {
 
-    const robots = props.function(props.name);
+
+    const roboter = (props.buttons(props.name))
+   //   const [robots, setRobots] = useState(props.buttons(props.name))
 
     return ( 
-        <div>
         <Link
            to = {"/ChooseExperimentRobots"}
-           state = {{help: robots}}
+           state = {{from: roboter}}
         >
         <button className='not_chosen'>
             {props.name}
         </button>
         </Link>
-        </div>
-        
      );
 }

@@ -1,9 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import TopBar from '../../TopBar';
-import ChooseLaboratoryButton from './ChooseLaboratoryButton';
-import ChooseExperimentRobots from './ChooseExperimentRobots';
 import ChooseButton from '../ChooseButton';
+import ChooseLaboratoryButton from './ChooseLaboratoryButton';
 const fetchAdress = "http://127.0.0.1:5000/test";
 
 /**
@@ -18,15 +17,10 @@ export function ChooseLaboratoryPage() {
       return { key: entry[0], value: entry[1]};
     });
 
-    const arrRobots = (key) => {
-      const robotMap = labs.get(key);
-      const array = Array.from(robotMap, function (entry) {
-      return { key: entry[0], value: entry[1]}});
-      
-      return array.map((number) => {
-        return <ChooseButton name = {number.key}/>
-      })
-    }
+    const robots = (key) => {
+     return Array.from(labs.get(key), function (entry) {
+      return { key: entry[0], value: entry[1]}})
+  }
 
 
     
@@ -37,7 +31,7 @@ export function ChooseLaboratoryPage() {
         {
           arrLabs.map((number) => {
             return <ChooseLaboratoryButton name={number.key} 
-            function = {arrRobots} />
+            buttons = {robots} />
           })
         }
       </div>
