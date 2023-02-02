@@ -7,14 +7,21 @@ export default function ChooseButton (props) {
 
     const startedLogging = () => {
         setState(current => !current)
+        props.action(props.ip,props.name)
     }
     
     const chosen = (
-      <button className="chosen" onClick={startedLogging}>{props.name}</button>
+      <button className="chosen" onClick={startedLogging}>
+        <div>{props.name}</div>
+        <div>{props.ip}</div>
+      </button>
       )
   
       const notChosen = (
-        <button className="not_chosen" onClick={startedLogging}>{props.name}</button>
+        <button className="not_chosen" onClick={startedLogging}>
+          <div>{props.name}</div>
+          <div>{props.ip}</div>
+        </button>
       )
   
       return (
@@ -22,7 +29,4 @@ export default function ChooseButton (props) {
           {state ? chosen : notChosen}
         </div>
       )
-};
-      
-     
-  
+}
