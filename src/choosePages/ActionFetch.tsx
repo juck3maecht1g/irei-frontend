@@ -76,10 +76,11 @@ export async function SwapActions(setContent,first, second){
 
 }
 
-export async function CreatetActionList(setContent, name:String){
+export async function CreatetActionList(setContent, name:String, type:String){
     var message =  new Map()
     message.set("marker", "create_action_list")
     message.set("name", name)
+    message.set("key", type)
     post(message, postAdressCreateActionList).then(res =>{
         GetActionListContent(setContent)
         })
