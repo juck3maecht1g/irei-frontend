@@ -3,7 +3,7 @@ import './Choose.css'
 
 export default function ChooseButton (props) {
 
-    const [state, setState] = useState(false);
+  const [state, setState] = useState(false);
 
     const startedLogging = () => {
         setState(current => !current)
