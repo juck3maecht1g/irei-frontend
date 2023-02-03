@@ -23,7 +23,11 @@ export async function SetExperiment(experiment){
     post(message, postAdressChosenExperiment)
 
 }
-
+/** gets a dictionary with two entrys
+ * "to_navigate" all child experiments
+ * "cant_navigate" all other files in directory
+ * @param setDirectories 
+ */
 export async function GetDirectories(setDirectories){
     var [fetched, setfetched] = useState(false) 
     passDataDirect(setDirectories, fetched, setfetched, fetchAdressGetDirectories)

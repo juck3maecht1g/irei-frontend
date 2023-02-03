@@ -17,9 +17,9 @@ export async function SetChangeGripperRobots(robotIps){
     message.set("robot_ips", robotIps)
     post(message, postAdressChangeGripperRobots)
 }
-export async function SetSavePositionRobots(robotIps){
+export async function SetSavePositionRobot(robotIps){
     var message =  new Map()
-    message.set("marker", "SetSavePositionRobots")
+    message.set("marker", "SetSavePositionRobot")
     message.set("robot_ip", robotIps)
     post(robotIps, postAdressSavePositionRobots)
 }

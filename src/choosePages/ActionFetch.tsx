@@ -9,6 +9,8 @@ const postAdressDeleteAction = "/api/delete_action"
 const postAdressSwapActions = "/api/swap_action"
 const postAdressCreateActionList = "/api/create_action_list"
 const postAdressExecuteList = "/api/executeList"
+const postAdressCoordinateType = "/api/set_coordinate_type"
+const fetchAdressPositionList = "/api/get_coordinates"
 
 /**fetches an array of Strings
  * 
@@ -22,7 +24,7 @@ export async function GetActionListNames(setLists){ // returns string list
 }
 /**
  *  fetches an array of dictionarrys each kontaining all data nessesary if key != action_list
- *  otherwise containig just the name of the underliing actionList
+ *  otherwise containig just the name of the underling actionList and information if it is a paralell od sequential list
  * @param setContent the method to set with the fetched data
  */
 
@@ -37,13 +39,13 @@ export async function GetActionListContent(setContent){ // returns string list
  * marker == "append_action"
  */
 
-/** here will be getPositions when definit and finished in backend
+
+/** informs the backend that the actionlist with the given name was chosen
+ * and gets its content
  * 
+ * @param setContent 
+ * @param name 
  */
-
-
-
-
 export async function SetActionList(setContent, name:String){
     var toPost =  new Map()
     toPost.set("marker", "set_action_list")
@@ -62,6 +64,7 @@ export async function DeleteAction(setContent,position){
         })
 
 }
+
 export async function SwapActions(setContent,first, second){
     var toPost =  new Map()
     toPost.set("marker", "swap")
@@ -88,5 +91,21 @@ export async function ExecuteActionList(name:String){
     message.set("marker", "execute_action_list")
     message.set("name", name)
     post(message, postAdressExecuteList)
+
+}
+
+export async function SetCoordinateType(type:String){
+    var message =  new Map()
+    message.set("marker", "set_coordinate_type")
+    message.set("type", type)
+    post(message, postAdressCoordinateType)
+
+}
+
+
+export async function GetPositions(setPositions){ // returns Map list
+    var [fetched, setfetched] = useState(false) 
+    passDataDirect(setPositions, fetched, setfetched, fetchAdressPositionList)
+
 
 }
