@@ -7,6 +7,7 @@ import React from 'react'
 export default function DirectoryButton (props) {
 
     const execute = () => {
+        props.action(props.name)
     }
 
     return ( 
