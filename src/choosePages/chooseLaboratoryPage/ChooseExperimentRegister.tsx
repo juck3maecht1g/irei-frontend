@@ -11,14 +11,10 @@ import '../Choose.css';
  */
 export default function ChooseExperimentRegister() {
 
-    const [exp, setExperiment] = useState(new Map());
+    const [exp, setExperiment] = useState([]);
     GetExperiments(setExperiment);
-
-    const arrRegister = Array.from(exp, function (entry) {
-        return { key: entry[0], value: entry[1]}})
-
-    const buttons = arrRegister.map((number) => {
-        return <ChooseRegisterButton name={number.value}/>
+    const buttons = exp.map((number) => {
+        return <ChooseRegisterButton name={number}/>
     })
 
     return (

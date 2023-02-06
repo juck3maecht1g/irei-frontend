@@ -22,7 +22,8 @@ export default function ChooseLaboratoryPage() {
       return { key: entry[0], value: entry[1]}})
     }
 
-    return ( 
+
+       return ( 
       <div>
         <TopBar title="Choose Laboratory"></TopBar>
         {
@@ -35,7 +36,14 @@ export default function ChooseLaboratoryPage() {
     );
 }
 
+/** gets all labs as dict also containing all robots
+ * 
+ * 
+ * replace testdik with data
+ * 
+ */
 async function getLabs(setLabs, fetched, setfetched){
+  
   if(fetched) {
     return
   }
@@ -75,3 +83,6 @@ async function getLabs(setLabs, fetched, setfetched){
 
     }
  */
+
+
+   

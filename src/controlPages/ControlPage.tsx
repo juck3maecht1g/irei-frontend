@@ -5,6 +5,7 @@ import TopBar from './../TopBar'
 import GrippperButton from "./GripperButton"
 import ResetButton from './ResetButton';
 import SavePositionButton from './SavePositionButton';
+import EmergencyExit from './EmergencyExit';
 //import ApproachPositionActionButton from '../ApproachPositionActionButton';
 
 /**
@@ -29,6 +30,7 @@ function ControlPage (props) {
                 <SavePositionButton/>
                 <GrippperButton/>
                 <LoggerButton state={started} action={startedLogging}/>
+                <EmergencyExit />
             </h1>
         </div>
      );

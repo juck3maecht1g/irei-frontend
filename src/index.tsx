@@ -12,6 +12,7 @@ import ChooseNamePage from "./choosePages/chooseNamePage/ChooseNamePage"
 import ChooseRobotPageMultiple from "./choosePages/chooseRobotPage/ChooseRobotPageMultiple";
 import ChooseVariablePage from "./choosePages/chooseVariablePage/ChooseVariablePage"
 import ChooseExperimentRobots from "./choosePages/chooseLaboratoryPage/ChooseExperimentRobots";
+import ChooseExperimentRegister from "./choosePages/chooseLaboratoryPage/ChooseExperimentRegister";
 
 export default function App (){
     return (
@@ -29,6 +30,7 @@ export default function App (){
           <Route path="/ChooseRobotPageMultiple" element={<ChooseRobotPageMultiple/>} />
           <Route path="/ChooseVariablePage" element={<ChooseVariablePage/>} />
           <Route path="/ChooseExperimentRobots" element={<ChooseExperimentRobots/>} />
+          <Route path="/ChooseExperimentRegister" element={<ChooseExperimentRegister/>} />
 
         </Routes>
       </BrowserRouter>

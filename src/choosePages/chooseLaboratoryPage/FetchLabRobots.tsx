@@ -52,3 +52,6 @@ async function getRobots(setRobots, fetched, setfetched, adress){
       }
       )
   }
+
+
+  

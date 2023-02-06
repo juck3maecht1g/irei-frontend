@@ -1,14 +1,18 @@
 import { useState } from "react"
 
-const fetchAdressGetExperiments = "" 
+const fetchAdressGetExperiments = "http://127.0.0.1:5000/test_exp" 
 const postAdressChosenExperiment = ""
-const fetchAdressGetDirectories = ""
+const fetchAdressGetDirectories = "http://127.0.0.1:5000/test_dir"
 const postAdressNavigateUP = ""
 const postAdressNavigateDown = ""
 const postAdressCreateDirectory = ""
 const postAdressDeleteDirectory = ""
 
+// contains dummy
 
+/** gets names of all registered experiments as array
+ * 
+ */
 export async function GetExperiments(setExperiments){
     var [fetched, setfetched] = useState(false) 
     passDataDirect(setExperiments, fetched, setfetched, fetchAdressGetExperiments)
@@ -23,6 +27,9 @@ export async function SetExperiment(experiment){
     post(message, postAdressChosenExperiment)
 
 }
+
+// contains dummy
+
 /** gets a dictionary with two entrys
  * "to_navigate" all child experiments
  * "cant_navigate" all other files in directory
@@ -30,9 +37,12 @@ export async function SetExperiment(experiment){
  */
 export async function GetDirectories(setDirectories){
     var [fetched, setfetched] = useState(false) 
-    passDataDirect(setDirectories, fetched, setfetched, fetchAdressGetDirectories)
 
+    
+    await passDataAsMap(setDirectories, fetched, setfetched, fetchAdressGetDirectories)
+    
 
+    
 }
 
 
@@ -75,7 +85,7 @@ export async function DeleteDirectory(setDirectories,name){
 }
 
 //todo unclean
-export async function passDataDirect(setList, fetched, setfetched, adress){
+export async function passDataDirect(set, fetched, setfetched, adress){
 
     if(fetched) {
         return
@@ -86,11 +96,29 @@ export async function passDataDirect(setList, fetched, setfetched, adress){
             adress
             )
         ).json().then(data => {
-            setList(data)
+            set(data)
         }
         )
 }
 
+export async function passDataAsMap(set, fetched, setfetched, adress){
+
+    if(fetched) {
+        return
+        }
+        setfetched (true)
+        const data = await (
+            await fetch(
+            adress
+            )
+        ).json().then(data => {
+            var dir = new Map(Object.entries(data))
+               
+                
+            set(dir)
+        }
+        )
+}
 
 
 export async function post (content, postAdress){

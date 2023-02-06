@@ -42,19 +42,19 @@ export default function ChooseExperimentRobots(){
             chosen.set(from[i].key,from[i].value)
            }
          }
-         setButtons(from.map((number) => { 
+         let old = [...from]
+         setButtons(old.map((number) => { 
             console.log("hier")
             return <ChooseButton name={number.value} 
             ip={number.key}
             action = {clickedBot}
             state = {true}/>
         }))
-        console.log(buttons)
     }
 
     return ( 
         <div>
-        <TopBar title="Choose Directory"></TopBar>
+        <TopBar title="Choose Robots"></TopBar>
         {buttons}
         <Link 
             to = {"/ChooseExperimentRegister"}
