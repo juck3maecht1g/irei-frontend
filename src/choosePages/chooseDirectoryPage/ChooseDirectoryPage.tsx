@@ -5,6 +5,7 @@ import DirectoryButton from './DirectoryButton';
 import { GetDirectories, NavigateDown, NavigateUP } from '../Other FetchAndSet';
 import { Link } from 'react-router-dom';
 import { constants } from 'os';
+import { dir } from 'console';
 
 /**
  * The ChooseDirectoryPage is used to navigate in a Datastructure
@@ -12,11 +13,10 @@ import { constants } from 'os';
  */
 export default function ChooseDirectoryPage () {
     const [directories, setDirectories] = useState(new Map<String,[]>());
-    GetDirectories(setDirectories).then()
+    GetDirectories(setDirectories);
     console.log(directories)
-    
     var registerArray = directories.get("to_navigate")
-
+    console.log(registerArray)
  
 
     function help () {
@@ -28,41 +28,41 @@ export default function ChooseDirectoryPage () {
             return []
         }
         
-   /*
-    const buttons = useState (directories.get("to_navigate")
+   
+    /*const [button, setButtons] = useState (directories.get("to_navigate")
     .map((number) => {
         return <DirectoryButton name={number}/>
     }))
 
-   
+   */
     const navUp = (folder) => {
         NavigateUP(setDirectories);
-        const arrNew = Array.from(directories, function (entry) {
-        return { key: entry[0], value: entry[1]}})
-        setButtons(arrNew.map((number)=> {
-            return <DirectoryButton name={number.value} action = {navDown}/>
+        const arrNew = directories.get("to_navigate")
+        setButtons(arrNew?.map((number)=> {
+            return <DirectoryButton name={number} action = {navDown}/>
         }))
     }
 
     const navDown = (folder) => {
         NavigateDown(setDirectories, folder);
-        const arrNew = Array.from(directories, function (entry) {
-        return { key: entry[0], value: entry[1]}})
-        setButtons(arrNew.map((number)=> {
+        const arrNew = directories.get("to_navigate")
+        setButtons(arrNew?.map((number)=> {
             return <DirectoryButton name={number.value} action = {navDown}/>
         }))
     }
-    */
+    
 
 
     return ( 
         <div>
             <TopBar title="Choose Directory"></TopBar>
-            {registerArray.map((number) => {
-                    return <DirectoryButton name={number} />
+            <div>
+                {registerArray?.map((number) => {
+                    return <DirectoryButton name={number} action = {navDown}/>
                 })}
+            </div>
             <button>navigate up</button>
-            <Link to = {"/ChooseLaboratoryButton"}>
+            <Link to = {"/ChooseLaboratoryPage"}>
                 <button>confirm</button>
             </Link>
         </div>

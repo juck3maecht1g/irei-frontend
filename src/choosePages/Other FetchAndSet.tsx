@@ -37,9 +37,7 @@ export async function SetExperiment(experiment){
  */
 export async function GetDirectories(setDirectories){
     var [fetched, setfetched] = useState(false) 
-
-    
-    await passDataAsMap(setDirectories, fetched, setfetched, fetchAdressGetDirectories)
+   passDataAsMap(setDirectories, fetched, setfetched, fetchAdressGetDirectories)
     
 
     
@@ -113,8 +111,6 @@ export async function passDataAsMap(set, fetched, setfetched, adress){
             )
         ).json().then(data => {
             var dir = new Map(Object.entries(data))
-               
-                
             set(dir)
         }
         )
