@@ -125,6 +125,7 @@ export async function post (content, postAdress){
         },
         body : JSON.stringify(content)
     })
+    return (await response.text()).toString()
 
 }  
 
