@@ -4,12 +4,13 @@ import React from 'react'
  * The DirectoryButton is used to navigate into the directory
  * this button displays
  */
-class DirectoryButton extends React.Component {
-    render() { 
-        return ( 
-            <button>DirectoryButton</button>
-         );
+export default function NewDirectoryButton (props) {
+
+    const execute = () => {
+        props.action(props.name)
     }
+
+    return ( 
+        <button onClick={execute}>{props.name}</button>
+     );
 }
- 
-export default DirectoryButton;

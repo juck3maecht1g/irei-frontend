@@ -1,10 +1,9 @@
 import React from 'react'
 import TopBar from '../../TopBar';
-import ChooseButton from '../ChooseButton';
+import ChooseButton from '../ChooseRobotButton';
 import { useLocation } from "react-router-dom";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { prependOnceListener } from 'process';
 /**
  * The ChooserobotPage is used to choose the robots
  * the user wants to work with
@@ -29,11 +28,12 @@ export default function ChooseExperimentRobots(){
         // to do sent map chosen back to the backend
     }
 
-    const button = from.map((number) => { 
+    const [buttons, setButtons] = useState(from.map((number) => { 
         return <ChooseButton name={number.value} 
         ip={number.key}
-        action = {clickedBot}/>
-    })
+        action = {clickedBot}
+        state = {false}/>
+    }))
 
 
     const chooseAll = () => {
@@ -42,14 +42,22 @@ export default function ChooseExperimentRobots(){
             chosen.set(from[i].key,from[i].value)
            }
          }
+         setButtons(from.map((number) => { 
+            console.log("hier")
+            return <ChooseButton name={number.value} 
+            ip={number.key}
+            action = {clickedBot}
+            state = {true}/>
+        }))
+        console.log(buttons)
     }
 
     return ( 
         <div>
-        <TopBar title="Choose Robot"></TopBar>
-        {button}
+        <TopBar title="Choose Directory"></TopBar>
+        {buttons}
         <Link 
-            to = {"/ChooseExperimentRobots"}
+            to = {"/ChooseExperimentRegister"}
         >
             <button onClick={confirm}>confirm</button>
         </Link>

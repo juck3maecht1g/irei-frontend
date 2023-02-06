@@ -1,8 +1,6 @@
 import React from 'react';
-import {useState} from 'react';
 import { Link } from 'react-router-dom';
 import '../Choose.css';
-import ChooseButton from '../ChooseButton';
 
 /**
  * The ChooseLaboratoryButton is used to choose 

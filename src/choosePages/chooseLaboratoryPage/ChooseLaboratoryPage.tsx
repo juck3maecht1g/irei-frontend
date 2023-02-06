@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import TopBar from '../../TopBar';
-import ChooseButton from '../ChooseButton';
 import ChooseLaboratoryButton from './ChooseLaboratoryButton';
 const fetchAdress = "http://127.0.0.1:5000/test";
 
@@ -9,7 +8,8 @@ const fetchAdress = "http://127.0.0.1:5000/test";
  * The ChooseLaboratoryPage is used to choose 
  * the Laboratory the user wants to work in
  */
-export function ChooseLaboratoryPage() {
+export default function ChooseLaboratoryPage() {
+
     const [labs, setLabs] = useState(new Map<string, Map<string, string>>()); // key = labname, value = robot list
     var [fetched, setfetched] = useState(false)
     getLabs(setLabs, fetched, setfetched)
@@ -20,10 +20,7 @@ export function ChooseLaboratoryPage() {
     const robots = (key) => {
      return Array.from(labs.get(key), function (entry) {
       return { key: entry[0], value: entry[1]}})
-  }
-
-
-    
+    }
 
     return ( 
       <div>
@@ -36,17 +33,7 @@ export function ChooseLaboratoryPage() {
         }
       </div>
     );
-    
-    
-
-    
-  
-    
 }
-export default ChooseLaboratoryPage;
-
-
-
 
 async function getLabs(setLabs, fetched, setfetched){
   if(fetched) {
