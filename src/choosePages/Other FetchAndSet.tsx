@@ -46,39 +46,35 @@ export async function GetDirectories(setDirectories){
 
 
 const markerNavUP = "navigate_up"
-export async function NavigateUP(setDirectories){
+export async function NavigateUP(){
     var message =  new Map()
     message.set("marker", markerNavUP)
-    post(message, postAdressNavigateUP).then(res => {
-        GetDirectories(setDirectories)})
+    post(message, postAdressNavigateUP)
 }
 const markerNavDown = "navigate_down"
-export async function NavigateDown(setDirectories,directory){
+export async function NavigateDown(directory){
     var message =  new Map()
     message.set("marker", markerNavDown)
     message.set("dir", directory)
-    post(message, postAdressNavigateDown).then(res => {
-        GetDirectories(setDirectories)})
+    post(message, postAdressNavigateDown)
 
 }
 
 const markerCreate = "crerate"
-export async function Create(setDirectories,name){
+export async function Create(name){
     var message =  new Map()
     message.set("marker", markerCreate)
     message.set("name", name)
-    post(message, postAdressCreateDirectory).then(res => {
-        GetDirectories(setDirectories)})
+    post(message, postAdressCreateDirectory)
 
 }
 const markerDeleteDirectory = "delete_directory"
-export async function DeleteDirectory(setDirectories,name){
+export async function DeleteDirectory(name){
     var message =  new Map()
     message.set("marker", markerDeleteDirectory)
     message.set("name", name)
     
-    post(message, postAdressDeleteDirectory).then(res => {
-        GetDirectories(setDirectories)})
+    post(message, postAdressDeleteDirectory)
 
 }
 

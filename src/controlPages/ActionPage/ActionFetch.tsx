@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { passDataDirect , post} from "./Other FetchAndSet"
+import { passDataAsMap, passDataDirect , post} from "../../choosePages/Other FetchAndSet"
 
 const fetchAdressAllActionLists = "/api/get-action_lists"
 const postAdressActionList = "/api/set_action_list"
@@ -38,12 +38,10 @@ export async function GetActionListContent(setContent){ // returns string list
 
 /** action is a dictionarry containing the key which action to append, and all n essesary arguments for that action
  */
-export async function appendAction(setContent, action){
+export async function appendAction(action){
     var toPost =  action
     toPost.set("marker", "append_action")
-    post(toPost, postAdressAppendAction).then(res =>{
-    GetActionListContent(setContent)
-    })
+    post(toPost, postAdressAppendAction)
 }
 
 
@@ -53,13 +51,11 @@ export async function appendAction(setContent, action){
  * @param setContent 
  * @param name 
  */
-export async function SetActionList(setContent, name:String){
+export async function SetActionList(name:String){
     var toPost =  new Map()
     toPost.set("marker", "set_action_list")
     toPost.set("name", name)
-    post(toPost, postAdressActionList).then(res =>{
-    GetActionListContent(setContent)
-    })
+    post(toPost, postAdressActionList)
 }
 
 /** delets the action in the currently changed list at the given position
@@ -68,13 +64,11 @@ export async function SetActionList(setContent, name:String){
  * @param setContent 
  * @param position 
  */
-export async function DeleteAction(setContent,position){
+export async function DeleteAction(position){
     var toPost =  new Map()
     toPost.set("marker", "delete_action")
     toPost.set("position", position)
-    post(toPost, postAdressDeleteAction).then(res =>{
-        GetActionListContent(setContent)
-        })
+    post(toPost, postAdressDeleteAction)
 
 }
 
@@ -84,14 +78,12 @@ export async function DeleteAction(setContent,position){
  * @param first position as int
  * @param second 
  */
-export async function SwapActions(setContent,first, second){
+export async function SwapActions(first, second){
     var toPost =  new Map()
     toPost.set("marker", "swap")
     toPost.set("first", first)
     toPost.set("second", second)
-    post(toPost, postAdressSwapActions).then(res =>{
-        GetActionListContent(setContent)
-        })
+    post(toPost, postAdressSwapActions)
 
 }
 /** creates a new action listwith given name and given type("sequential_list" or"parallel_list")
@@ -100,15 +92,12 @@ export async function SwapActions(setContent,first, second){
  * @param name 
  * @param type 
  */
-export async function CreatetActionList(setContent, name:String, type:String){
+export async function CreatetActionList(name:String, type:String){
     var message =  new Map()
     message.set("marker", "create_action_list")
     message.set("name", name)
     message.set("key", type)
-    post(message, postAdressCreateActionList).then(res =>{
-        GetActionListContent(setContent)
-        })
-
+    post(message, postAdressCreateActionList)
 }
 /** executes the action list with the given name
  * 
