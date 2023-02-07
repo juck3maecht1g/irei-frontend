@@ -1,31 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
+import {post, passDataDirect} from "../choosePages/Other FetchAndSet"
 const fetchAdress = "http://127.0.0.1:5000/api/savePosition"
+const fetchAdressName = "http://127.0.0.1:5000/api/get_base_name_save_position"
 const savePositionMassage = "savePosition"
+const successMarker = "Done"
 
-function informSavePosition() {
-    async function post (){
-        const response = await fetch(fetchAdress, {
-            'method': 'POST',
-            headers : {
-            'Content-Type': 'application/json'
-            },
-            body : JSON.stringify(savePositionMassage)
-        })
-        if(response.ok) {
-            //todo
-        }
-    }
-    
-    post()
+export function informSavePosition(action, name) {
+    var to_post = new Map()
+    to_post.set("marker", savePositionMassage)
+    to_post.set("name", name)
+    post(savePositionMassage, fetchAdress).then(res => {
+            if(res != "Done") {
+                action()
+            }
+    })
 }
 /**
  * The SavePositionButton is used to save a Position 
  * for later use
  */
-function SavePositionButton () {
+function SavePositionButton (props) {
     return ( 
-        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={informSavePosition}>save position</button>
+        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={props.action}>save position</button>
      );
 }
+
  
 export default SavePositionButton;
+
+
+export function BaseNamePosition(setName) {
+    var [fetched, setFetched] = useState(false) 
+    passDataDirect(setName, fetched, setFetched, fetchAdressName)
+}
