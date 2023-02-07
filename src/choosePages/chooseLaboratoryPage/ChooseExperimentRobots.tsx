@@ -28,12 +28,12 @@ export default function ChooseExperimentRobots(){
         // to do sent map chosen back to the backend
     }
 
-    const [buttons, setButtons] = useState(from.map((number) => { 
+    const buttons = from.map((number) => { 
         return <ChooseButton name={number.value} 
         ip={number.key}
         action = {clickedBot}
         state = {false}/>
-    }))
+    })
 
 
     const chooseAll = () => {
@@ -42,14 +42,6 @@ export default function ChooseExperimentRobots(){
             chosen.set(from[i].key,from[i].value)
            }
          }
-         let old = [...from]
-         setButtons(old.map((number) => { 
-            console.log("hier")
-            return <ChooseButton name={number.value} 
-            ip={number.key}
-            action = {clickedBot}
-            state = {true}/>
-        }))
     }
 
     return ( 

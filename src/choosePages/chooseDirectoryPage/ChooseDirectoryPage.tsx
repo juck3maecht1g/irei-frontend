@@ -13,9 +13,7 @@ export default function ChooseDirectoryPage () {
     const [directories, setDirectories] = useState(new Map<String,[]>());
     GetDirectories(setDirectories);
     var registerArray = directories.get("to_navigate")
- 
 
-   
     const navUp = () => {
  //       NavigateUP(setDirectories);
         window.location.reload()
@@ -26,7 +24,6 @@ export default function ChooseDirectoryPage () {
         window.location.reload()
     }
     
-
 
     return ( 
         <div>
