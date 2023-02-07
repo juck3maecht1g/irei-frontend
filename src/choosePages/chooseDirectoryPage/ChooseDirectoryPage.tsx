@@ -39,8 +39,12 @@ export default function ChooseDirectoryPage () {
             </div>
             <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
             onClick = {navUp}>navigate up</button>
+            <Link to = {"/ChooseLaboratoryPage"}>
             <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-            onClick = {()=> setPopUpName(true)}>confirm</button>
+            >confirm</button>
+            </Link>
+            <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+            onClick = {()=> setPopUpName(true)}>create</button>
             
         <PopUp trigger={popUpName}>
             <form>
@@ -56,11 +60,12 @@ export default function ChooseDirectoryPage () {
                     />
                 </div>
             </form>
-            
+            {(name != "")? 
             <Link to = {"/ChooseLaboratoryPage"}>
-                <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                >confirm</button>
-            </Link>
+            <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+            >confirm</button>
+            </Link> : <></>
+            }
         </PopUp>
         </div>
      );
