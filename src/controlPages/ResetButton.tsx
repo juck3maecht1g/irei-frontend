@@ -1,6 +1,10 @@
 import React from "react";
+import "./../Theme.css"
+
 const fetchAdress = "http://127.0.0.1:5000/api/reset"
 const resetMassage = "reset"
+
+
 
 function informReset() {
     async function post (){
@@ -24,7 +28,7 @@ function informReset() {
  */
 function ResetButton () {
     return ( 
-        <button className='controlbutton' onClick={informReset}>reset</button>
+        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={informReset}>reset</button>
      );
 }
  

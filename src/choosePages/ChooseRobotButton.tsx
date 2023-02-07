@@ -11,14 +11,16 @@ export default function ChooseButton (props) {
     }
     
     const chosen = (
-      <button className="chosen" onClick={startedLogging}>
+      <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
+      onClick={startedLogging}>
         <div>{props.name}</div>
         <div>{props.ip}</div>
       </button>
       )
   
       const notChosen = (
-        <button className="not_chosen" onClick={startedLogging}>
+        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+         onClick={startedLogging}>
           <div>{props.name}</div>
           <div>{props.ip}</div>
         </button>

@@ -11,6 +11,10 @@ export default function DirectoryButton (props) {
     }
 
     return ( 
-        <button onClick={execute}>{props.name}</button>
+        <div>
+            <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+         onClick={execute}>{props.name}</button>
+        </div>
+        
      );
 }

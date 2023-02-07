@@ -36,7 +36,8 @@ function ChooseRegisterButton (props) {
         <Link
            to = {"/Controlpage"}
         >
-        <button onClick={SaveChoice} className='not_chosen'>
+        <button onClick={SaveChoice} 
+        className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
             {props.name}
         </button>
         </Link>

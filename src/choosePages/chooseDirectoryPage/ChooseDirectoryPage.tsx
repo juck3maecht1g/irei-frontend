@@ -4,6 +4,7 @@ import TopBar from '../../TopBar';
 import DirectoryButton from './DirectoryButton';
 import { GetDirectories, NavigateDown, NavigateUP } from '../Other FetchAndSet';
 import { Link } from 'react-router-dom';
+import PopUp from '../PopUp'
 
 /**
  * The ChooseDirectoryPage is used to navigate in a Datastructure
@@ -12,18 +13,19 @@ import { Link } from 'react-router-dom';
 export default function ChooseDirectoryPage () {
     const [directories, setDirectories] = useState(new Map<String,[]>());
     GetDirectories(setDirectories);
-    var registerArray = directories.get("to_navigate")
 
     const navUp = () => {
- //       NavigateUP(setDirectories);
+        NavigateUP();
         window.location.reload()
     }
 
     const navDown = (folder) => {
- //       NavigateDown( folder);
+        NavigateDown( folder);
         window.location.reload()
     }
     
+    var [popUpName, setPopUpName] = useState(false);
+    const [name, setName] = useState("")
 
     return ( 
         <div>
@@ -35,14 +37,31 @@ export default function ChooseDirectoryPage () {
                     })
                 }
             </div>
-            <button onClick = {navDown}>navigate up</button>
+            <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+            onClick = {navUp}>navigate up</button>
+            <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+            onClick = {()=> setPopUpName(true)}>confirm</button>
+            
+        <PopUp trigger={popUpName}>
+            <form>
+                <div>
+                    <label>name the folder:</label>
+                </div>
+                <div>
+                    <input
+                    type="text"
+                    required
+                    value= {name}
+                    onChange = {(e) => setName(e.target.value)}
+                    />
+                </div>
+            </form>
+            
             <Link to = {"/ChooseLaboratoryPage"}>
-                <button>confirm</button>
+                <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                >confirm</button>
             </Link>
+        </PopUp>
         </div>
      );
 }
-
-/**registerArray?.map((number) => {
-                    return <DirectoryButton name={number} action = {navDown}/>
-                }) */

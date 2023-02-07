@@ -24,7 +24,7 @@ function informSavePosition() {
  */
 function SavePositionButton () {
     return ( 
-        <button className='controlbutton' onClick={informSavePosition}>save position</button>
+        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={informSavePosition}>save position</button>
      );
 }
  

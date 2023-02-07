@@ -24,7 +24,8 @@ function informexecChangeGripper() {
  */
 function GripperButton () {
     return ( 
-        <button className='controlbutton' onClick={informexecChangeGripper}>gripper</button>
+        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+         onClick={informexecChangeGripper}>gripper</button>
      );
 }
  

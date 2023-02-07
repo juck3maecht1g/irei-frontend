@@ -17,7 +17,7 @@ export default function ChooseLaboratoryButton (props) {
            to = {"/ChooseExperimentRobots"}
            state = {{from: roboter}}
         >
-        <button className='not_chosen'>
+        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
             {props.name}
         </button>
         </Link>

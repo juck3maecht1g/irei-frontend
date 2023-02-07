@@ -7,6 +7,7 @@ import ResetButton from './ResetButton';
 import SavePositionButton from './SavePositionButton';
 import EmergencyExit from './EmergencyExit';
 import ModeButton from './ModeButton';
+import "./../Theme.css"
 //import ApproachPositionActionButton from '../ApproachPositionActionButton';
 
 /**
@@ -24,7 +25,7 @@ function ControlPage (props) {
 
 
     return ( 
-        <div>
+        <div >
             <TopBar title="Control"></TopBar>
             <h1>
                 <ResetButton/>

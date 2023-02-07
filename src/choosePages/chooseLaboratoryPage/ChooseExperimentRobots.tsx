@@ -51,9 +51,11 @@ export default function ChooseExperimentRobots(){
         <Link 
             to = {"/ChooseExperimentRegister"}
         >
-            <button onClick={confirm}>confirm</button>
+            <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+             onClick={confirm}>confirm</button>
         </Link>
-        <button onClick={chooseAll}>choose all</button>
+        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+        onClick={chooseAll}>choose all</button>
         </div>
     );
 }

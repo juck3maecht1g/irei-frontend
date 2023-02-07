@@ -18,5 +18,5 @@ function informEmergencyStop() {
     post()
 }
 export default function EmergencyExit (props) {
-    return <button className='controlbutton'>emergency stop</button>
+    return <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" >emergency stop</button>
 }

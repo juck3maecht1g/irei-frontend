@@ -1,4 +1,3 @@
-import { Action } from '@remix-run/router';
 import React from 'react';
 import './Control.css';
 const fetchAdressStop = "http://127.0.0.1:5000/api/stop"
@@ -62,14 +61,16 @@ export default function LoggerButton (props) {
 
   const start = (
     <div>
-        <button className='controlbutton' onClick={startLogging}>Start</button>
+        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={startLogging}>Start</button>
     </div>
   )
 
   const stop = (
     <div>
-      <button className='controlbutton' onClick={stopLogging}>Stop</button>
-      <button className='controlbutton' onClick={cancelLogging}>Abort</button>
+      <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+       onClick={stopLogging}>Stop</button>
+      <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+       onClick={cancelLogging}>Abort</button>
     </div>
   )
 
