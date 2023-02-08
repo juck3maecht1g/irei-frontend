@@ -9,7 +9,8 @@ export function informSavePosition(action, name) {
     var to_post = new Map()
     to_post.set("marker", savePositionMassage)
     to_post.set("name", name)
-    post(savePositionMassage, fetchAdress).then(res => {
+    const result = Object.fromEntries(to_post)
+    post(result, fetchAdress).then(res => {
             if(res != "Done") {
                 action()
             }

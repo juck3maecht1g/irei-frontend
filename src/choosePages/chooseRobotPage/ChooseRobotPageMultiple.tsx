@@ -3,10 +3,7 @@ import React, { useEffect, useState } from 'react'
 import TopBar from '../../TopBar';
 import ChoosePage from '../ChoosePage';
 import { GetGripperRobots, GetExpRobots, GetLabRobots } from './FetchRobots';
-const fetchAdressGripperRobots = "http://127.0.0.1:5000/test_robots_gripper" 
-const fetchAdressLabRobots = "http://127.0.0.1:5000/test"
-const fetchAdressExpRobots = "http://127.0.0.1:5000/test_robots_experiment"
-const Massage = ""
+
 /**
  * The ChooserobotPage is used to choose the robots
  * the user wants to work with

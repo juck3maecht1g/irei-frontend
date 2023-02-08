@@ -4,10 +4,10 @@ import { useEffect, useState } from "react"
 
 
 
-const fetchAdressGripperRobots = "http://127.0.0.1:5000/test_robots_gripper" 
-const postAdressLab = "http://127.0.0.1:5000/test_chosen_lab"
-const fetchAdressLabRobots = "http://127.0.0.1:5000/test_lab_robots"
-const fetchAdressExpRobots = "http://127.0.0.1:5000/test_robots_experiment"
+const fetchAdressGripperRobots = "http://127.0.0.1:5000/api/getRobotsForGripper" 
+const postAdressLab = "http://127.0.0.1:5000/api/setCurrentLab"
+const fetchAdressLabRobots = "http://127.0.0.1:5000/api/getRobotsOfLab"
+const fetchAdressExpRobots = "http://127.0.0.1:5000/api/getRobotsInExperiment"
 
 
 

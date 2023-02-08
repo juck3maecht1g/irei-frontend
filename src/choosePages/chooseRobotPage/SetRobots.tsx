@@ -1,7 +1,7 @@
 import {post} from "../Other FetchAndSet"
-const postAdressExpRobots = "/api/set_exp_robots"
-const postAdressChangeGripperRobots= "/api/set_change_gripper_robots"
-const postAdressSavePositionRobots = "/api/set_save_position_robot"
+const postAdressExpRobots = "http://127.0.0.1:5000/api/setRobotsExp"
+const postAdressChangeGripperRobots= "http://127.0.0.1:5000/api/api/setRobotsGripper"
+const postAdressSavePositionRobots = "http://127.0.0.1:5000/api/api/setSavePosition"
 
 
 

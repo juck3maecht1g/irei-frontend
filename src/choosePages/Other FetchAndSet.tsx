@@ -1,12 +1,12 @@
 import { useState } from "react"
 
-const fetchAdressGetExperiments = "http://127.0.0.1:5000/test_exp" 
-const postAdressChosenExperiment = ""
-const fetchAdressGetDirectories = "http://127.0.0.1:5000/test_dir"
-const postAdressNavigateUP = ""
-const postAdressNavigateDown = ""
-const postAdressCreateDirectory = ""
-const postAdressDeleteDirectory = ""
+const fetchAdressGetExperiments = "http://127.0.0.1:5000/api/getRegExp"
+const postAdressChosenExperiment = "http://127.0.0.1:5000/api/setup_exp"
+const fetchAdressGetDirectories = "http://127.0.0.1:5000/api/get_content"
+const postAdressNavigateUP = "http://127.0.0.1:5000/api/navigate_up"
+const postAdressNavigateDown = "http://127.0.0.1:5000/api/navigate_down"
+const postAdressCreateDirectory = "http://127.0.0.1:5000/api/create_dirctory"
+const postAdressDeleteDirectory = "http://127.0.0.1:5000/api/delete_dirctory"
 
 // contains dummy
 
@@ -78,7 +78,6 @@ export async function DeleteDirectory(name){
 
 }
 
-//todo unclean
 export async function passDataDirect(set, fetched, setfetched, adress){
 
     if(fetched) {

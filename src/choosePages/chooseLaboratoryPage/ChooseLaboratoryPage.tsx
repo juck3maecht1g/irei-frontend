@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import TopBar from '../../TopBar';
 import ChooseLaboratoryButton from './ChooseLaboratoryButton';
-const fetchAdress = "http://127.0.0.1:5000/test";
+const fetchAdress = "http://127.0.0.1:5000/api/getLab";
 
 /**
  * The ChooseLaboratoryPage is used to choose 
