@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { GetExperiments } from '../Other FetchAndSet';
 import TopBar from '../../TopBar';
 import '../Choose.css';
+import { SetExperiment } from '../Other FetchAndSet';
 
 /**
  * The ChooseExperimentRegister is used to choose 
@@ -14,7 +15,7 @@ export default function ChooseExperimentRegister() {
     const [exp, setExperiment] = useState([]);
     GetExperiments(setExperiment);
     const buttons = exp.map((number) => {
-        return <ChooseRegisterButton name={number}/>
+        return <ChooseRegisterButton name={number} action= {SetExperiment}/>
     })
 
     return (
@@ -31,12 +32,14 @@ export default function ChooseExperimentRegister() {
  */
 
 function ChooseRegisterButton (props) {
-
+    const setChoise = () => {
+        props.action(props.name) 
+    }
     return ( 
         <Link
            to = {"/Controlpage"}
         >
-        <button onClick={SaveChoice} 
+        <button onClick={setChoise} 
         className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
             {props.name}
         </button>
