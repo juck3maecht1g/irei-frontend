@@ -39,7 +39,7 @@ export default function ChooseDirectoryPage () {
             </div>
             <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
             onClick = {navUp}>navigate up</button>
-            <Link to = {"/ChooseLaboratoryPage"}>
+            <Link to = {"/ControlPage"}>
             <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
             >confirm</button>
             </Link>

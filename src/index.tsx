@@ -1,5 +1,4 @@
-import React from "react"
-import ReactDom from "react-dom"
+import React from "react";
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import ControlPage from "./controlPages/ControlPage"
@@ -9,7 +8,7 @@ import ChooseDirectoryPage from "./choosePages/chooseDirectoryPage/ChooseDirecto
 import ChooseLaboratoryPage from "./choosePages/chooseLaboratoryPage/ChooseLaboratoryPage"
 import ChooseLanguagePage from "./choosePages/chooseLanguagePage/ChooseLanguagePage"
 import ChooseNamePage from "./choosePages/chooseNamePage/ChooseNamePage"
-import ChooseRobotPageMultiple from "./choosePages/chooseRobotPage/ChooseRobotPageMultiple";
+import ChooseRobotPageMultiple from "./choosePages/chooseRobotPage/ChooseRobotPage";
 import ChooseVariablePage from "./choosePages/chooseVariablePage/ChooseVariablePage"
 import ChooseExperimentRobots from "./choosePages/chooseLaboratoryPage/ChooseExperimentRobots";
 import ChooseExperimentRegister from "./choosePages/chooseLaboratoryPage/ChooseExperimentRegister";

@@ -2,7 +2,6 @@ import React from 'react'
 import TopBar from '../../TopBar';
 import ChooseButton from '../ChooseRobotButton';
 import { useLocation } from "react-router-dom";
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 /**
  * The ChooserobotPage is used to choose the robots
@@ -13,7 +12,7 @@ export default function ChooseExperimentRobots(){
     const location = useLocation();
     const { from } = location.state;
 
-    var [chosen, setChosen] = useState(new Map<string, string>()) // the chosen robots 
+    var chosen =  new Map<string, string>() // the chosen robots 
 
 
     const clickedBot = (ip, name) => {
@@ -22,6 +21,7 @@ export default function ChooseExperimentRobots(){
         } else {
             chosen.set(ip,name)
         }
+        console.log(chosen)
     }
 
     const confirm = () => {
@@ -36,7 +36,7 @@ export default function ChooseExperimentRobots(){
     })
 
 
-    const chooseAll = () => {
+    const chooseAll = () => { // toDo funktioniert noch nicht
         for(var i = 0;i<from.length;i++) { 
            if (!chosen.has(from[i].key)) {
             chosen.set(from[i].key,from[i].value)
@@ -54,8 +54,6 @@ export default function ChooseExperimentRobots(){
             <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
              onClick={confirm}>confirm</button>
         </Link>
-        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-        onClick={chooseAll}>choose all</button>
         </div>
     );
 }
