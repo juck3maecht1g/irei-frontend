@@ -1,23 +1,20 @@
 import React from "react";
+import { post } from "../choosePages/Other FetchAndSet";
 import "./../Theme.css"
 
 const fetchAdress = "http://127.0.0.1:5000/api/reset"
-const resetMassage = "reset"
+const resetMessage = "reset"
 
 
 
-function informReset() {
-    async function post (){
-        const response = await fetch(fetchAdress, {
-            'method': 'POST',
-            headers : {
-            'Content-Type': 'application/json'
-            },
-            body : JSON.stringify(resetMassage)
-        })
-        
-    } 
-    post()
+function informReset(errorMessage, forErrors) {
+    post(resetMessage, fetchAdress).then(res=> {
+        if(res != "Done") {
+           errorMessage(res)
+           forErrors()
+            
+        }
+    })
 }
 
 
@@ -26,9 +23,9 @@ function informReset() {
 /**
  * The ResetButton is used to reset a scene
  */
-function ResetButton () {
+function ResetButton (props) {
     return ( 
-        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={informReset}>reset</button>
+        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={()=> {informReset(props.errorMessage, props.forErrors)}}>reset</button>
      );
 }
  

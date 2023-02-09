@@ -18,18 +18,21 @@ function GetMode(setMode) {
 /**
  * The ResetButton is used to reset a scene
  */
-function ModeButton () {
+function ModeButton (props) {
     var [mode, setMode] = useState() 
     var [fetched, setFetched] = useState(false) 
     GetMode(setMode)
     const test = () => {
     post(cycleModeMassage, postAdress).then(res => {
-    if(res == "Done") {
-        console.log("working")
+    if(res != "Done") {
+        props.errorMessage(res)
+        props.forErrors()
+        
     }
    }).then(res => {
     passDataDirect(setMode, fetched, setFetched, fetchAdress)
     .then(res => setFetched(false))
+    
 })
 }
 
