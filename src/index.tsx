@@ -2,8 +2,6 @@ import React from "react";
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import ControlPage from "./controlPages/ControlPage"
-import EditActionListPage from "./controlPages/ActionPage/EditActionListPage"
-import ChooseActionListPage from "./choosePages/chooseActionListPage/ChooseActionListPage"
 import ChooseDirectoryPage from "./choosePages/chooseDirectoryPage/ChooseDirectoryPage"
 import ChooseLaboratoryPage from "./choosePages/chooseLaboratoryPage/ChooseLaboratoryPage"
 import ChooseLanguagePage from "./choosePages/chooseLanguagePage/ChooseLanguagePage"
@@ -12,6 +10,7 @@ import ChooseRobotPageMultiple from "./choosePages/chooseRobotPage/ChooseRobotPa
 import ChooseVariablePage from "./choosePages/chooseVariablePage/ChooseVariablePage"
 import ChooseExperimentRobots from "./choosePages/chooseLaboratoryPage/ChooseExperimentRobots";
 import ChooseExperimentRegister from "./choosePages/chooseLaboratoryPage/ChooseExperimentRegister";
+import ActionListPage from "./controlPages/ActionPage/ActionListPage";
 
 export default function App (){
     return (
@@ -20,8 +19,6 @@ export default function App (){
         <Routes >
           <Route index element={<ChooseDirectoryPage/>} />
           <Route path="/ControlPage" element={<ControlPage/>} />
-          <Route path="/EditActionListPage" element={<EditActionListPage/>} />
-          <Route path="/ChooseActionListPage" element={<ChooseActionListPage/>} />
           <Route path="/ChooseDirectoryPage" element={<ChooseDirectoryPage/>} />
           <Route path="/ChooseLaboratoryPage" element={<ChooseLaboratoryPage/>} />
           <Route path="/ChooseLanguagePage" element={<ChooseLanguagePage/>} />
@@ -30,7 +27,8 @@ export default function App (){
           <Route path="/ChooseVariablePage" element={<ChooseVariablePage/>} />
           <Route path="/ChooseExperimentRobots" element={<ChooseExperimentRobots/>} />
           <Route path="/ChooseExperimentRegister" element={<ChooseExperimentRegister/>} />
-
+          
+          <Route path="/ActionListPage" element={<ActionListPage/>} />
         </Routes>
       </BrowserRouter>
       </div>
