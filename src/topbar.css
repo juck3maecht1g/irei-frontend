@@ -1,76 +1,24 @@
-* {
-    margin: 0;
+.bar {
     box-sizing: border-box;
-}
-
-/* - Navbar and burger menu - */
-nav {
+    position: relative;
+    background: #3F51B5;
+    color: white;
+    height: 64px;
     width: 100%;
-    height: 5em;
-    background-color: pink;
-    display: flex;
-    justify-content: flex-end;
-    padding: 1em;
+    padding: 16px;
 }
-
-.burger-menu {
-    height: 100%;
-    width: 4em;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    cursor: pointer;
-}
-
-.burger-bar {
-    width: 4em;
-    height: 0.5em;
-    background-color: black;
-    border-radius: 0.5em;
-}
-
-.menu {
-    width: 30%;
-    height: 100vh;
-    background-color: pink;
-    top: 80px;
-    right: 0%;
+.wrapper {
+    box-sizing: border-box;
     position: absolute;
-    align-items: center;
+    right: 16px;
 }
-
-/* - menu - */
-.hidden {
-    display: none;
-}
-
-.visible {
-    display: inherit;
-}
-
-/* clicked */
-.burger-bar.clicked:nth-child(1){
-    transform: rotate(45deg) translate(0.75em, 1.25em);
-}
-
-.burger-bar.clicked:nth-child(2){
-    transform: scale(0.1);
-}
-
-.burger-bar.clicked:nth-child(3){
-    transform: rotate(135deg) translate(-0.5em, 1em);
-}
-
-/* unclicked */
-.burger-bar.unclicked {
-    transform: rotate(0) translate(0);
-}
-
-.title{
+.title_wrapper {
     position: absolute;
-    left: 2%;
-    color: black;
-    text-align: center;
-    font-size: 200%;
+    width: 90%;
+}
+#irei-container {
+    right: 0px;
+    top: 32px;
+    width: 148.3125px;
+    height: 208px;
 }

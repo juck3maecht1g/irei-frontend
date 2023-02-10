@@ -1,72 +1,66 @@
-import React, {useState} from "react";
+import {useState} from 'react';
 import './topbar.css'
+import 'material-icons'
 import NavigationButton from './NavigationButton'
 
 function TopBar(props) {
 
-    // to change burger classes
-    const [burger_class, setBurgerClass] = useState("burger-bar unclicked")
-    const [menu_class, setMenuClass] = useState("menu hidden")
-    const [isMenuClicked, setIsMenuClicked] = useState(false)
+  const [isActive, setIsActive] = useState(false);
 
-    // toggle burger menu change
-    const updateMenu = () => {
-        if(!isMenuClicked) {
-            setBurgerClass("burger-bar clicked")
-            setMenuClass("menu visible")
-        }
-        else {
-            setBurgerClass("burger-bar unclicked")
-            setMenuClass("menu hidden")
-        }
-        setIsMenuClicked(!isMenuClicked)
-    }
+  const handleClick = event => {
+    // 👇️ toggle isActive state on click
+    setIsActive(current => !current);
+  };
 
-    return(
-        <div style={{width: '100%'}}>
-            <nav>
-                <div className="burger-menu" onClick={updateMenu}>
-                    <div className={burger_class} ></div>
-                    <div className={burger_class} ></div>
-                    <div className={burger_class} ></div>
-                </div>
-                <p className="title">
-                        {props.title}
-                </p>
-                
-            </nav>
+  return(
+    <div class ='bar'>
+      <div class="title_wrapper">
+        <p className="title">
+          {props.title}
+        </p> 
+      </div>
+      <div class='wrapper'>
+      <button id="menu" class="mdl-button mdl-js-button mdl-button--icon" onClick={handleClick}>
+        <i class="material-icons">more_vert</i>
+      </button>
 
-            <div className={menu_class} >
-                <div >
-                <NavigationButton destination="Control" destinationLink="/ControlPage"></NavigationButton>
-                </div>
-                <div >
-                <NavigationButton destination="Edit ActionList" destinationLink="/EditActionListPage"></NavigationButton>
-                </div>
-                <div >
-                <NavigationButton destination="C ActionList" destinationLink="/ChooseActionListPage"></NavigationButton>
-                </div>
-                <div >
-                <NavigationButton destination="C Directory" destinationLink="/ChooseDirectoryPage"></NavigationButton>
-                </div>
-                <div >
-                <NavigationButton destination="C Laboratory" destinationLink="/ChooseLaboratoryPage"></NavigationButton>
-                </div>
-                <div >
-                <NavigationButton destination="C Language" destinationLink="/ChooseLanguagePage"></NavigationButton>
-                </div>
-                <div >
-                <NavigationButton destination="C Name" destinationLink="/ChooseNamePage"></NavigationButton>
-                </div>
-                <div >
-                <NavigationButton destination="C Robot" destinationLink="/ChooseRobotPage"></NavigationButton>
-                </div>
-                <div >
-                <NavigationButton destination="C Variable" destinationLink="/ChooseVariablePage"></NavigationButton>
-                </div>
-            </div>
-        </div>
-    )
+      <div id='irei-container'class= {isActive ? "mdl-menu__container is-upgraded is-visible" : "mdl-menu__container is-upgraded"}>
+        <ul class="mdl-menu__outline mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+        for="menu">
+          <li class="mdl-menu__item">
+            <NavigationButton destination="Control" destinationLink="/ControlPage"></NavigationButton>
+          </li>
+          <li class="mdl-menu__item">
+            <NavigationButton destination="Edit ActionList" destinationLink="/EditActionListPage"></NavigationButton>
+          </li>
+          <li class="mdl-menu__item">
+            <NavigationButton destination="C ActionList" destinationLink="/ChooseActionListPage"></NavigationButton>
+          </li>
+          <li class="mdl-menu__item">
+            <NavigationButton destination="C Directory" destinationLink="/ChooseDirectoryPage"></NavigationButton>
+          </li>
+          <li class="mdl-menu__item">
+            <NavigationButton destination="C Laboratory" destinationLink="/ChooseLaboratoryPage"></NavigationButton>
+          </li>
+          <li class="mdl-menu__item">
+            <NavigationButton destination="C Language" destinationLink="/ChooseLanguagePage"></NavigationButton>
+          </li>
+          <li class="mdl-menu__item">
+            <NavigationButton destination="C Name" destinationLink="/ChooseNamePage"></NavigationButton>
+          </li>
+          <li class="mdl-menu__item">
+            <NavigationButton destination="C Robot" destinationLink="/ChooseRobotPage"></NavigationButton>
+          </li>
+          <li class="mdl-menu__item">
+            <NavigationButton destination="C Variable" destinationLink="/ChooseVariablePage"></NavigationButton>
+          </li>
+        </ul>
+      </div>
+      
+      </div>
+    </div>
+    
+  )
 }
 
 export default TopBar
