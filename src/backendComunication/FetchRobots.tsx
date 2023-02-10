@@ -1,11 +1,11 @@
 // this file contains multiple methods used to fetch robots from the backend
 
 import { useEffect, useState } from "react"
+import { informLabChoise } from "./FetchAndSetLab"
 
 
 
 const fetchAdressGripperRobots = "http://127.0.0.1:5000/api/getRobotsForGripper" 
-const postAdressLab = "http://127.0.0.1:5000/api/setCurrentLab"
 const fetchAdressLabRobots = "http://127.0.0.1:5000/api/getRobotsOfLab"
 const fetchAdressExpRobots = "http://127.0.0.1:5000/api/getRobotsInExperiment"
 
@@ -36,22 +36,6 @@ export async function GetGripperRobots(setRobots){
         getRobots(setRobots, fetched, setfetched, fetchAdressLabRobots)
         })
       }
-
-
-    /**informs the backend which lab was chosen
-     * 
-     * @param labName  name of the chosen lab
-     */
-    async function informLabChoise (labName){
-      const response = await fetch(postAdressLab, {
-          'method': 'POST',
-          headers : {
-          'Content-Type': 'application/json'
-          },
-          body : JSON.stringify(labName)
-      })
-    }
-
 
   /** gets a list of robots from the specified adress and sublies them ad map to the specified usestate
    * 

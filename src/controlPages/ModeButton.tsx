@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { post, passDataDirect} from "../choosePages/Other FetchAndSet";
+import { passDataDirect, post } from "../backendComunication/BasicOpperations";
+
 const postAdress = "http://127.0.0.1:5000/api/cycle_modes"
 const fetchAdress = "http://127.0.0.1:5000/api/get_mode"
 const cycleModeMassage = "cycle_modes"

@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+import { post, passDataAsMap, passDataDirect } from "./BasicOpperations"
 const fetchAdressGetExperiments = "http://127.0.0.1:5000/api/getRegExp"
 const postAdressChosenExperiment = "http://127.0.0.1:5000/api/setup_exp"
 const fetchAdressGetDirectories = "http://127.0.0.1:5000/api/get_content"
@@ -7,6 +7,7 @@ const postAdressNavigateUP = "http://127.0.0.1:5000/api/navigate_up"
 const postAdressNavigateDown = "http://127.0.0.1:5000/api/navigate_down"
 const postAdressCreateDirectory = "http://127.0.0.1:5000/api/create_dirctory"
 const postAdressDeleteDirectory = "http://127.0.0.1:5000/api/delete_dirctory"
+const fetchAdressName = ""
 
 // contains dummy
 
@@ -79,49 +80,9 @@ export async function DeleteDirectory(name){
 
 }
 
-export async function passDataDirect(set, fetched, setfetched, adress){
-
-    if(fetched) {
-        return
-        }
-        setfetched (true)
-        const data = await (
-            await fetch(
-            adress
-            )
-        ).json().then(data => {
-            set(data)
-        }
-        )
+export function BaseNameDir(setName) {
+    var [fetched, setFetched] = useState(false) 
+    passDataDirect(setName, fetched, setFetched, fetchAdressName)
 }
 
-export async function passDataAsMap(set, fetched, setfetched, adress){
-
-    if(fetched) {
-        return
-        }
-        setfetched (true)
-        const data = await (
-            await fetch(
-            adress
-            )
-        ).json().then(data => {
-            var dir = new Map(Object.entries(data))
-            set(dir)
-        }
-        )
-}
-
-
-export async function post (content, postAdress){
-    const response = await fetch(postAdress, {
-        'method': 'POST',
-        headers : {
-        'Content-Type': 'application/json'
-        },
-        body : JSON.stringify(content)
-    })
-    return (await response.text()).toString()
-
-}  
 

@@ -2,7 +2,7 @@ import { data } from 'browserslist'
 import React, { useEffect, useState } from 'react'
 import TopBar from '../../TopBar';
 import ChoosePage from '../ChoosePage';
-import { GetGripperRobots, GetExpRobots, GetLabRobots } from './FetchRobots';
+import { GetGripperRobots, GetExpRobots } from '../../backendComunication/FetchRobots';
 
 /**
  * The ChooserobotPage is used to choose the robots

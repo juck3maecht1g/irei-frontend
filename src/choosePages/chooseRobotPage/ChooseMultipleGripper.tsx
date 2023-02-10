@@ -1,7 +1,7 @@
 import React from 'react'
 import {useState} from 'react'
-import {GetGripperRobots, GetExpRobots} from './FetchRobots'
-import {SetChangeGripperRobots} from './SetRobots'
+import { GetGripperRobots, GetExpRobots } from '../../backendComunication/FetchRobots';
+import { SetChangeGripperRobots } from '../../backendComunication/SetRobots';
 import ChooseButton from '../ChooseRobotButton';
 import { Link } from 'react-router-dom';
 import TopBar from '../../TopBar';

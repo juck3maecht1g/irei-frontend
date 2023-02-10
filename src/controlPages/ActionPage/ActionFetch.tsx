@@ -24,7 +24,7 @@ export async function GetActionListNames(setLists){ // returns string list
 
 }
 /**
- *  fetches an array of dictionarrys each kontaining all data nessesary if key != action_list
+ *  fetches an array of dictionarrys each containing all data nessesary if key != action_list
  *  otherwise containig just the name of the underling actionList and information if it is a paralell od sequential list
  * @param setContent the method to set with the fetched data
  */
@@ -36,7 +36,7 @@ export async function GetActionListContent(setContent){ // returns string list
 
 }
 
-/** action is a dictionarry containing the key which action to append, and all n essesary arguments for that action
+/** action is a dictionarry containing the key which action to append, and all nessesary arguments for that action
  */
 export async function appendAction(action){
     var toPost =  action

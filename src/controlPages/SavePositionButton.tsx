@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {post, passDataDirect} from "../choosePages/Other FetchAndSet"
+import { passDataDirect, post } from '../backendComunication/BasicOpperations'
 const fetchAdress = "http://127.0.0.1:5000/api/savePosition"
 const fetchAdressName = "http://127.0.0.1:5000/api/get_base_name_save_position"
 const savePositionMassage = "savePosition"

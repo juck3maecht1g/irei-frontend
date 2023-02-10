@@ -1,5 +1,5 @@
 import React from 'react'
-import { post } from '../choosePages/Other FetchAndSet';
+import { post } from '../backendComunication/BasicOpperations'
 const fetchAdress = "http://127.0.0.1:5000/api/execchangegripper"
 const Message = "execchangegripper"
 

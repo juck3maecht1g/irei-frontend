@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import PopUp from "../choosePages/PopUp";
+import PopUp from "./PopUp";
+
 
 
 

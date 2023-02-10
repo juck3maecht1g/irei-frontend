@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { passDataDirect, post } from '../backendComunication/BasicOpperations';
 import './Control.css';
-import {post, passDataDirect} from "../choosePages/Other FetchAndSet"
+
 const fetchAdressStop = "http://127.0.0.1:5000/api/stop"
 const fetchAdressName = "http://127.0.0.1:5000/api/get_base_name_stop"
 const stopMessage = "stop"

@@ -7,8 +7,10 @@ import SavePositionButton, { BaseNamePosition, informSavePosition } from './Save
 import EmergencyExit from './EmergencyExit';
 import ModeButton from './ModeButton';
 import "./../Theme.css"
-import { NamingPopUp } from './NamingPopUp';
-import { ErrorPopUp } from './ErrorPopUP';
+import { NamingPopUp } from '../PopUp/NamingPopUp';
+import { ErrorPopUp } from '../PopUp/ErrorPopUP';
+
+
 //import ApproachPositionActionButton from '../ApproachPositionActionButton';
 
 /**

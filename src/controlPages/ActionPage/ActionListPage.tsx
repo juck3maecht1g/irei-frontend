@@ -1,5 +1,4 @@
 import React from 'react';
-import {useState} from 'react';
 import TopBar from '../../TopBar';
 import ActionlistButton from './ActionlistButton';
 
@@ -11,22 +10,14 @@ export default function ActionListPage (props) {
 
     //const [actionlist, setActionlist] = useState(new Map<string, []>());
     //über Fetch set ActionList
-    const [actionlist, setActionlist] = useState( CreaateArray());
-
-    const array = Array.from(actionlist, function(entry) {
-        return { key: entry[0], value: entry[1]}
-    })
-
+    const actionlist = test;
     return ( 
         <div>
             <TopBar title="Actionlist"></TopBar>
             {
-                array.map((number) => {
+                actionlist.map((currElement, index) => {
                     return <div>
-                        <ActionlistButton key={number.key} 
-                        name={number.value[0]} 
-                        second={number.value[1]}
-                         kind={number.value[2]} />
+                        <ActionlistButton key={index} element={currElement} />
                     </div>
                 })
             }
@@ -34,23 +25,31 @@ export default function ActionListPage (props) {
      );
 }
 
-const CreaateArray = () => { // Müll zum testen
 
-    var happines = new Map()
-    happines.set("7", ["steering", "Niclas", "a"])
-    happines.set("8", ["steering", "dominik", "a"])
-    happines.set("9", ["steering", "rudolf", "a"])
-
-    var maood = new Map()
-    maood.set("1", ["gripper", "Niclas", "action"])
-    maood.set("2", ["gripper", "dominik", "a"])
-    maood.set("3", ["gripper", "rudolf", "a"])
-    maood.set("4", ["listeeee", happines, "l"])
-    maood.set("5", ["gripper", "tessa", "a"])
-    maood.set("6", ["gripper", "julie", "a"])
-
-    
-
-    return maood;
-}
+var position = new Map()
+    position.set("name", "bett")
+     position.set("coordinates", new Map([["?????", 234634]]))
+var robot = new Map ()
+    robot.set("name", "bot1")
+     robot.set("ip", 1)
+var closeGripper = new Map()
+    closeGripper.set("key", "close_gripper")
+     closeGripper.set("robots", [robot])
+var openGripper = new Map()
+    openGripper.set("key", "open_gripper")
+     openGripper.set("robots", [robot])   
+var custom = new Map()
+    custom.set("key", "custom"); custom.set("robots", [robot])
+    custom.set("action", "tischtennis")
+var wait = new Map()
  
+    wait.set("key", "wait"); wait.set("robots", [robot]); wait.set("time", 1235)
+var move = new Map()
+    move.set("key", "move"); move.set("robots", [robot]); move.set("position", position)
+var sList = new Map()
+    sList.set("key", "sequential_list");sList.set("name", "kochen"); sList.set("content", [closeGripper, openGripper])
+var pList = new Map()
+    pList.set("key", "parallel_list"); pList.set("name", "backen"); pList.set("content", [closeGripper, openGripper])
+var test = [closeGripper]
+    test.push(openGripper); test.push(custom); test.push(wait); test.push(move); test.push(sList); test.push(pList)
+    

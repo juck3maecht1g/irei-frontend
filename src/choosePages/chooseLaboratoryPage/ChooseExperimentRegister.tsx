@@ -1,10 +1,9 @@
 import React from 'react'
 import {useState} from 'react'
 import { Link } from 'react-router-dom';
-import { GetExperiments } from '../Other FetchAndSet';
+import { GetExperiments, SetExperiment } from '../../backendComunication/FetchAndSetDirExp';
 import TopBar from '../../TopBar';
 import '../Choose.css';
-import { SetExperiment } from '../Other FetchAndSet';
 
 /**
  * The ChooseExperimentRegister is used to choose 
@@ -47,6 +46,8 @@ function ChooseRegisterButton (props) {
      );
 }
 
+/*
 function SaveChoice () {
     //sent to Backend
 }
+*/
