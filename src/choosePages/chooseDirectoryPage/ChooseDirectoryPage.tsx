@@ -1,11 +1,10 @@
 import React from 'react'
 import {useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 import TopBar from '../../TopBar';
 import DirectoryButton from './DirectoryButton';
 import { GetDirectories, NavigateDown, NavigateUP, Create, DeleteDirectory, BaseNameDir } from '../../backendComunication/FetchAndSetDirExp';
 import { Link } from 'react-router-dom';
-
-import { informSavePosition } from '../../controlPages/SavePositionButton';
 import { NamingPopUp } from '../../PopUp/NamingPopUp';
 import { ErrorPopUp } from '../../PopUp/ErrorPopUP';
 
@@ -14,14 +13,23 @@ import { ErrorPopUp } from '../../PopUp/ErrorPopUP';
  * and choose a directory
  */
 export default function ChooseDirectoryPage () {
+    const navigate = useNavigate();
     const [directories, setDirectories] = useState(new Map<String,[]>());
     const [errorMessage, setErrorMessage] = useState("sorry something went wrong")
     const [error, setError] = useState(false)
+    var [popUpName, setPopUpName] = useState(false);
+    const [name, setName] = useState("")
     GetDirectories(setDirectories);
 
     const errorState = () => {
         setError(current => !current)
        }
+
+    
+    const createDir = () => {
+        Create(name)
+        navigate("/ChooseLaboratoryPage")
+    }
 
     const navUp = () => {
         NavigateUP();
@@ -33,8 +41,7 @@ export default function ChooseDirectoryPage () {
         window.location.reload()
     }
     
-    var [popUpName, setPopUpName] = useState(false);
-    const [name, setName] = useState("")
+
 
     const activatePopup = () => {
         setPopUpName(current => !current)
@@ -60,7 +67,7 @@ export default function ChooseDirectoryPage () {
             <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
             onClick = {()=> setPopUpName(true)}>create</button>
             <NamingPopUp active = {popUpName} deactivate={activatePopup} forErrors={errorState}
-            confirm={informSavePosition} getBaseName={BaseNameDir} errorMessage={setErrorMessage}/>
+            confirm={createDir} getBaseName={BaseNameDir} errorMessage={setErrorMessage}/>
             <ErrorPopUp active={error} deactivate={errorState} message={errorMessage}/>
         </div>
      );

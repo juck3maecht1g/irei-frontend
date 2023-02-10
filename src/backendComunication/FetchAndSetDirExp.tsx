@@ -7,7 +7,7 @@ const postAdressNavigateUP = "http://127.0.0.1:5000/api/navigate_up"
 const postAdressNavigateDown = "http://127.0.0.1:5000/api/navigate_down"
 const postAdressCreateDirectory = "http://127.0.0.1:5000/api/create_dirctory"
 const postAdressDeleteDirectory = "http://127.0.0.1:5000/api/delete_dirctory"
-const fetchAdressName = ""
+const fetchAdressName = "http://127.0.0.1:5000/api/get_base_name_dir"
 
 // contains dummy
 
@@ -64,6 +64,7 @@ export async function NavigateDown(directory){
 
 const markerCreate = "crerate"
 export async function Create(name){
+    console.log(name)
     var message =  new Map()
     message.set("marker", markerCreate)
     message.set("name", name)
