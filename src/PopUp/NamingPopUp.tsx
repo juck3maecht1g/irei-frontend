@@ -29,10 +29,16 @@ export function NamingPopUp(props) {
                     props.deactivate()
                     }}
                     >confirm</button>
-                    
-                    
+                   
+                   
                     : <></>
-                }
+                } 
+                <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
+                    onClick={() => {
+                    props.deactivate()
+                    }}
+                    >cancel</button>
+                   
                 </PopUp>
         )
 }
