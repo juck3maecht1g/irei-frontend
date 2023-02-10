@@ -63,12 +63,17 @@ export async function NavigateDown(directory){
 }
 
 const markerCreate = "crerate"
-export async function Create(name){
-    console.log(name)
+export async function Create(action, name, setErrorMessage){
     var message =  new Map()
     message.set("marker", markerCreate)
     message.set("name", name)
-    post(message, postAdressCreateDirectory)
+    const result = Object.fromEntries(message)
+    post(result, postAdressCreateDirectory).then(res => {
+        if(res !== "Done") {
+            setErrorMessage(res)
+            action()
+        }
+})
 
 }
 const markerDeleteDirectory = "delete_directory"
@@ -76,8 +81,8 @@ export async function DeleteDirectory(name){
     var message =  new Map()
     message.set("marker", markerDeleteDirectory)
     message.set("name", name)
-    
-    post(message, postAdressDeleteDirectory)
+    const result = Object.fromEntries(message)
+    post(result, postAdressCreateDirectory)
 
 }
 

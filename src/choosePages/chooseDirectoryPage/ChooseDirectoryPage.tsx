@@ -18,7 +18,6 @@ export default function ChooseDirectoryPage () {
     const [errorMessage, setErrorMessage] = useState("sorry something went wrong")
     const [error, setError] = useState(false)
     var [popUpName, setPopUpName] = useState(false);
-    const [name, setName] = useState("")
     GetDirectories(setDirectories);
 
     const errorState = () => {
@@ -26,8 +25,8 @@ export default function ChooseDirectoryPage () {
        }
 
     
-    const createDir = () => {
-        Create(name)
+    const createDir = (action, name, setErrorMessage) => {
+        Create(action, name, setErrorMessage)
         navigate("/ChooseLaboratoryPage")
     }
 
