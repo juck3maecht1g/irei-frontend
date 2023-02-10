@@ -10,7 +10,7 @@ const resetMessage = "reset"
 
 function informReset(errorMessage, forErrors) {
     post(resetMessage, fetchAdress).then(res=> {
-        if(res != "Done") {
+        if(res !== "Done") {
            errorMessage(res)
            forErrors()
             

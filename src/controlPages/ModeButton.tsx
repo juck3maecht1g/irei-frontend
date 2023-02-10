@@ -25,7 +25,7 @@ function ModeButton (props) {
     GetMode(setMode)
     const test = () => {
     post(cycleModeMassage, postAdress).then(res => {
-    if(res != "Done") {
+    if(res !== "Done") {
         props.errorMessage(res)
         props.forErrors()
         

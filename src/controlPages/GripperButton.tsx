@@ -5,7 +5,7 @@ const Message = "execchangegripper"
 
 function informexecChangeGripper(errorMessage, forErrors) {
     post(Message, fetchAdress).then(res=> {
-        if(res != "Done") {
+        if(res !== "Done") {
            errorMessage(res)
            forErrors()
             

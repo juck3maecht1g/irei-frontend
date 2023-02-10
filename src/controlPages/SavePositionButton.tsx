@@ -11,7 +11,7 @@ export function informSavePosition(action, name, setErrorMessage) {
     to_post.set("name", name)
     const result = Object.fromEntries(to_post)
     post(result, fetchAdress).then(res => {
-            if(res != "Done") {
+            if(res !== "Done") {
                 setErrorMessage(res)
                 action()
             }

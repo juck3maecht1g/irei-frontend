@@ -6,7 +6,7 @@ import ActionlistButton from './ActionlistButton';
  * The ActionListPage is used to edit a list of actions by adding new action and deleting others
  */
 export default function ActionListPage (props) {
-    
+
 
     //const [actionlist, setActionlist] = useState(new Map<string, []>());
     //über Fetch set ActionList
