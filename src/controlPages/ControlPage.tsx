@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import LoggerButton from './LoggerButton';
-
+import LoggerButton, { BaseNameStop , postLoggingStop}  from './LoggerButton';
 import TopBar from './../TopBar'
 import GrippperButton from "./GripperButton"
 import ResetButton from './ResetButton';
@@ -8,7 +7,6 @@ import SavePositionButton, { BaseNamePosition, informSavePosition } from './Save
 import EmergencyExit from './EmergencyExit';
 import ModeButton from './ModeButton';
 import "./../Theme.css"
-import PopUp from '../choosePages/PopUp';
 import { NamingPopUp } from './NamingPopUp';
 import { ErrorPopUp } from './ErrorPopUP';
 //import ApproachPositionActionButton from '../ApproachPositionActionButton';
@@ -18,20 +16,21 @@ import { ErrorPopUp } from './ErrorPopUP';
  * or to control Robots in the current scene
  */
 function ControlPage (props) {
-    const errorMessagePosition= "sorry position could not be saved"
-    
+    const [errorMessage, setErrorMessage] = useState("sorry position could not be saved")
     const [started, setIsStarted] = useState(false);
-    const [notSaved, setNotSaved] = useState(false)
     const [namePosition, setNamePosition] = useState(false)
     const [nameSave, setNameSave] = useState(false)
-    const [noPosition, setNoPosition] = useState(false)
+    const [error, setError] = useState(false)
 
-    const noPositionSaved = () => {
-       setNoPosition(current => !current)
+    const errorState = () => {
+       setError(current => !current)
       }
       
     const namePos= () => {
         setNamePosition(current => !current)
+    }
+    const nameSaved= () => {
+        setNameSave(current => !current)
     }
    
     const startedLogging = () => {
@@ -43,16 +42,18 @@ function ControlPage (props) {
         <div >
             <TopBar title="Control"></TopBar>
             <h1>
-                <ResetButton/>
+                <ResetButton forErrors={errorState} errorMessage={setErrorMessage}/>
                 <SavePositionButton action={namePos}/>
-                <GrippperButton/>
-                <LoggerButton state={started} action={startedLogging}/>
+                <GrippperButton forErrors={errorState} errorMessage={setErrorMessage}/>
+                <LoggerButton state={started} action={startedLogging} stoped={nameSaved}/>
                 <EmergencyExit />
-                <ModeButton />
+                <ModeButton forErrors={errorState} errorMessage={setErrorMessage}/>
             </h1>
-            <NamingPopUp active = {namePosition} deactivate={namePos} forErrors={noPositionSaved}
-            confirm={informSavePosition} getBaseName={BaseNamePosition}/>
-            <ErrorPopUp active={noPosition} deactivate={noPositionSaved} message={errorMessagePosition}/>
+            <NamingPopUp active = {namePosition} deactivate={namePos} forErrors={errorState}
+            confirm={informSavePosition} getBaseName={BaseNamePosition} errorMessage={setErrorMessage}/>
+             <NamingPopUp active = {nameSave} deactivate={nameSaved} forErrors={errorState}
+            confirm={postLoggingStop} getBaseName={BaseNameStop} errorMessage={setErrorMessage}/>
+            <ErrorPopUp active={error} deactivate={errorState} message={errorMessage}/>
         </div>
      );
 }

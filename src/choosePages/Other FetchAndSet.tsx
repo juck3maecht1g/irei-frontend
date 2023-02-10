@@ -24,7 +24,8 @@ export async function SetExperiment(experiment){
     var message =  new Map()
     message.set("marker", "SetExperiment")
     message.set("experiment", experiment)
-    post(message, postAdressChosenExperiment)
+    const result = Object.fromEntries(message)
+    post(result, postAdressChosenExperiment)
 
 }
 

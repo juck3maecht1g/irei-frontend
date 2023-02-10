@@ -1,31 +1,25 @@
 import React from 'react'
+import { post } from '../choosePages/Other FetchAndSet';
 const fetchAdress = "http://127.0.0.1:5000/api/execchangegripper"
-const Massage = "execchangegripper"
+const Message = "execchangegripper"
 
-function informexecChangeGripper() {
-    async function post (){
-        const response = await fetch(fetchAdress, {
-            'method': 'POST',
-            headers : {
-            'Content-Type': 'application/json'
-            },
-            body : JSON.stringify(Massage)
-        })
-        if(response.ok) {
-            //todo
+function informexecChangeGripper(errorMessage, forErrors) {
+    post(Message, fetchAdress).then(res=> {
+        if(res != "Done") {
+           errorMessage(res)
+           forErrors()
+            
         }
-    }
-    
-    post()
+    })
 }
 
 /**
  * The GripperButton is used to control the Gripper auf chosen Robots
  */
-function GripperButton () {
+function GripperButton (props) {
     return ( 
         <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-         onClick={informexecChangeGripper}>gripper</button>
+         onClick={()=> {informexecChangeGripper(props.errorMessage, props.forErrors)}}>gripper</button>
      );
 }
  
