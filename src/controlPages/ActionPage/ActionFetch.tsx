@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { passDataAsMap, passDataDirect , post} from "../../choosePages/Other FetchAndSet"
+import { passDataDirect, post, passDataAsMap } from "../../backendComunication/BasicOpperations"
 
 const fetchAdressAllActionLists = "/api/get-action_lists"
 const postAdressActionList = "/api/set_action_list"

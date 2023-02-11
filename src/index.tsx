@@ -2,14 +2,20 @@ import React from "react";
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import ControlPage from "./controlPages/ControlPage"
+
 import ChooseDirectoryPage from "./choosePages/chooseDirectoryPage/ChooseDirectoryPage"
 import ChooseLaboratoryPage from "./choosePages/chooseLaboratoryPage/ChooseLaboratoryPage"
-import ChooseLanguagePage from "./choosePages/chooseLanguagePage/ChooseLanguagePage"
 import ChooseRobotPageMultiple from "./choosePages/chooseRobotPage/ChooseRobotPage";
-import ChooseVariablePage from "./choosePages/chooseVariablePage/ChooseVariablePage"
 import ChooseExperimentRobots from "./choosePages/chooseLaboratoryPage/ChooseExperimentRobots";
 import ChooseExperimentRegister from "./choosePages/chooseLaboratoryPage/ChooseExperimentRegister";
+
 import ActionListPage from "./controlPages/ActionPage/ActionListPage";
+import ChooseListPage from "./controlPages/ActionPage/ChooseListPage";
+
+import ChooseVariablePage from "./choosePages/chooseVariablePage/ChooseVariablePage"
+
+import ChooseLanguagePage from "./choosePages/chooseLanguagePage/ChooseLanguagePage"
+import ChooseRobotPage from "./choosePages/chooseRobotPage/ChooseRobotPage";
 
 export default function App (){
     return (
@@ -27,6 +33,9 @@ export default function App (){
           <Route path="/ChooseExperimentRegister" element={<ChooseExperimentRegister/>} />
           
           <Route path="/ActionListPage" element={<ActionListPage/>} />
+          <Route path="/ChooseListPage" element={<ChooseListPage/>} />
+
+          <Route path="/ChooseRobot" element={<ChooseRobotPage/>} />
         </Routes>
       </BrowserRouter>
       </div>

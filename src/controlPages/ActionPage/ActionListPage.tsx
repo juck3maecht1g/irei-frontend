@@ -1,6 +1,7 @@
 import React from 'react';
 import TopBar from '../../TopBar';
 import ActionlistButton from './ActionlistButton';
+import { Link } from 'react-router-dom';
 
 /**
  * The ActionListPage is used to edit a list of actions by adding new action and deleting others
@@ -21,6 +22,9 @@ export default function ActionListPage (props) {
                     </div>
                 })
             }
+            <Link to = {"/ActionKindPage"}>
+                <button>new action</button>
+            </Link>
         </div>
      );
 }
