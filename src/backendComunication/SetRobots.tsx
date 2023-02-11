@@ -6,23 +6,80 @@ const postAdressSavePositionRobots = "http://127.0.0.1:5000/api/api/setSavePosit
 
 
 
-export async function SetExpRobots(robotIps){
+export async function SetExpRobots(action, robots, setErrorMessage){
+    var ipList = []
+    for(var key of robots.keys()){
+      ipList.push(key)
+    }
     var message =  new Map()
     message.set("marker", "SetExpRobots")
-    message.set("robot_ips", robotIps)
-    post(robotIps, postAdressExpRobots)
+    message.set("robot_ips", ipList)
+    var reload = false
+    const result = Object.fromEntries(message)
+    await post(result, postAdressExpRobots).then(res => {
+        if(res !== "Done") {
+            setErrorMessage(res)
+            action()
+            console.log(1)
+           reload = false
+        }
+      else {
+       reload = true
+      }
+    })
+
+    return reload
+
   }
-export async function SetChangeGripperRobots(robotIps){
+export async function SetChangeGripperRobots(action, robots, setErrorMessage){
+  var ipList = []
+    for(var key of robots.keys()){
+      ipList.push(key)
+    }
     var message =  new Map()
     message.set("marker", "SetChangeGripperRobots")
-    message.set("robot_ips", robotIps)
-    post(message, postAdressChangeGripperRobots)
+    message.set("robot_ips", ipList)
+    var reload = false
+    const result = Object.fromEntries(message)
+    await post(result, postAdressChangeGripperRobots).then(res => {
+        if(res !== "Done") {
+            setErrorMessage(res)
+            action()
+            console.log(1)
+           reload = false
+        }
+      else {
+       reload = true
+      }
+    })
+
+    return reload
+
 }
-export async function SetSavePositionRobot(robotIps){
+export async function SetSavePositionRobot(action, robots, setErrorMessage){
+  var ipList = []
+    for(var key of robots.keys()){
+      ipList.push(key)
+    }
     var message =  new Map()
     message.set("marker", "SetSavePositionRobot")
-    message.set("robot_ip", robotIps)
-    post(robotIps, postAdressSavePositionRobots)
+    message.set("robot_ip", ipList)
+    var reload = false
+    const result = Object.fromEntries(message)
+    await post(result, postAdressSavePositionRobots).then(res => {
+        if(res !== "Done") {
+            setErrorMessage(res)
+            action()
+            console.log(1)
+           reload = false
+        }
+      else {
+       reload = true
+      }
+    })
+
+    return reload
+
 }
 
 

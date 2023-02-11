@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import { getLabs } from '../../backendComunication/FetchAndSetLab';
+import { getLabs, informLabChoise } from '../../backendComunication/FetchAndSetLab';
+import { ErrorPopUp } from '../../PopUp/ErrorPopUP';
 import TopBar from '../../TopBar';
 import ChooseLaboratoryButton from './ChooseLaboratoryButton';
 const fetchAdress = "http://127.0.0.1:5000/api/getLab";
@@ -10,13 +11,24 @@ const fetchAdress = "http://127.0.0.1:5000/api/getLab";
  * the Laboratory the user wants to work in
  */
 export default function ChooseLaboratoryPage() {
-
+  const [errorMessage, setErrorMessage] = useState("sorry something went wrong")
+  const [error, setError] = useState(false)
     const [labs, setLabs] = useState(new Map<string, Map<string, string>>()); // key = labname, value = robot list
     var [fetched, setfetched] = useState(false)
     getLabs(setLabs, fetched, setfetched)
+
+    const errorState = () => {
+      setError(current => !current)
+     }
+
+
     const arrLabs = Array.from(labs, function (entry) {
       return { key: entry[0], value: entry[1]};
     });
+
+
+    const action = (name) => {  informLabChoise(errorState,name, setErrorMessage)
+    }
 
     const robots = (key) => {
      return Array.from(labs.get(key), function (entry) {
@@ -29,10 +41,11 @@ export default function ChooseLaboratoryPage() {
         <TopBar title="Choose Laboratory"></TopBar>
         {
           arrLabs.map((number) => {
-            return <ChooseLaboratoryButton name={number.key} 
+            return <ChooseLaboratoryButton name={number.key} action={action}
             buttons = {robots} />
           })
         }
+         <ErrorPopUp active={error} deactivate={errorState} message={errorMessage}/>
       </div>
     );
 }

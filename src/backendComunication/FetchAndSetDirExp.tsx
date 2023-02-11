@@ -21,12 +21,18 @@ export async function GetExperiments(setExperiments){
 
 }
 
-export async function SetExperiment(experiment){
+export async function SetExperiment(action, name, setErrorMessage){
     var message =  new Map()
     message.set("marker", "SetExperiment")
-    message.set("experiment", experiment)
+    message.set("experiment", name)
+    console.log(message)
     const result = Object.fromEntries(message)
-    post(result, postAdressChosenExperiment)
+    post(result, postAdressChosenExperiment).then(res => {
+        if(res !== "Done") {
+            setErrorMessage(res)
+            action()
+        }
+})
 
 }
 
@@ -48,17 +54,45 @@ export async function GetDirectories(setDirectories){
 
 
 const markerNavUP = "navigate_up"
-export async function NavigateUP(){
+export async function NavigateUP(action,setErrorMessage){
     var message =  new Map()
+    var reload = false
     message.set("marker", markerNavUP)
-    post(message, postAdressNavigateUP)
+    const result = Object.fromEntries(message)
+    await post(result, postAdressNavigateUP).then(res => {
+        if(res !== "Done") {
+            setErrorMessage(res)
+            action()
+           reload = false
+        } else {
+
+       reload = true}
+    })
+
+    return reload
+
+
 }
 const markerNavDown = "navigate_down"
-export async function NavigateDown(directory){
+export async function NavigateDown(action, name, setErrorMessage){
     var message =  new Map()
+   
     message.set("marker", markerNavDown)
-    message.set("dir", directory)
-    post(message, postAdressNavigateDown)
+    message.set("dir", name)
+     var reload = false
+    const result = Object.fromEntries(message)
+    await post(result, postAdressNavigateDown).then(res => {
+        if(res !== "Done") {
+            setErrorMessage(res)
+            action()
+           reload = false
+        }
+      else {
+       reload = true
+      }
+    })
+
+    return reload
 
 }
 
@@ -68,7 +102,7 @@ export async function Create(action, name, setErrorMessage){
     message.set("marker", markerCreate)
     message.set("name", name)
     const result = Object.fromEntries(message)
-    post(result, postAdressCreateDirectory).then(res => {
+    await post(result, postAdressCreateDirectory).then(res => {
         if(res !== "Done") {
             setErrorMessage(res)
             action()
@@ -77,12 +111,17 @@ export async function Create(action, name, setErrorMessage){
 
 }
 const markerDeleteDirectory = "delete_directory"
-export async function DeleteDirectory(name){
+export async function DeleteDirectory(action, name, setErrorMessage){
     var message =  new Map()
     message.set("marker", markerDeleteDirectory)
     message.set("name", name)
     const result = Object.fromEntries(message)
-    post(result, postAdressCreateDirectory)
+    await post(result, postAdressDeleteDirectory).then(res => {
+        if(res !== "Done") {
+            setErrorMessage(res)
+            action()
+        }
+})
 
 }
 

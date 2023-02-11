@@ -1,19 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TopBar from '../../TopBar';
 import ChooseButton from '../ChooseRobotButton';
 import { useLocation } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import { SetExpRobots } from '../../backendComunication/SetRobots';
+import { ErrorPopUp } from '../../PopUp/ErrorPopUP';
 /**
  * The ChooserobotPage is used to choose the robots
  * the user wants to work with
  */
 export default function ChooseExperimentRobots(){
-
+    const [errorMessage, setErrorMessage] = useState("sorry something went wrong")
+    const [error, setError] = useState(false)
     const location = useLocation();
     const { from } = location.state;
 
     var chosen =  new Map<string, string>() // the chosen robots 
-
+    const errorState = () => {
+        setError(current => !current)
+       }
 
     const clickedBot = (ip, name) => {
         if (chosen.has(ip))  {
@@ -21,11 +26,11 @@ export default function ChooseExperimentRobots(){
         } else {
             chosen.set(ip,name)
         }
-        console.log(chosen)
+     
     }
 
     const confirm = () => {
-        // to do sent map chosen back to the backend
+       SetExpRobots(errorState, chosen, setErrorMessage)
     }
 
     const buttons = from.map((number) => { 
@@ -54,6 +59,7 @@ export default function ChooseExperimentRobots(){
             <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
              onClick={confirm}>confirm</button>
         </Link>
+        <ErrorPopUp active={error} deactivate={errorState} message={errorMessage}/>
         </div>
     );
 }

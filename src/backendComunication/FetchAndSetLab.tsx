@@ -8,15 +8,25 @@ const fetchAdress = "http://127.0.0.1:5000/api/getLab";
      * 
      * @param labName  name of the chosen lab
      */
- export async function informLabChoise (labName){
-    post(labName, postAdressLab)
-    /*const response = await fetch(postAdressLab, {
-        'method': 'POST',
-        headers : {
-        'Content-Type': 'application/json'
-        },
-        body : JSON.stringify(labName)
-    })*/
+ export async function informLabChoise (action, labName, setErrorMessage){
+  var message =  new Map()
+  message.set("marker", "setCurrentLab")
+  message.set("name", labName)
+  var reload = false
+  const result = Object.fromEntries(message)
+  await post(result, postAdressLab).then(res => {
+      if(res !== "Done") {
+          setErrorMessage(res)
+          action()
+          console.log(1)
+         reload = false
+      }
+    else {
+     reload = true
+    }
+  })
+
+  return reload
 
     
   }
@@ -42,7 +52,7 @@ export async function getLabs(setLabs, fetched, setfetched){
         for(let i = 0; i < data.length; i++) {
             var robots = new Map()
             for(let j = 0; j < data[i].robots.length; j++) {
-              robots.set(data[i].robots[j].name, data[i].robots[j].ip)
+              robots.set(data[i].robots[j].ip, data[i].robots[j].name)
             }
           labs.set(data[i].name, robots)
         }

@@ -24,20 +24,25 @@ export default function ChooseDirectoryPage () {
         setError(current => !current)
        }
 
-    
     const createDir = (action, name, setErrorMessage) => {
-        Create(action, name, setErrorMessage)
+          Create(action, name, setErrorMessage)
         navigate("/ChooseLaboratoryPage")
     }
 
     const navUp = () => {
-        NavigateUP();
-        window.location.reload()
+        NavigateUP(errorState,setErrorMessage).then(res => {
+            if(res) {
+            window.location.reload()
+            }
+        })
     }
 
-    const navDown = (folder) => {
-        NavigateDown( folder);
-        window.location.reload()
+    const navDown = (name) => {
+        NavigateDown( errorState, name, setErrorMessage).then(res => {
+            if(res) {
+            window.location.reload()
+            }
+        })
     }
     
 
