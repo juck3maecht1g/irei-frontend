@@ -7,6 +7,7 @@ const postAdressNavigateUP = "http://127.0.0.1:5000/api/navigate_up"
 const postAdressNavigateDown = "http://127.0.0.1:5000/api/navigate_down"
 const postAdressCreateDirectory = "http://127.0.0.1:5000/api/create_dirctory"
 const postAdressDeleteDirectory = "http://127.0.0.1:5000/api/delete_dirctory"
+const postAdressConfirmDirChoisey = "http://127.0.0.1:5000/api/confirm_dir_coise"
 const fetchAdressName = "http://127.0.0.1:5000/api/get_base_name_dir"
 
 // contains dummy
@@ -102,12 +103,19 @@ export async function Create(action, name, setErrorMessage){
     message.set("marker", markerCreate)
     message.set("name", name)
     const result = Object.fromEntries(message)
+    var reload = false
     await post(result, postAdressCreateDirectory).then(res => {
         if(res !== "Done") {
             setErrorMessage(res)
             action()
+           reload = false
         }
-})
+      else {
+       reload = true
+      }
+    })
+
+    return reload
 
 }
 const markerDeleteDirectory = "delete_directory"
@@ -116,12 +124,19 @@ export async function DeleteDirectory(action, name, setErrorMessage){
     message.set("marker", markerDeleteDirectory)
     message.set("name", name)
     const result = Object.fromEntries(message)
+    var reload = false
     await post(result, postAdressDeleteDirectory).then(res => {
         if(res !== "Done") {
             setErrorMessage(res)
             action()
+           reload = false
         }
-})
+      else {
+       reload = true
+      }
+    })
+
+    return reload
 
 }
 
@@ -130,4 +145,21 @@ export function BaseNameDir(setName) {
     passDataDirect(setName, fetched, setFetched, fetchAdressName)
 }
 
+const confirmMarker = "confirm_dir_coise"
+export async function confirmDirChoise(action,setErrorMessage) {
+    var reload = false
+    await post(confirmMarker, postAdressConfirmDirChoisey).then(res => {
+        if(res !== "Done") {
+            setErrorMessage(res)
+            action()
+           reload = false
+        }
+      else {
+       reload = true
+      }
+    })
+
+    return reload
+
+}
 

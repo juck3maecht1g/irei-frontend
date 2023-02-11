@@ -31,10 +31,7 @@ export async function GetGripperRobots(setRobots){
 
     export async function GetLabRobots(setRobots, labName){
         var [fetched, setfetched] = useState(false) 
-        
-        informLabChoise(labName).then(res => {
         getRobots(setRobots, fetched, setfetched, fetchAdressLabRobots)
-        })
       }
 
   /** gets a list of robots from the specified adress and sublies them ad map to the specified usestate

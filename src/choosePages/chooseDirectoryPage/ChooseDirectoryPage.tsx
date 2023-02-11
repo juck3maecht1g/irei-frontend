@@ -3,7 +3,7 @@ import {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import TopBar from '../../TopBar';
 import DirectoryButton from './DirectoryButton';
-import { GetDirectories, NavigateDown, NavigateUP, Create, DeleteDirectory, BaseNameDir } from '../../backendComunication/FetchAndSetDirExp';
+import { GetDirectories, NavigateDown, NavigateUP, Create, DeleteDirectory, BaseNameDir, confirmDirChoise } from '../../backendComunication/FetchAndSetDirExp';
 import { Link } from 'react-router-dom';
 import { NamingPopUp } from '../../PopUp/NamingPopUp';
 import { ErrorPopUp } from '../../PopUp/ErrorPopUP';
@@ -25,8 +25,12 @@ export default function ChooseDirectoryPage () {
        }
 
     const createDir = (action, name, setErrorMessage) => {
-          Create(action, name, setErrorMessage)
-        navigate("/ChooseLaboratoryPage")
+          Create(action, name, setErrorMessage).then(res => {
+            if(res) {
+                navigate("/ChooseLaboratoryPage")
+            }
+        }
+        )
     }
 
     const navUp = () => {
@@ -45,6 +49,14 @@ export default function ChooseDirectoryPage () {
         })
     }
     
+    const confirmChoise = () => {
+        confirmDirChoise(errorState, setErrorMessage).then(res => {
+            if(res) {
+                navigate("/ControlPage")
+            }
+        }
+        )
+    }
 
 
     const activatePopup = () => {
@@ -64,10 +76,10 @@ export default function ChooseDirectoryPage () {
             </div>
             <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
             onClick = {navUp}>navigate up</button>
-            <Link to = {"/ControlPage"}>
-            <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+        
+            <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={confirmChoise}
             >confirm</button>
-            </Link>
+         
             <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
             onClick = {()=> setPopUpName(true)}>create</button>
             <NamingPopUp active = {popUpName} deactivate={activatePopup} forErrors={errorState}
