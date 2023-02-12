@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import './topbar.css'
 import 'material-icons'
+import { Link } from 'react-router-dom';
 import NavigationButton from './NavigationButton'
 
 function TopBar(props) {
@@ -29,6 +30,7 @@ function TopBar(props) {
         for="menu">
           <li class="mdl-menu__item">
             <NavigationButton destination="Control" destinationLink="/ControlPage"></NavigationButton>
+            
           </li>
           <li class="mdl-menu__item">
             <NavigationButton destination="Edit ActionList" destinationLink="/EditActionListPage"></NavigationButton>
@@ -44,9 +46,6 @@ function TopBar(props) {
           </li>
           <li class="mdl-menu__item">
             <NavigationButton destination="C Language" destinationLink="/ChooseLanguagePage"></NavigationButton>
-          </li>
-          <li class="mdl-menu__item">
-            <NavigationButton destination="C Name" destinationLink="/ChooseNamePage"></NavigationButton>
           </li>
           <li class="mdl-menu__item">
             <NavigationButton destination="C Robot" destinationLink="/ChooseRobotPage"></NavigationButton>

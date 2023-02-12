@@ -17,7 +17,7 @@ export function postLoggingStop(errorfunction, name, setErrorMessage) {
   to_post.set("name", name)
   const result = Object.fromEntries(to_post)
   post(result, fetchAdressStop).then(res => {
-    if(res != "Done") {
+    if(res !== "Done") {
         setErrorMessage(res)
         errorfunction()
     }

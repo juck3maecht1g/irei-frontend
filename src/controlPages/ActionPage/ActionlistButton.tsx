@@ -14,7 +14,7 @@ export default function ActionlistButton (props) {
 
     const createButtons = () => {
         console.log(action.get("content"))
-        if (action.get("content") != undefined) {
+        if (action.get("content") !== undefined) {
         return action.get("content").map((currElement, index) => {
             return <div>
                 <ActionlistButton key={index} element={currElement} />

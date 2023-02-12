@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import TopBar from '../../TopBar';
 import DirectoryButton from './DirectoryButton';
 import { GetDirectories, NavigateDown, NavigateUP, Create, DeleteDirectory, BaseNameDir, confirmDirChoise } from '../../backendComunication/FetchAndSetDirExp';
-import { Link } from 'react-router-dom';
 import { NamingPopUp } from '../../PopUp/NamingPopUp';
 import { ErrorPopUp } from '../../PopUp/ErrorPopUP';
 

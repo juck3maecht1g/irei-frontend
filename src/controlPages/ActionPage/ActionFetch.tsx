@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+
+import { useState } from "react"
 import { passDataDirect, post, passDataAsMap } from "../../backendComunication/BasicOpperations"
 
 const fetchAdressAllActionLists = "/api/get-action_lists"
