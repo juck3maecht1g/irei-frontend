@@ -14,6 +14,13 @@ export default function ChooseRobotPage(props){
     const { link } = location.state;
     const { execute } = location.state;
 
+    const action = (ip) => {
+       var help = new Map();
+       help.set("key", kind);
+       help.set("robot", ip)
+       execute(help);
+    }
+
     var [robots, setRobots] = useState(new Map<string, string>());
     GetExpRobots(setRobots)
 
@@ -27,7 +34,7 @@ export default function ChooseRobotPage(props){
       name= {number.value}
       actionKind={kind}
       linkTo={link}
-      action = {execute}/>
+      action = {action}/>
     })
 
     return (
@@ -47,7 +54,8 @@ function RobotButton (props) {
   return (   // noch zurückschicken wenn Gripper
     <Link to = {props.linkTo}
           state = {{kind: props.actionKind, ip: props.data_key}}>
-        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        <button onClick = {() => props.action(props.data_key)}
+        className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
           <div>{props.name}</div>
           <div>{props.data_key}</div>
         </button>

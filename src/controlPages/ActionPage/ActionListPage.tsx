@@ -10,7 +10,6 @@ import { GetActionListContent } from './ActionFetch';
  */
 export default function ActionListPage (props) {
 
-
     const [actionlist, setActionlist] = useState([]);
     GetActionListContent(setActionlist)
     

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { appendAction } from '../ActionFetch';
 
 export default function SetTimePage() {
     const [time, setTime] = useState('0')
@@ -11,8 +12,11 @@ export default function SetTimePage() {
 
 
     const sentToBackend = () => {
-        var actionParameters = kind + "!" + ip + "!" + time;
-        //post this just where append
+        var actionParameters = new Map<string, string>();
+        actionParameters.set("key", kind);
+        actionParameters.set("robot", ip);
+        actionParameters.set("time", time);
+        appendAction(actionParameters);
     }
 
     return (
