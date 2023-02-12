@@ -12,7 +12,7 @@ export default function SetTimePage() {
 
     const sentToBackend = () => {
         var actionParameters = kind + "!" + ip + "!" + time;
-        //post this just where
+        //post this just where append
     }
 
     return (

@@ -2,7 +2,7 @@ import React from 'react';
 import {useState} from 'react';
 import { Link } from 'react-router-dom';
 import TopBar from '../../TopBar';
-import { GetActionListNames } from './ActionFetch';
+import { GetActionListNames, SetActionList } from './ActionFetch';
 
 /**
  * The ChooseListPage is used to choose an existing list of action 
@@ -11,11 +11,15 @@ export default function ChooseListPage (props) {
     const [lists, setList] = useState([]);
     GetActionListNames(setList)
 
+    const sentChoiceBack = (name) => {
+        SetActionList(name)
+    }
+
     const buttons = lists.map((number) => {
         return <Link
         to = {"/ActionListPage"}
      >
-     <button onClick = {sentToBackend}
+     <button onClick = {() => sentChoiceBack(number)}
      className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
          {number}
      </button>
@@ -29,7 +33,3 @@ export default function ChooseListPage (props) {
         </div>
     )
 }
-
-function sentToBackend () {
-
-} // noch implementiert werden mit Button
