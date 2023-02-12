@@ -29,12 +29,8 @@ function TopBar(props) {
         <ul class="mdl-menu__outline mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
         for="menu">
           <li class="mdl-menu__item">
-            {/*<NavigationButton destination="Control" destinationLink="/ControlPage"></NavigationButton>*/}
-            <Link to="/ControlPage">
-                <button className="navigation-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                  {this.props.destination}
-                </button>
-            </Link>
+            <NavigationButton destination="Control" destinationLink="/ControlPage"></NavigationButton>
+            
           </li>
           <li class="mdl-menu__item">
             <NavigationButton destination="Edit ActionList" destinationLink="/EditActionListPage"></NavigationButton>
