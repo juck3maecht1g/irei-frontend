@@ -12,10 +12,11 @@ import ChooseExperimentRegister from "./choosePages/chooseLaboratoryPage/ChooseE
 import ActionListPage from "./controlPages/ActionPage/ActionListPage";
 import ChooseListPage from "./controlPages/ActionPage/ChooseListPage";
 
-import ChooseVariablePage from "./choosePages/chooseVariablePage/ChooseVariablePage"
+import ChooseVariablePage from "./controlPages/ActionPage/actionkind/ChooseVariablePage";
+import ChooseRobotPage from "./choosePages/chooseRobotPage/ChooseRobotPage";
+import SetTimePage from "./controlPages/ActionPage/actionkind/SetTimePage";
 
 import ChooseLanguagePage from "./choosePages/chooseLanguagePage/ChooseLanguagePage"
-import ChooseRobotPage from "./choosePages/chooseRobotPage/ChooseRobotPage";
 
 export default function App (){
     return (
@@ -28,7 +29,6 @@ export default function App (){
           <Route path="/ChooseLaboratoryPage" element={<ChooseLaboratoryPage/>} />
           <Route path="/ChooseLanguagePage" element={<ChooseLanguagePage/>} />
           <Route path="/ChooseRobotPageMultiple" element={<ChooseRobotPageMultiple/>} />
-          <Route path="/ChooseVariablePage" element={<ChooseVariablePage/>} />
           <Route path="/ChooseExperimentRobots" element={<ChooseExperimentRobots/>} />
           <Route path="/ChooseExperimentRegister" element={<ChooseExperimentRegister/>} />
           
@@ -36,6 +36,8 @@ export default function App (){
           <Route path="/ChooseListPage" element={<ChooseListPage/>} />
 
           <Route path="/ChooseRobot" element={<ChooseRobotPage/>} />
+          <Route path="/ChooseVariablePage" element={<ChooseVariablePage/>} />
+          <Route path="/SetTimePage" element={<SetTimePage/>} />
         </Routes>
       </BrowserRouter>
       </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from 'react-router-dom';
 import { GetExpRobots } from '../../backendComunication/FetchRobots';
+import TopBar from '../../TopBar';
 
 /**
  * The ChooserobotPage is used to choose the robots
@@ -9,9 +9,9 @@ import { GetExpRobots } from '../../backendComunication/FetchRobots';
  */
 export default function ChooseRobotPage(props){
 
-  const location = useLocation();
-  const { kind } = location.state;
-  const { link } = location.state;
+    const location = useLocation();
+    const { kind } = location.state;
+    const { link } = location.state;
 
     var [robots, setRobots] = useState(new Map<string, string>());
     GetExpRobots(setRobots)
@@ -30,6 +30,7 @@ export default function ChooseRobotPage(props){
 
     return (
       <div>
+        <TopBar title="Choose Robot"/>
         {buttons}
       </div>
     )
@@ -44,11 +45,10 @@ function RobotButton (props) {
   return ( 
     <Link to = {props.linkTo}
           state = {{kind: props.actionKind, ip: props.data_key}}>
-    <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-        <div>{props.name}</div>
-        <div>{props.data_key}</div>
-    </button>
-    </Link>
-    
+        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+          <div>{props.name}</div>
+          <div>{props.data_key}</div>
+        </button>
+      </Link>
    );
 }
