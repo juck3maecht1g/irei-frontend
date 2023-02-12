@@ -46,9 +46,6 @@ function TopBar(props) {
             <NavigationButton destination="C Language" destinationLink="/ChooseLanguagePage"></NavigationButton>
           </li>
           <li class="mdl-menu__item">
-            <NavigationButton destination="C Name" destinationLink="/ChooseNamePage"></NavigationButton>
-          </li>
-          <li class="mdl-menu__item">
             <NavigationButton destination="C Robot" destinationLink="/ChooseRobotPage"></NavigationButton>
           </li>
           <li class="mdl-menu__item">
