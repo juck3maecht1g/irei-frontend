@@ -55,8 +55,8 @@ function ControlPage (props) {
                 <ResetButton forErrors={errorState} errorMessage={setErrorMessage}/>
                 <SavePositionButton action={namePos}/>
                 <GrippperButton forErrors={errorState} errorMessage={setErrorMessage}/>
-                <LoggerButton state={started} action={startedLogging} stoped={nameSaved}/>
-                <EmergencyExit />
+                <LoggerButton state={started} action={startedLogging} stoped={nameSaved} errorfunction={errorState} errorMessage={setErrorMessage}/>
+                <EmergencyExit errorfunction={errorState} errorMessage={setErrorMessage}/>
                 <ModeButton forErrors={errorState} errorMessage={setErrorMessage}/>
                 {
                     actions.map((index) => {

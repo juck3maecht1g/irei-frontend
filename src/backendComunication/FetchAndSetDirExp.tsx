@@ -26,7 +26,6 @@ export async function SetExperiment(action, name, setErrorMessage){
     var message =  new Map()
     message.set("marker", "SetExperiment")
     message.set("experiment", name)
-    console.log(message)
     const result = Object.fromEntries(message)
     post(result, postAdressChosenExperiment).then(res => {
         if(res !== "Done") {

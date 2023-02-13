@@ -11,7 +11,7 @@ const fetchAdressCancel = "http://127.0.0.1:5000/api/cancel"
 const cancelMessage = "cancel"
 
 
-export function postLoggingStop(errorfunction, name, setErrorMessage) {
+export function postLoggingStop(errorfunction, name, setErrorMessage, action) {
   var to_post = new Map()
   to_post.set("marker", stopMessage)
   to_post.set("name", name)
@@ -20,6 +20,8 @@ export function postLoggingStop(errorfunction, name, setErrorMessage) {
     if(res !== "Done") {
         setErrorMessage(res)
         errorfunction()
+    }else {
+      action();
     }
   })
 }
@@ -37,35 +39,31 @@ export default function LoggerButton (props) {
 
 
   function startLogging() {
-    async function post (){
-       const response = await fetch(fetchAdressStart, {
-           'method': 'POST',
-           headers : {
-           'Content-Type': 'application/json'
-           },
-           body : JSON.stringify(startMessage)
-       })
-  
-       console.log(response)
-      
-   }
-   post()
-   props.action();
+   post(startMessage, fetchAdressStart).then(res => {
+    if(res !== "Done") {
+        props.errorMessage(res)
+        props.errorfunction()
+    }
+    else {
+       props.action();
+    } 
+  })
+ 
   }
 
   function cancelLogging() {
-    async function post (){
-       const response = await fetch(fetchAdressCancel, {
-           'method': 'POST',
-           headers : {
-           'Content-Type': 'application/json'
-           },
-           body : JSON.stringify(cancelMessage)
-       })
-      
-   }
-   post()
-   props.action();
+    post(cancelMessage, fetchAdressCancel).then(res => {
+     
+      if(res !== "Done") {
+          console.log(res)
+          props.errorMessage(res)
+          props.errorfunction()
+      }
+      else {
+        props.action();
+     }
+    })
+  
   }
 
   const start = (
@@ -79,7 +77,7 @@ export default function LoggerButton (props) {
       <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
        onClick={() => {
         props.stoped()
-        stopLogging()}}>Stop</button>
+       }}>Stop</button>
       <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
        onClick={cancelLogging}>Abort</button>
     </div>
