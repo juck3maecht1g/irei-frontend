@@ -50,7 +50,7 @@ function PositionButton (props) {
 
     return ( 
     <Link to = {"/ActionListPage"}>
-      <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+      <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
       onClick = {sent}>
         {props.name}
       </button>

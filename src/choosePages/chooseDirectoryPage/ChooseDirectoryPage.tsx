@@ -6,6 +6,8 @@ import DirectoryButton from './DirectoryButton';
 import { GetDirectories, NavigateDown, NavigateUP, Create, DeleteDirectory, BaseNameDir, confirmDirChoise } from '../../backendComunication/FetchAndSetDirExp';
 import { NamingPopUp } from '../../PopUp/NamingPopUp';
 import { ErrorPopUp } from '../../PopUp/ErrorPopUP';
+import './../../theme.css'
+import './../../irei_styles.css'
 
 /**
  * The ChooseDirectoryPage is used to navigate in a Datastructure
@@ -73,13 +75,13 @@ export default function ChooseDirectoryPage () {
                     })
                 }
             </div>
-            <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+            <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
             onClick = {navUp}>navigate up</button>
         
-            <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={confirmChoise}
+            <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={confirmChoise}
             >confirm</button>
          
-            <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+            <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
             onClick = {()=> setPopUpName(true)}>create</button>
             <NamingPopUp active = {popUpName} deactivate={activatePopup} forErrors={errorState}
             confirm={createDir} getBaseName={BaseNameDir} errorMessage={setErrorMessage}/>

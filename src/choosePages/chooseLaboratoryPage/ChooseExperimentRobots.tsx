@@ -5,6 +5,8 @@ import { useLocation } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { SetExpRobots } from '../../backendComunication/SetRobots';
 import { ErrorPopUp } from '../../PopUp/ErrorPopUP';
+import './../../theme.css'
+import './../../irei_styles.css'
 /**
  * The ChooserobotPage is used to choose the robots
  * the user wants to work with
@@ -56,7 +58,7 @@ export default function ChooseExperimentRobots(){
         <Link 
             to = {"/ChooseExperimentRegister"}
         >
-            <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+            <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
              onClick={confirm}>confirm</button>
         </Link>
         <ErrorPopUp active={error} deactivate={errorState} message={errorMessage}/>

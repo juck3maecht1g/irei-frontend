@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import { GetExpRobots } from '../../backendComunication/FetchRobots';
 import TopBar from '../../TopBar';
+import './../../theme.css'
+import './../../irei_styles.css'
 
 /**
  * The ChooserobotPage is used to choose the robots
@@ -45,7 +47,7 @@ function RobotButton (props) {
   return ( 
     <Link to = {props.linkTo}
           state = {{kind: props.actionKind, ip: props.data_key}}>
-        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
           <div>{props.name}</div>
           <div>{props.data_key}</div>
         </button>

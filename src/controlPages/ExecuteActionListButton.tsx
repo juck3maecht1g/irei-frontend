@@ -1,4 +1,7 @@
 import React from 'react'
+import './../theme.css'
+import './../irei_styles.css'
+
 const fetchAdress = "http://127.0.0.1:5000/api/executeList"
 const Massage = "executeList"
 
@@ -24,7 +27,7 @@ function informSavePosition() {
  */
 function ExecuteActionListButton () {
     return ( 
-        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
+        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
         onClick={informSavePosition}>actionlist</button>
      );
 }

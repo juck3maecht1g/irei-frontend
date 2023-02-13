@@ -6,7 +6,8 @@ import ResetButton from './ResetButton';
 import SavePositionButton, { BaseNamePosition, informSavePosition } from './SavePositionButton';
 import EmergencyExit from './EmergencyExit';
 import ModeButton from './ModeButton';
-import "./../Theme.css"
+import './../theme.css'
+import './../irei_styles.css'
 import { NamingPopUp } from '../PopUp/NamingPopUp';
 import { ErrorPopUp } from '../PopUp/ErrorPopUP';
 
@@ -53,7 +54,7 @@ function ControlPage (props) {
             </h1>
             <NamingPopUp active = {namePosition} deactivate={namePos} forErrors={errorState}
             confirm={informSavePosition} getBaseName={BaseNamePosition} errorMessage={setErrorMessage}/>
-             <NamingPopUp active = {nameSave} deactivate={nameSaved} forErrors={errorState}
+            <NamingPopUp active = {nameSave} deactivate={nameSaved} forErrors={errorState}
             confirm={postLoggingStop} getBaseName={BaseNameStop} errorMessage={setErrorMessage}/>
             <ErrorPopUp active={error} deactivate={errorState} message={errorMessage}/>
         </div>

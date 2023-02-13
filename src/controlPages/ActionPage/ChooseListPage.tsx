@@ -16,7 +16,7 @@ export default function ChooseListPage (props) {
         to = {"/ActionListPage"}
      >
      <button onClick = {sentToBackend}
-     className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+     className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
          {number}
      </button>
      </Link>

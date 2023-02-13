@@ -5,6 +5,8 @@ import { GetExperiments, SetExperiment } from '../../backendComunication/FetchAn
 import { ErrorPopUp } from '../../PopUp/ErrorPopUP';
 import TopBar from '../../TopBar';
 import '../Choose.css';
+import './../../theme.css'
+import './../../irei_styles.css'
 
 /**
  * The ChooseExperimentRegister is used to choose 
@@ -51,7 +53,7 @@ function ChooseRegisterButton (props) {
            to = {"/Controlpage"}
         >
         <button onClick={setChoise} 
-        className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
             {props.name}
         </button>
         </Link>

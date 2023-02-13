@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PopUp from "./PopUp";
-
+import './../theme.css'
+import './../irei_styles.css'
 
 
 
@@ -24,7 +25,7 @@ export function NamingPopUp(props) {
                         </div>
                     </form>
                     {(name !== "")? 
-                    <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
+                    <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
                     onClick={() => {props.confirm(props.forErrors, name, props.errorMessage)
                     props.deactivate()
                     }}
@@ -33,7 +34,7 @@ export function NamingPopUp(props) {
                    
                     : <></>
                 } 
-                <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
+                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
                     onClick={() => {
                     props.deactivate()
                     }}
