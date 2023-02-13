@@ -9,7 +9,7 @@ import { appendAction } from '../ActionFetch';
  */
 export default function ActionListPage (props) {
 
-  const nothing = () => {}
+  const nothing = (map) => {}
 
     return ( 
         <div>
