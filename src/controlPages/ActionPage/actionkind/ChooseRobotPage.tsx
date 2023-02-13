@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
-import { GetExpRobots } from '../../backendComunication/FetchRobots';
-import TopBar from '../../TopBar';
+import { GetExpRobots } from '../../../backendComunication/FetchRobots';
+import TopBar from '../../../TopBar';
+import {appendAction} from '../ActionFetch';
 
 /**
  * The ChooserobotPage is used to choose the robots
@@ -10,15 +11,16 @@ import TopBar from '../../TopBar';
 export default function ChooseRobotPage(props){
 
     const location = useLocation();
-    const { kind } = location.state;
-    const { link } = location.state;
-    const { execute } = location.state;
+    const {action} = location.state;
+    const {link} = location.state;
 
-    const action = (ip) => {
-       var help = new Map();
-       help.set("key", kind);
-       help.set("robot", ip)
-       execute(help);
+    const sentToBackend = (ip) => {
+      if (link === "/ActionListPage") {
+        var help = new Map();
+        help.set("key", action);
+        help.set("robot", ip)
+        appendAction(help);
+      }
     }
 
     var [robots, setRobots] = useState(new Map<string, string>());
@@ -32,9 +34,9 @@ export default function ChooseRobotPage(props){
       return <RobotButton key={number.key}
       data_key= {number.key} 
       name= {number.value}
-      actionKind={kind}
+      actionKind={action}
       linkTo={link}
-      action = {action}/>
+      action = {sentToBackend}/>
     })
 
     return (
