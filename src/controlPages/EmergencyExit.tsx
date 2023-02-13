@@ -17,6 +17,6 @@ export default function EmergencyExit (props) {
             }
           })
 }
-    return <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
+    return <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
                 onClick={informEmergencyStop}>emergency stop</button>
 }
