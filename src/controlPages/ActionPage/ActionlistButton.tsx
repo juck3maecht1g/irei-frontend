@@ -56,12 +56,3 @@ export default function ActionlistButton (props) {
     )
 
 }
-
-function actionButton (props) {
-    return (
-        <div>
-            <button>{props.name}</button>
-            <button>delete</button>
-        </div> 
-    )
-}

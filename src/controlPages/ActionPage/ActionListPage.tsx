@@ -10,8 +10,8 @@ import { GetActionListContent } from './ActionFetch';
  */
 export default function ActionListPage (props) {
 
-    const [actionlist, setActionlist] = useState([]);
-    GetActionListContent(setActionlist)
+    const [actionlist, setActionlist] = useState(test);
+ //   GetActionListContent(setActionlist)
     
   //  const actionlist = test;
     return ( 
@@ -21,6 +21,7 @@ export default function ActionListPage (props) {
                 actionlist.map((currElement, index) => {
                     return <div>
                         <ActionlistButton key={index} element={currElement} />
+                        <button>delete</button>
                     </div>
                 })
             }
