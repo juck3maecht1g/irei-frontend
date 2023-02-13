@@ -12,8 +12,10 @@ import ActionListPage from "./controlPages/ActionPage/ActionListPage";
 import ChooseListPage from "./controlPages/ActionPage/ChooseListPage";
 import ActionKindPage from "./controlPages/ActionPage/actionkind/ActionKindPage";
 
+import MappingRobotsPage from "./choosePages/chooseRobotPage/MappingRobots";
+
 import ChooseVariablePage from "./controlPages/ActionPage/actionkind/ChooseVariablePage";
-import ChooseRobotPage from "./controlPages/ActionPage/actionkind/ChooseRobotPage";
+import ChooseRobotPage from "./choosePages/chooseRobotPage/ChooseRobotPage";
 import SetTimePage from "./controlPages/ActionPage/actionkind/SetTimePage";
 
 import ChooseLanguagePage from "./choosePages/chooseLanguagePage/ChooseLanguagePage"
@@ -34,6 +36,9 @@ export default function App (){
           <Route path="/ActionListPage" element={<ActionListPage/>} />
           <Route path="/ChooseListPage" element={<ChooseListPage/>} />
           <Route path="/ActionKindPage" element={<ActionKindPage/>} />
+
+          
+          <Route path="/MappingRobotsPage" element={<MappingRobotsPage/>} />
 
           <Route path="/ChooseRobot" element={<ChooseRobotPage/>} />
           <Route path="/ChooseVariablePage" element={<ChooseVariablePage/>} />
