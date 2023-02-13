@@ -10,6 +10,7 @@ import './../theme.css'
 import './../irei_styles.css'
 import { NamingPopUp } from '../PopUp/NamingPopUp';
 import { ErrorPopUp } from '../PopUp/ErrorPopUP';
+import ActionListButton from './ActionListButton';
 
 
 //import ApproachPositionActionButton from '../ApproachPositionActionButton';
@@ -24,6 +25,13 @@ function ControlPage (props) {
     const [namePosition, setNamePosition] = useState(false)
     const [nameSave, setNameSave] = useState(false)
     const [error, setError] = useState(false)
+
+    const [numberALists, setNumberALists] = useState(6)
+    // fetch methode setNumberALists
+    var actions = new Array(numberALists)
+    for (let i = 0; i < numberALists; i++) {
+        actions[i] = i;
+    }
 
     const errorState = () => {
        setError(current => !current)
@@ -48,9 +56,15 @@ function ControlPage (props) {
                 <ResetButton forErrors={errorState} errorMessage={setErrorMessage}/>
                 <SavePositionButton action={namePos}/>
                 <GrippperButton forErrors={errorState} errorMessage={setErrorMessage}/>
-                <LoggerButton state={started} action={startedLogging} stoped={nameSaved}/>
-                <EmergencyExit />
+                <LoggerButton state={started} action={startedLogging} stoped={nameSaved} errorfunction={errorState} errorMessage={setErrorMessage}/>
+                <EmergencyExit errorfunction={errorState} errorMessage={setErrorMessage}/>
                 <ModeButton forErrors={errorState} errorMessage={setErrorMessage}/>
+                {
+                    actions.map((index) => {
+                        console.log(index)
+                        return <ActionListButton index = {index}/>
+                    })
+                }
             </h1>
             <NamingPopUp active = {namePosition} deactivate={namePos} forErrors={errorState}
             confirm={informSavePosition} getBaseName={BaseNamePosition} errorMessage={setErrorMessage}/>

@@ -2,32 +2,36 @@ import React from 'react';
 import TopBar from '../../../TopBar';
 import { Link } from 'react-router-dom';
 
+
 /**
  * The ActionKindPage is the page where the user chooses the kind of a new action
  */
-export default function ActionListPage (props) {
-
-  
+export default function ActionKindPage (props) {
 
     return ( 
         <div>
             <TopBar title="Choose action kind"></TopBar>
             
-            <Link to = {"/ChooseRobot"}
-                  state = {{kind: "gripperOpen", link:"/ActionListPage"}}>
+            <Link 
+              to = {"/ChooseRobot"}
+              state = {{action: "gripperOpen", link:"/ActionListPage"}}>
                 <button>gripper open</button>
             </Link>
             <Link to = {"/ChooseRobot"}
-                  state = {{kind: "gripperClose", link:"/ActionListPage"}}>
+                  state = {{ action: "gripperClose", link:"/ActionListPage"}}>
                 <button>gripper close</button>
             </Link>
             <Link to = {"/ChooseRobot"}
-                  state = {{kind: "steering", link:"/ChooseVariablePage"}}>
+                  state = {{ action: "steering", link:"/ChooseVariablePage"}}>
                 <button>steering</button>
             </Link>
             <Link to = {"/ChooseRobot"}
-                  state = {{kind: "wait", link:"/setTime"}}>
+                  state = {{ action: "wait", link:"/setTime"}}>
                 <button>wait</button>
+            </Link>
+            <Link to = {"/ChooseRobot"} 
+                  state = {{ action: "custom", link:"/giveName"}}>
+                <button>Custom</button>
             </Link>
         </div>
      );

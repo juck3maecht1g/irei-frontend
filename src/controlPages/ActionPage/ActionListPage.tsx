@@ -1,17 +1,19 @@
 import React from 'react';
+import {useState} from 'react';
 import TopBar from '../../TopBar';
 import ActionlistButton from './ActionlistButton';
 import { Link } from 'react-router-dom';
+import { GetActionListContent } from './ActionFetch';
 
 /**
  * The ActionListPage is used to edit a list of actions by adding new action and deleting others
  */
 export default function ActionListPage (props) {
 
-
-    //const [actionlist, setActionlist] = useState(new Map<string, []>());
-    //über Fetch set ActionList
-    const actionlist = test;
+    const [actionlist, setActionlist] = useState(test);
+ //   GetActionListContent(setActionlist)
+    
+  //  const actionlist = test;
     return ( 
         <div>
             <TopBar title="Actionlist"></TopBar>
@@ -19,6 +21,7 @@ export default function ActionListPage (props) {
                 actionlist.map((currElement, index) => {
                     return <div>
                         <ActionlistButton key={index} element={currElement} />
+                        <button>delete</button>
                     </div>
                 })
             }

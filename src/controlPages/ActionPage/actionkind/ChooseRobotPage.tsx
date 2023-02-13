@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
-import { GetExpRobots } from '../../backendComunication/FetchRobots';
-import TopBar from '../../TopBar';
-import './../../theme.css'
-import './../../irei_styles.css'
+import { GetExpRobots } from '../../../backendComunication/FetchRobots';
+import TopBar from '../../../TopBar';
+import {appendAction} from '../ActionFetch';
+import './../../../theme.css'
+import './../../../irei_styles.css'
 
 /**
  * The ChooserobotPage is used to choose the robots
@@ -12,8 +13,17 @@ import './../../irei_styles.css'
 export default function ChooseRobotPage(props){
 
     const location = useLocation();
-    const { kind } = location.state;
-    const { link } = location.state;
+    const {action} = location.state;
+    const {link} = location.state;
+
+    const sentToBackend = (ip) => {
+      if (link === "/ActionListPage") {
+        var help = new Map();
+        help.set("key", action);
+        help.set("robot", ip)
+        appendAction(help);
+      }
+    }
 
     var [robots, setRobots] = useState(new Map<string, string>());
     GetExpRobots(setRobots)
@@ -26,8 +36,9 @@ export default function ChooseRobotPage(props){
       return <RobotButton key={number.key}
       data_key= {number.key} 
       name= {number.value}
-      actionKind={kind}
-      linkTo={link}/>
+      actionKind={action}
+      linkTo={link}
+      action={sentToBackend}/>
     })
 
     return (
@@ -47,10 +58,11 @@ function RobotButton (props) {
   return ( 
     <Link to = {props.linkTo}
           state = {{kind: props.actionKind, ip: props.data_key}}>
-        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        <button onClick = {() => props.action(props.data_key)}
+        className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
           <div>{props.name}</div>
           <div>{props.data_key}</div>
         </button>
-      </Link>
+    </Link>
    );
 }

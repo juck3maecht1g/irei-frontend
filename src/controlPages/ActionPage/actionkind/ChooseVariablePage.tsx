@@ -16,10 +16,11 @@ export default function ChooseVariablePage (props) {
     const { kind } = location.state;
     const { ip } = location.state;
 
+    const [positions, setPositions] = useState(new Map())
+
     var state = "joint";
-    const [positions, setPositions] = useState([]) // ähhhh array oder map?????????
     
-    const press = () => {
+    const changeType = () => {
         if (state === "kartesisch") {
             state = "kartesisch";
         } else {
@@ -28,16 +29,24 @@ export default function ChooseVariablePage (props) {
         SetCoordinateType(state);
         GetPositions(setPositions)
     }
+    
+    const arrayPosition = Array.from( positions, function (entry) {
+        return { key: entry[0], value: entry[1]}})
+
+
+    const buttons = arrayPosition.map((number) => {
+        return <PositionButton name= {number.value} 
+        position={number.key} 
+        kind={kind} ip={ip}/>
+    })
 
     return (
         <div>
             <TopBar title="Choose Position" />
-            <button onClick = {press}>
+            <button onClick = {changeType}>
                 {state? "joint" : "kartesisch"}
             </button>
-            {positions.map((number) => {
-                return <></>
-            })}
+            { buttons}
         </div>
     );
 }
@@ -45,8 +54,12 @@ export default function ChooseVariablePage (props) {
 function PositionButton (props) {
 
     const sent = () => {
-        appendAction("")
-    } // Was genau und wie übergeben
+        var help = new Map();
+        help.set("key", props.kind);
+        help.set("robot", props.ip);
+        help.set("position", props.position)
+        appendAction(help);
+    } 
 
     return ( 
     <Link to = {"/ActionListPage"}>

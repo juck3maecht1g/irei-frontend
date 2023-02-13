@@ -1,25 +1,22 @@
 import React from 'react'
 import './../theme.css'
 import './../irei_styles.css'
+import { post } from '../backendComunication/BasicOpperations'
 
 const fetchAdress = "http://127.0.0.1:5000/api/emergency_stop"
 const Massage = "emergency_stop"
-function informEmergencyStop() {
-    async function post (){
-        const response = await fetch(fetchAdress, {
-            'method': 'POST',
-            headers : {
-            'Content-Type': 'application/json'
-            },
-            body : JSON.stringify(Massage)
-        })
-        if(response.ok) {
-            //todo
-        }
-    }
-    
-    post()
-}
+
 export default function EmergencyExit (props) {
-    return <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  onClick={informEmergencyStop}>emergency stop</button>
+
+
+    function informEmergencyStop() {
+        post(Massage, fetchAdress).then(res => {
+            if(res !== "Done") {
+                props.errorMessage(res)
+                props.errorfunction()
+            }
+          })
+}
+    return <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
+                onClick={informEmergencyStop}>emergency stop</button>
 }
