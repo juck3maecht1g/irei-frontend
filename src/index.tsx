@@ -17,6 +17,7 @@ import ChooseRobotPage from "./choosePages/chooseRobotPage/ChooseRobotPage";
 import SetTimePage from "./controlPages/ActionPage/actionkind/SetTimePage";
 
 import ChooseLanguagePage from "./choosePages/chooseLanguagePage/ChooseLanguagePage"
+import ActionKindPage from "./controlPages/ActionPage/actionkind/ActionKindPage";
 
 export default function App (){
     return (
@@ -31,7 +32,8 @@ export default function App (){
           <Route path="/ChooseRobotPageMultiple" element={<ChooseRobotPageMultiple/>} />
           <Route path="/ChooseExperimentRobots" element={<ChooseExperimentRobots/>} />
           <Route path="/ChooseExperimentRegister" element={<ChooseExperimentRegister/>} />
-          
+
+          <Route path="/ActionKindPage" element={<ActionKindPage/>} />
           <Route path="/ActionListPage" element={<ActionListPage/>} />
           <Route path="/ChooseListPage" element={<ChooseListPage/>} />
 

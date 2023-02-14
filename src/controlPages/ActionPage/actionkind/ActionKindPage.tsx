@@ -7,7 +7,7 @@ import { appendAction } from '../ActionFetch';
 /**
  * The ActionKindPage is the page where the user chooses the kind of a new action
  */
-export default function ActionListPage (props) {
+export default function ActionKindPage (props) {
 
   const nothing = (map) => {}
 

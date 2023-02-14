@@ -61,7 +61,7 @@ function ControlPage (props) {
                 {
                     actions.map((index) => {
                         console.log(index)
-                        return <ActionListButton index = {index}/>
+                        return <ActionListButton index = {index} errorfunction={errorState} errorMessage={setErrorMessage}/>
                     })
                 }
             </h1>

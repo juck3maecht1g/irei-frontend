@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getLabs, informLabChoise } from '../../backendComunication/FetchAndSetLab';
 import { ErrorPopUp } from '../../PopUp/ErrorPopUP';
 import TopBar from '../../TopBar';
@@ -11,6 +12,7 @@ const fetchAdress = "http://127.0.0.1:5000/api/getLab";
  * the Laboratory the user wants to work in
  */
 export default function ChooseLaboratoryPage() {
+  const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("sorry something went wrong")
   const [error, setError] = useState(false)
     const [labs, setLabs] = useState(new Map<string, Map<string, string>>()); // key = labname, value = robot list
@@ -27,7 +29,13 @@ export default function ChooseLaboratoryPage() {
     });
 
 
-    const action = (name) => {  informLabChoise(errorState,name, setErrorMessage)
+    const action = (name) => {  
+      informLabChoise(errorState,name, setErrorMessage).then(res => {
+      if(res) {
+          
+      }
+  }
+  )
     }
 
     const robots = (key) => {
