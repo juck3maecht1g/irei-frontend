@@ -1,15 +1,16 @@
 import React from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import TopBar from '../../TopBar';
 import Popup from '../../PopUp/PopUp';
 import ChooseRobotsForMappingPage from './ChooseRobotsForMapping';
 
 export default function MappingRobotsPage () {
+    const location = useLocation();
+    const { index } = location.state;
+
     var [roles, setRoles] = useState([help1, help2, help3, help4])
     // fetch methode vom Backend mit undefined array größe x
-
-
 
     const setChoice = (ip, number) => {
         var changed = [...roles]
@@ -23,6 +24,7 @@ export default function MappingRobotsPage () {
             changed.push(roles[i].get("robot"));
         }
         console.log(changed) // changed to Backend
+        console.log(index) // changed to Backend
     }
 
     const buttons = roles.map((element, index) => {

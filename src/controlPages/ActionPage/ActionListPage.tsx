@@ -17,10 +17,15 @@ export default function ActionListPage (props) {
     return ( 
         <div>
             <TopBar title="Actionlist"></TopBar>
+            <Link to={"/MappingRobotsPage"}
+                 state = {{index: [-1]}}>
+                    <button >edit mapping</button>
+                </Link>
             {
                 actionlist.map((currElement, index) => {
+                    var listIndex = [index];
                     return <div>
-                        <ActionlistButton key={index} element={currElement} />
+                        <ActionlistButton key={index} element={currElement} listPlace={listIndex}/>
                         <button>delete</button>
                     </div>
                 })

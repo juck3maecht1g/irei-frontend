@@ -1,5 +1,6 @@
 import React from 'react'
 import {useState} from 'react'
+import { Link } from 'react-router-dom';
 import { DeleteAction } from './ActionFetch';
 
 /**
@@ -7,17 +8,20 @@ import { DeleteAction } from './ActionFetch';
  */
 export default function ActionlistButton (props) {
     
+    
     const action = props.element;
 
     const [state, setState] = useState(false);
 
+    
 
     const createButtons = () => {
-        console.log(action.get("content"))
         if (action.get("content") !== undefined) {
         return action.get("content").map((currElement, index) => {
+            var listIndex = [...props.listPlace];
+            listIndex.push(index)
             return <div>
-                <ActionlistButton key={index} element={currElement} />
+                <ActionlistButton key={index} element={currElement} listPlace={listIndex}/>
             </div>
         })}
         return <></>
@@ -26,13 +30,17 @@ export default function ActionlistButton (props) {
     const open = createButtons();
 
 
-    if (action.get("key") === "sequential_list") { // kennung so oder anders
+    if (action.get("key") === "sequential_list") { 
         return (
             <div>
                 <button onClick = {() => setState(prevState => !prevState)}>
                     <div>{action.get("name")}</div>
-                    <div>equential_list</div>
+                    <div>sequential_list</div>
                 </button>
+                <Link to={"/MappingRobotsPage"}
+                 state = {{index: props.listPlace}}>
+                    <button >edit mapping</button>
+                </Link>
                 {state && open}
             </div>
         )
@@ -43,6 +51,10 @@ export default function ActionlistButton (props) {
                     <div>{action.get("name")}</div>
                     <div>parallel_list</div>
                 </button>
+                <Link to={"/MappingRobotsPage"}
+                 state = {{index: props.listPlace}}>
+                    <button >edit mapping</button>
+                </Link>
                 {state && open}
             </div>
         )

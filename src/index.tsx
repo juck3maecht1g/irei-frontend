@@ -10,7 +10,6 @@ import ChooseExperimentRegister from "./choosePages/chooseLaboratoryPage/ChooseE
 
 import ActionListPage from "./controlPages/ActionPage/ActionListPage";
 import ChooseListPage from "./controlPages/ActionPage/ChooseListPage";
-import ActionKindPage from "./controlPages/ActionPage/actionkind/ActionKindPage";
 
 import MappingRobotsPage from "./choosePages/chooseRobotPage/MappingRobots";
 
