@@ -5,12 +5,14 @@ import ControlPage from "./controlPages/ControlPage"
 
 import ChooseDirectoryPage from "./choosePages/chooseDirectoryPage/ChooseDirectoryPage"
 import ChooseLaboratoryPage from "./choosePages/chooseLaboratoryPage/ChooseLaboratoryPage"
-import ChooseRobotPageMultiple from "./choosePages/chooseRobotPage/ChooseRobotPage";
 import ChooseExperimentRobots from "./choosePages/chooseLaboratoryPage/ChooseExperimentRobots";
 import ChooseExperimentRegister from "./choosePages/chooseLaboratoryPage/ChooseExperimentRegister";
 
 import ActionListPage from "./controlPages/ActionPage/ActionListPage";
 import ChooseListPage from "./controlPages/ActionPage/ChooseListPage";
+import ActionKindPage from "./controlPages/ActionPage/actionkind/ActionKindPage";
+
+import MappingRobotsPage from "./choosePages/chooseRobotPage/MappingRobots";
 
 import ChooseVariablePage from "./controlPages/ActionPage/actionkind/ChooseVariablePage";
 import ChooseRobotPage from "./choosePages/chooseRobotPage/ChooseRobotPage";
@@ -29,13 +31,16 @@ export default function App (){
           <Route path="/ChooseDirectoryPage" element={<ChooseDirectoryPage/>} />
           <Route path="/ChooseLaboratoryPage" element={<ChooseLaboratoryPage/>} />
           <Route path="/ChooseLanguagePage" element={<ChooseLanguagePage/>} />
-          <Route path="/ChooseRobotPageMultiple" element={<ChooseRobotPageMultiple/>} />
           <Route path="/ChooseExperimentRobots" element={<ChooseExperimentRobots/>} />
           <Route path="/ChooseExperimentRegister" element={<ChooseExperimentRegister/>} />
 
           <Route path="/ActionKindPage" element={<ActionKindPage/>} />
           <Route path="/ActionListPage" element={<ActionListPage/>} />
           <Route path="/ChooseListPage" element={<ChooseListPage/>} />
+          <Route path="/ActionKindPage" element={<ActionKindPage/>} />
+
+          
+          <Route path="/MappingRobotsPage" element={<MappingRobotsPage/>} />
 
           <Route path="/ChooseRobot" element={<ChooseRobotPage/>} />
           <Route path="/ChooseVariablePage" element={<ChooseVariablePage/>} />

@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { passDataDirect, post } from '../backendComunication/BasicOpperations'
+import './../theme.css'
+import './../irei_styles.css'
 const fetchAdress = "http://127.0.0.1:5000/api/savePosition"
 const fetchAdressName = "http://127.0.0.1:5000/api/get_base_name_save_position"
 const savePositionMassage = "savePosition"
@@ -23,7 +25,7 @@ export function informSavePosition(action, name, setErrorMessage) {
  */
 function SavePositionButton (props) {
     return ( 
-        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={props.action}>save position</button>
+        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={props.action}>save position</button>
      );
 }
 

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { passDataDirect, post } from '../backendComunication/BasicOpperations';
 import './Control.css';
+import './../theme.css'
+import './../irei_styles.css'
 
 const fetchAdressStop = "http://127.0.0.1:5000/api/stop"
 const fetchAdressName = "http://127.0.0.1:5000/api/get_base_name_stop"
@@ -68,17 +70,17 @@ export default function LoggerButton (props) {
 
   const start = (
     <div>
-        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={startLogging}>Start</button>
+        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={startLogging}>Start</button>
     </div>
   )
 
   const stop = (
     <div>
-      <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+      <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
        onClick={() => {
         props.stoped()
        }}>Stop</button>
-      <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+      <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
        onClick={cancelLogging}>Abort</button>
     </div>
   )

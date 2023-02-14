@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { passDataDirect, post } from "../backendComunication/BasicOpperations";
+import './../theme.css'
+import './../irei_styles.css'
 
 const postAdress = "http://127.0.0.1:5000/api/cycle_modes"
 const fetchAdress = "http://127.0.0.1:5000/api/get_mode"
@@ -38,7 +40,7 @@ function ModeButton (props) {
 }
 
     return ( 
-        <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={test
+        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={test
         }>{mode}</button>
      );
 }

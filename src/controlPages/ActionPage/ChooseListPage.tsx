@@ -3,6 +3,8 @@ import {useState} from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import TopBar from '../../TopBar';
 import { GetActionListNames, SetActionList } from './ActionFetch';
+import './../../theme.css'
+import './../../irei_styles.css'
 
 /**
  * The ChooseListPage is used to choose an existing list of action 
@@ -25,8 +27,8 @@ export default function ChooseListPage (props) {
         return <Link
         to = {"/ActionListPage"}
      >
-     <button onClick = {() => sentChoiceBack(number)}
-     className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+     <button onClick ={() => sentChoiceBack(number)}
+     className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
          {number}
      </button>
      </Link>

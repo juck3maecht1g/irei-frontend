@@ -5,6 +5,8 @@ import { SetChangeGripperRobots } from '../../backendComunication/SetRobots';
 import ChooseButton from '../ChooseRobotButton';
 import { Link } from 'react-router-dom';
 import TopBar from '../../TopBar';
+import './../../theme.css'
+import './../../irei_styles.css'
 
 export default function ChooseMultipleGripper (props) {
     const [possibleRobots, setPossibleRobots] = useState (new Map<string, string>());
@@ -47,7 +49,7 @@ export default function ChooseMultipleGripper (props) {
             <TopBar title="Choose Robots"></TopBar>
             {buttons}
             <Link to = {"/Controlpage"}>
-            <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+            <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
              onClick = {confirm}>confirm</button>
             </Link>
         </div>

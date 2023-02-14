@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
-import { GetExpRobots } from '../../backendComunication/FetchRobots';
-import TopBar from '../../TopBar';
-import {appendAction} from '../../controlPages/ActionPage/ActionFetch';
+import { GetExpRobots } from '../../../backendComunication/FetchRobots';
+import TopBar from '../../../TopBar';
+import {appendAction} from '../ActionFetch';
+import './../../../theme.css'
+import './../../../irei_styles.css'
 
 /**
  * The ChooserobotPage is used to choose the robots
@@ -36,7 +38,7 @@ export default function ChooseRobotPage(props){
       name= {number.value}
       actionKind={action}
       linkTo={link}
-      action = {sentToBackend}/>
+      action={sentToBackend}/>
     })
 
     return (
@@ -53,11 +55,11 @@ export default function ChooseRobotPage(props){
  */
 function RobotButton (props) {
 
-  return (   // noch zurückschicken wenn Gripper
+  return ( 
     <Link to = {props.linkTo}
           state = {{kind: props.actionKind, ip: props.data_key}}>
         <button onClick = {() => props.action(props.data_key)}
-        className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
           <div>{props.name}</div>
           <div>{props.data_key}</div>
         </button>

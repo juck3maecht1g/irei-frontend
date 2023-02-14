@@ -16,9 +16,21 @@
     position: absolute;
     width: 90%;
 }
-#irei-container {
+#nav-list-container {
     right: 0px;
     top: 32px;
-    width: 148.3125px;
+    width: 200px;
     height: 208px;
+}
+#nav-list {
+    width: 200px;
+}
+.nav-list-item {
+    padding: 0;
+    margin: 0;
+    height: 50px;
+}
+.irei-button {
+    margin: 10px;
+    width: 200px
 }
