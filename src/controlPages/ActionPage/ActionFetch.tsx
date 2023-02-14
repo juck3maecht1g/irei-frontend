@@ -2,16 +2,16 @@
 import { useState } from "react"
 import { passDataDirect, post, passDataAsMap } from "../../backendComunication/BasicOpperations"
 
-const fetchAdressAllActionLists = "/api/get-action_lists"
-const postAdressActionList = "/api/set_action_list"
-const fetchAdressContentActiveList = "/api/get_action_list_content"
-const postAdressAppendAction = "/api/append_action"
-const postAdressDeleteAction = "/api/delete_action"
-const postAdressSwapActions = "/api/swap_action"
-const postAdressCreateActionList = "/api/create_action_list"
-const postAdressExecuteList = "/api/executeList"
-const postAdressCoordinateType = "/api/set_coordinate_type"
-const fetchAdressPositionList = "/api/get_coordinates"
+const fetchAdressAllActionLists = "http://127.0.0.1:5000/api/get-action_lists"
+const postAdressActionList = "http://127.0.0.1:5000/api/set_action_list"
+const fetchAdressContentActiveList = "http://127.0.0.1:5000/api/get_action_list_content"
+const postAdressAppendAction = "http://127.0.0.1:5000/api/append_action"
+const postAdressDeleteAction = "http://127.0.0.1:5000/api/delete_action"
+const postAdressSwapActions = "http://127.0.0.1:5000/api/swap_action"
+const postAdressCreateActionList = "http://127.0.0.1:5000/api/create_action_list"
+const postAdressExecuteList = "http://127.0.0.1:5000/api/executeList"
+const postAdressCoordinateType = "http://127.0.0.1:5000/api/set_coordinate_type"
+const fetchAdressPositionList = "http://127.0.0.1:5000/api/get_coordinates"
 
 /**gets a list of dictionarrys containing a "name" of the action list and a "key"
  * specifieing if sequential or parallel
@@ -39,10 +39,24 @@ export async function GetActionListContent(setContent){ // returns string list
 
 /** action is a dictionarry containing the key which action to append, and all nessesary arguments for that action
  */
-export async function appendAction(action){
+export async function appendAction( errorfunction, action, setErrorMessage){
     var toPost =  action
     toPost.set("marker", "append_action")
-    post(toPost, postAdressAppendAction)
+    const result = Object.fromEntries(toPost)
+    var reload = false
+    await post(result, postAdressAppendAction).then(res => {
+        if(res !== "Done") {
+            setErrorMessage(res)
+            action()
+           reload = false
+        }
+      else {
+       reload = true
+      }
+    })
+
+    return reload
+
 }
 
 
@@ -52,11 +66,25 @@ export async function appendAction(action){
  * @param setContent 
  * @param name 
  */
-export async function SetActionList(name:String){
+export async function SetActionList( errorfunction, action, setErrorMessage){
     var toPost =  new Map()
     toPost.set("marker", "set_action_list")
-    toPost.set("name", name)
-    post(toPost, postAdressActionList)
+    toPost.set("name", action)
+    const result = Object.fromEntries(toPost)
+    var reload = false
+    await post(result, postAdressActionList).then(res => {
+        if(res !== "Done") {
+            setErrorMessage(res)
+            errorfunction()
+           reload = false
+        }
+      else {
+       reload = true
+      }
+    })
+
+    return reload
+
 }
 
 /** delets the action in the currently changed list at the given position
@@ -65,11 +93,25 @@ export async function SetActionList(name:String){
  * @param setContent 
  * @param position 
  */
-export async function DeleteAction(position){
+export async function DeleteAction( errorfunction,position, setErrorMessage){
     var toPost =  new Map()
     toPost.set("marker", "delete_action")
     toPost.set("position", position)
-    post(toPost, postAdressDeleteAction)
+    const result = Object.fromEntries(toPost)
+    var reload = false
+    await post(result, postAdressDeleteAction).then(res => {
+        if(res !== "Done") {
+            setErrorMessage(res)
+           errorfunction()
+           reload = false
+        }
+      else {
+       reload = true
+      }
+    })
+
+    return reload
+
 
 }
 
@@ -79,12 +121,25 @@ export async function DeleteAction(position){
  * @param first position as int
  * @param second 
  */
-export async function SwapActions(first, second){
+export async function SwapActions(first, second,  errorfunction,setErrorMessage){
     var toPost =  new Map()
     toPost.set("marker", "swap")
     toPost.set("first", first)
     toPost.set("second", second)
-    post(toPost, postAdressSwapActions)
+    const result = Object.fromEntries(toPost)
+    var reload = false
+    await post(result, postAdressSwapActions).then(res => {
+        if(res !== "Done") {
+            setErrorMessage(res)
+            errorfunction()
+           reload = false
+        }
+      else {
+       reload = true
+      }
+    })
+
+    return reload
 
 }
 /** creates a new action listwith given name and given type("sequential_list" or"parallel_list")
@@ -93,22 +148,51 @@ export async function SwapActions(first, second){
  * @param name 
  * @param type 
  */
-export async function CreatetActionList(name:String, type:String){
+export async function CreatetActionList(name:String, type:String,  errorfunction,setErrorMessage){
     var message =  new Map()
     message.set("marker", "create_action_list")
     message.set("name", name)
     message.set("key", type)
-    post(message, postAdressCreateActionList)
+    const result = Object.fromEntries(message)
+    var reload = false
+    await post(result, postAdressCreateActionList).then(res => {
+        if(res !== "Done") {
+            setErrorMessage(res)
+            errorfunction()
+           reload = false
+        }
+      else {
+       reload = true
+      }
+    })
+
+    return reload
+
 }
 /** executes the action list with the given name
  * 
  * @param name 
  */
-export async function ExecuteActionList(name:String){
+export async function ExecuteActionList(name:String,  errorfunction,setErrorMessage){
     var message =  new Map()
     message.set("marker", "execute_action_list")
     message.set("name", name)
-    post(message, postAdressExecuteList)
+    const result = Object.fromEntries(message)
+    var reload = false
+    await post(result, postAdressExecuteList).then(res => {
+        if(res !== "Done") {
+            console.log(res)
+            setErrorMessage(res)
+            errorfunction()
+           reload = false
+        }
+      else {
+       reload = true
+      }
+    })
+
+    return reload
+
 
 }
 
@@ -116,11 +200,25 @@ export async function ExecuteActionList(name:String){
  * 
  * @param type 
  */
-export async function SetCoordinateType(type:String){
+export async function SetCoordinateType(type:String,  errorfunction,setErrorMessage){
     var message =  new Map()
     message.set("marker", "set_coordinate_type")
     message.set("type", type)
-    post(message, postAdressCoordinateType)
+    const result = Object.fromEntries(message)
+    var reload = false
+    await post(result, postAdressCoordinateType).then(res => {
+        if(res !== "Done") {
+            setErrorMessage(res)
+            errorfunction()
+           reload = false
+        }
+      else {
+       reload = true
+      }
+    })
+
+    return reload
+
 
 }
 

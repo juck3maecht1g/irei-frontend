@@ -27,12 +27,19 @@ export async function SetExperiment(action, name, setErrorMessage){
     message.set("marker", "SetExperiment")
     message.set("experiment", name)
     const result = Object.fromEntries(message)
-    post(result, postAdressChosenExperiment).then(res => {
+    var reload = false
+    await post(result, postAdressChosenExperiment).then(res => {
         if(res !== "Done") {
             setErrorMessage(res)
             action()
+           reload = false
         }
-})
+      else {
+       reload = true
+      }
+    })
+
+    return reload
 
 }
 

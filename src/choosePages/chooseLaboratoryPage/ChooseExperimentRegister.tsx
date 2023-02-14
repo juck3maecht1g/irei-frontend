@@ -1,6 +1,6 @@
 import React from 'react'
 import {useState} from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { GetExperiments, SetExperiment } from '../../backendComunication/FetchAndSetDirExp';
 import { ErrorPopUp } from '../../PopUp/ErrorPopUP';
 import TopBar from '../../TopBar';
@@ -13,6 +13,7 @@ import './../../irei_styles.css'
  * the experiment class the user wants to execute
  */
 export default function ChooseExperimentRegister() {
+    const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState("sorry something went wrong")
     const [error, setError] = useState(false)
     const [exp, setExperiment] = useState([]);
@@ -22,7 +23,12 @@ export default function ChooseExperimentRegister() {
         setError(current => !current)
        }
        const setExp = (name) => {
-            SetExperiment(errorState,name, setErrorMessage )
+            SetExperiment(errorState,name, setErrorMessage ).then(res => {
+                if(res) {
+                    navigate("/Controlpage")
+                }
+            }
+            )
        }
 
 
@@ -49,14 +55,12 @@ function ChooseRegisterButton (props) {
         props.action(props.name) 
     }
     return ( 
-        <Link
-           to = {"/Controlpage"}
-        >
+       
         <button onClick={setChoise} 
         className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
             {props.name}
         </button>
-        </Link>
+    
      );
 }
 
