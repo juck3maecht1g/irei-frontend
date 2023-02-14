@@ -6,13 +6,14 @@ const fetchAdress = "http://127.0.0.1:5000/api/execchangegripper"
 const Message = "execchangegripper"
 
 function informexecChangeGripper(errorMessage, forErrors) {
-    post(Message, fetchAdress).then(res=> {
-        if(res !== "Done") {
-           errorMessage(res)
-           forErrors()
-            
+    post(Message, fetchAdress).then(
+        res=> {
+            if(res !== "Done") {
+            errorMessage(res)
+            forErrors()   
+            }
         }
-    })
+    )
 }
 
 /**
@@ -21,7 +22,11 @@ function informexecChangeGripper(errorMessage, forErrors) {
 function GripperButton (props) {
     return ( 
         <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-         onClick={()=> {informexecChangeGripper(props.errorMessage, props.forErrors)}}>gripper</button>
+            onClick={
+                ()=> {informexecChangeGripper(props.errorMessage, props.forErrors)}
+            }>
+            gripper
+        </button>
      );
 }
  

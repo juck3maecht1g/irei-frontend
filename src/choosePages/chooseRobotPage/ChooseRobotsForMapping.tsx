@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, } from 'react-router-dom';
 import { GetExpRobots } from '../../backendComunication/FetchRobots';
+import '../../irei_styles.css'
 
 /**
  * The ChooserobotPage is used to choose the robots

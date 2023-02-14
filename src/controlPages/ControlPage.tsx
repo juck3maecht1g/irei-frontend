@@ -52,6 +52,7 @@ function ControlPage (props) {
     return ( 
         <div >
             <TopBar title="Control"></TopBar>
+
             <h1>
                 <ResetButton forErrors={errorState} errorMessage={setErrorMessage}/>
                 <SavePositionButton action={namePos}/>
@@ -66,10 +67,13 @@ function ControlPage (props) {
                     })
                 }
             </h1>
+
             <NamingPopUp active = {namePosition} deactivate={namePos} forErrors={errorState}
             confirm={informSavePosition} getBaseName={BaseNamePosition} errorMessage={setErrorMessage}/>
+
             <NamingPopUp active = {nameSave} deactivate={nameSaved} forErrors={errorState}
             confirm={postLoggingStop} getBaseName={BaseNameStop} errorMessage={setErrorMessage}/>
+
             <ErrorPopUp active={error} deactivate={errorState} message={errorMessage}/>
         </div>
      );

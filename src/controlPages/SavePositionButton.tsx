@@ -13,10 +13,10 @@ export function informSavePosition(action, name, setErrorMessage) {
     to_post.set("name", name)
     const result = Object.fromEntries(to_post)
     post(result, fetchAdress).then(res => {
-            if(res !== "Done") {
-                setErrorMessage(res)
-                action()
-            }
+        if(res !== "Done") {
+            setErrorMessage(res)
+            action()
+        }
     })
 }
 /**
@@ -25,7 +25,10 @@ export function informSavePosition(action, name, setErrorMessage) {
  */
 function SavePositionButton (props) {
     return ( 
-        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={props.action}>save position</button>
+        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
+            onClick={props.action}>
+            save position
+        </button>
      );
 }
 

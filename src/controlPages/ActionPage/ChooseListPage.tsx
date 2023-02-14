@@ -20,16 +20,14 @@ export default function ChooseListPage (props) {
 
     const sentChoiceBack = (name) => {
         execute(name);
-        SetActionList(name);
+        SetActionList(name); 
     }
 
     const buttons = lists.map((number) => {
-        return <Link
-        to = {"/ActionListPage"}
-     >
-     <button onClick ={() => sentChoiceBack(number)}
-     className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-         {number}
+        return <Link to = {"/ActionListPage"}>
+     <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
+        onClick ={() => sentChoiceBack(number)}>
+        {number}
      </button>
      </Link>
     })

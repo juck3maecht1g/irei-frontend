@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import TopBar from '../../TopBar';
 import Popup from '../../PopUp/PopUp';
 import ChooseRobotsForMappingPage from './ChooseRobotsForMapping';
+import '../../irei_styles.css'
 
 export default function MappingRobotsPage () {
     const location = useLocation();
@@ -33,10 +34,12 @@ export default function MappingRobotsPage () {
 
     return (
         <div>
-            <TopBar name= "mapping of robots"/>
+            <TopBar title= "mapping of robots"/>
             {buttons}
             <Link to={"/ActionListPage"}>
-                <button onClick={sentToBackend}>confirm</button>
+                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={sentToBackend}>
+                    confirm
+                </button>
             </Link>
         </div>
     )
@@ -53,8 +56,11 @@ function MappingRobotsButton (props) {
 
     return (
         <div>
-            {props.index} {props.acion}
-            <button onClick = {() => setOpen(true)}>{props.element}</button>
+            {props.index} 
+            <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick = {() => setOpen(true)}>
+                {props.element}
+            </button>
+            {props.action}
             <Popup trigger = {open}>
             <ChooseRobotsForMappingPage number = {props.index} execute={setChoice}/>
              </Popup>

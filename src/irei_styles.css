@@ -1,8 +1,8 @@
 .bar {
     box-sizing: border-box;
     position: relative;
-    background: #3F51B5;
-    color: white;
+    background: rgb(139,195,74);
+    color: black;
     height: 64px;
     width: 100%;
     padding: 16px;
@@ -32,5 +32,32 @@
 }
 .irei-button {
     margin: 10px;
-    width: 200px
+    width: 200px;
+    height: 40px;
+}
+.grid{
+    display: grid;
+}
+.flexbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.navigation-button{
+    width: 200px;
+    height: 80%;
+    padding: 0;
+    top:0;
+}
+.irei-back-button {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    size: 10%;
+    text-align: center;
+}
+.test {
+    margin-bottom: 200px;
+    height:100%;
+    width: 100%;
 }

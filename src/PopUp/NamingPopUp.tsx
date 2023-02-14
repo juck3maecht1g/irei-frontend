@@ -14,7 +14,9 @@ export function NamingPopUp(props) {
         <PopUp trigger={props.active}>
             <form>
                 <div>
-                    <label>please enter a name or accept the default name:</label>
+                    <label>
+                        please enter a name or accept the default name:
+                    </label>
                 </div>
                 <div>
                     <input
@@ -27,21 +29,26 @@ export function NamingPopUp(props) {
             </form>
             {(name !== "")? 
             <button className="popup-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
-            onClick={() => {props.confirm(props.forErrors, name, props.errorMessage)
-                    props.deactivate()
-                }
-            }
-            >confirm</button>
+                onClick={
+                    () => {
+                        props.confirm(props.forErrors, name, props.errorMessage)
+                        props.deactivate()
+                    }
+                }>
+                confirm
+            </button>
             
             
             : <></>
         } 
         <button className="popup-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
-                onClick={() => {
+            onClick={
+                    () => {
                     props.deactivate()
                 }
-            }
-            >cancel</button>    
+            }>
+                cancel
+        </button>    
         </PopUp>
         )
 }

@@ -68,24 +68,38 @@ export default function ChooseDirectoryPage () {
     return ( 
         <div>
             <TopBar title="Choose Directory"></TopBar>
-            <div>
-                {
-                    directories.get("to_navigate")?.map((number) => {
-                    return <DirectoryButton name={number} action={navDown}/>
-                    })
-                }
+            <div className="grid">
+                <div className="grid">
+                    {
+                        directories.get("to_navigate")?.map((number) => {
+                        return <DirectoryButton name={number} action={navDown}/>
+                        })
+                    }
+                </div>
+                <div className="flexbox">
+                    <div>
+                        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                        onClick = {navUp}>
+                            navigate up
+                        </button>
+                    </div>
+                    <div>
+                        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={confirmChoise}>
+                            confirm
+                        </button>
+                    </div>
+                    <div>
+                        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                        onClick = {()=> setPopUpName(true)}>
+                            create
+                        </button>
+                    </div>
+                    <NamingPopUp active = {popUpName} deactivate={activatePopup} forErrors={errorState}
+                        confirm={createDir} getBaseName={BaseNameDir} errorMessage={setErrorMessage}/>
+                    <ErrorPopUp active={error} deactivate={errorState} message={errorMessage}/>
+                    
+                </div>
             </div>
-            <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-            onClick = {navUp}>navigate up</button>
-        
-            <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={confirmChoise}
-            >confirm</button>
-         
-            <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-            onClick = {()=> setPopUpName(true)}>create</button>
-            <NamingPopUp active = {popUpName} deactivate={activatePopup} forErrors={errorState}
-            confirm={createDir} getBaseName={BaseNameDir} errorMessage={setErrorMessage}/>
-            <ErrorPopUp active={error} deactivate={errorState} message={errorMessage}/>
         </div>
      );
 }

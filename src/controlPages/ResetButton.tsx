@@ -13,7 +13,6 @@ function informReset(errorMessage, forErrors) {
         if(res !== "Done") {
            errorMessage(res)
            forErrors()
-            
         }
     })
 }
@@ -26,7 +25,10 @@ function informReset(errorMessage, forErrors) {
  */
 function ResetButton (props) {
     return ( 
-        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={()=> {informReset(props.errorMessage, props.forErrors)}}>reset</button>
+        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
+            onClick={()=> {informReset(props.errorMessage, props.forErrors)}}>
+            reset
+        </button>
      );
 }
  

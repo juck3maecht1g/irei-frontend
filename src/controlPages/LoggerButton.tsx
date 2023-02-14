@@ -18,14 +18,16 @@ export function postLoggingStop(errorfunction, name, setErrorMessage, action) {
   to_post.set("marker", stopMessage)
   to_post.set("name", name)
   const result = Object.fromEntries(to_post)
-  post(result, fetchAdressStop).then(res => {
-    if(res !== "Done") {
-        setErrorMessage(res)
-        errorfunction()
-    }else {
-      action();
+  post(result, fetchAdressStop).then(
+    res => {
+      if(res !== "Done") {
+          setErrorMessage(res)
+          errorfunction()
+      }else {
+        action();
+      }
     }
-  })
+  )
 }
 
 export function BaseNameStop(setName) {
@@ -39,49 +41,60 @@ export default function LoggerButton (props) {
     props.action();
   }
 
-
   function startLogging() {
-   post(startMessage, fetchAdressStart).then(res => {
-    if(res !== "Done") {
-        props.errorMessage(res)
-        props.errorfunction()
-    }
-    else {
-       props.action();
-    } 
-  })
+    post(startMessage, fetchAdressStart).then(
+      res => {
+        if(res !== "Done") {
+            props.errorMessage(res)
+            props.errorfunction()
+        }
+        else {
+          props.action();
+        } 
+      }
+    )
  
   }
 
   function cancelLogging() {
-    post(cancelMessage, fetchAdressCancel).then(res => {
-     
-      if(res !== "Done") {
+    post(cancelMessage, fetchAdressCancel).then(
+      res => {
+        if(res !== "Done") {
           console.log(res)
           props.errorMessage(res)
           props.errorfunction()
+        }
+        else {
+          props.action();
       }
-      else {
-        props.action();
-     }
-    })
+      }
+    )
   
   }
 
   const start = (
     <div>
-        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={startLogging}>Start</button>
+      <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
+        onClick={startLogging}>
+        Start
+      </button>
     </div>
   )
 
   const stop = (
     <div>
       <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-       onClick={() => {
-        props.stoped()
-       }}>Stop</button>
+        onClick={
+        () => {
+          props.stoped()
+        }
+        }>
+        Stop
+      </button>
       <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-       onClick={cancelLogging}>Abort</button>
+       onClick={cancelLogging}>
+        Abort
+      </button>
     </div>
   )
 

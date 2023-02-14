@@ -4,8 +4,6 @@ import './../theme.css'
 import './../irei_styles.css'
 import './popup.css'
 
-
-
 export function ErrorPopUp(props) {
 //active deactivate
 
@@ -14,14 +12,18 @@ export function ErrorPopUp(props) {
         <PopUp trigger={props.active}>
             <form>
                 <div>
-                    <label>{props.message}</label>
+                    <label>
+                        {props.message}
+                    </label>
                 </div>
                 
             </form>
             <button className="popup-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
                 onClick={props.deactivate} 
-            >ok</button>
+            >
+                ok
+            </button>
             : <></>
         </PopUp>
-        )
+    )
 }

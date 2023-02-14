@@ -11,10 +11,6 @@ const cycleModeMassage = "cycle_modes"
 function GetMode(setMode) {
     var [fetched, setFetched] = useState(false) 
     passDataDirect(setMode, fetched, setFetched, fetchAdress)
-
-
-
-    
 }
 
 
@@ -26,22 +22,27 @@ function ModeButton (props) {
     var [fetched, setFetched] = useState(false) 
     GetMode(setMode)
     const test = () => {
-    post(cycleModeMassage, postAdress).then(res => {
-    if(res !== "Done") {
-        props.errorMessage(res)
-        props.forErrors()
-        
-    }
-   }).then(res => {
-    passDataDirect(setMode, fetched, setFetched, fetchAdress)
-    .then(res => setFetched(false))
-    
-})
+    post(cycleModeMassage, postAdress).then(
+        res => {
+            if(res !== "Done") {
+                props.errorMessage(res)
+                props.forErrors()
+                
+            }
+        }
+    ).then(
+        res => {
+            passDataDirect(setMode, fetched, setFetched, fetchAdress)
+            .then(res => setFetched(false))
+        }
+    )
 }
 
     return ( 
-        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={test
-        }>{mode}</button>
+        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
+            onClick={test}>
+            {mode}
+        </button>
      );
 }
  

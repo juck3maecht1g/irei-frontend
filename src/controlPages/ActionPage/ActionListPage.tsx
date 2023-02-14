@@ -3,6 +3,7 @@ import {useState} from 'react';
 import TopBar from '../../TopBar';
 import ActionlistButton from './ActionlistButton';
 import { Link } from 'react-router-dom';
+import '../../irei_styles.css'
 import { GetActionListContent } from './ActionFetch';
 
 /**
@@ -13,27 +14,43 @@ export default function ActionListPage (props) {
     const [actionlist, setActionlist] = useState(test);
  //   GetActionListContent(setActionlist)
     
-  //  const actionlist = test;
     return ( 
+        
         <div>
+        <div className="test">
             <TopBar title="Actionlist"></TopBar>
-            <Link to={"/MappingRobotsPage"}
-                 state = {{index: [-1]}}>
-                    <button >edit mapping</button>
+                <Link to={"/MappingRobotsPage"}
+                    state = {{index: [-1]}}>
+                    <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                        edit mapping
+                    </button>
                 </Link>
             {
                 actionlist.map((currElement, index) => {
                     var listIndex = [index];
                     return <div>
                         <ActionlistButton key={index} element={currElement} listPlace={listIndex}/>
-                        <button>delete</button>
+                        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                            delete
+                        </button>
                     </div>
                 })
             }
             <Link to = {"/ActionKindPage"}>
-                <button>new action</button>
+                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    new action
+                </button>
             </Link>
         </div>
+            <div>
+                <Link to = {"/ControlPage"}>
+                    <button className="irei-back-button irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                        Controlmenu
+                    </button>
+                </Link>
+            </div>
+        </div>
+
      );
 }
 

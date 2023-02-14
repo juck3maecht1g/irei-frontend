@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState} from 'react'
 import { Link } from 'react-router-dom';
+import '../../irei_styles.css'
 import { DeleteAction } from './ActionFetch';
 
 /**
@@ -33,13 +34,16 @@ export default function ActionlistButton (props) {
     if (action.get("key") === "sequential_list") { 
         return (
             <div>
-                <button onClick = {() => setState(prevState => !prevState)}>
+                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                    onClick = {() => setState(prevState => !prevState)}>
                     <div>{action.get("name")}</div>
                     <div>sequential_list</div>
                 </button>
                 <Link to={"/MappingRobotsPage"}
                  state = {{index: props.listPlace}}>
-                    <button >edit mapping</button>
+                    <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                        edit mapping
+                    </button>
                 </Link>
                 {state && open}
             </div>
@@ -47,13 +51,16 @@ export default function ActionlistButton (props) {
     } else if (action.get("key") === "parallel_list") {
         return (
             <div>
-                <button onClick = {() => setState(prevState => !prevState)}>
+                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                    onClick = {() => setState(prevState => !prevState)}>
                     <div>{action.get("name")}</div>
                     <div>parallel_list</div>
                 </button>
                 <Link to={"/MappingRobotsPage"}
                  state = {{index: props.listPlace}}>
-                    <button >edit mapping</button>
+                    <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                        edit mapping
+                    </button>
                 </Link>
                 {state && open}
             </div>
@@ -61,7 +68,7 @@ export default function ActionlistButton (props) {
     }
 
     return (
-        <button> 
+        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"> 
             <div>{action.get("key")}</div>
             <div>{props.second}</div>
         </button>
