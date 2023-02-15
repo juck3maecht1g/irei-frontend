@@ -36,6 +36,7 @@ export async function passDataAsMap(set, fetched, setfetched, adress){
 
 
 export async function post (content, postAdress){
+
     const response = await fetch(postAdress, {
         'method': 'POST',
         headers : {
@@ -50,7 +51,7 @@ export async function post (content, postAdress){
 
 
 
-export async function passDataForAction(set, fetched, setfetched, adress){
+export async function passDataForActionMapping(set, fetched, setfetched, adress){
 
     if(fetched) {
         return

@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 import { Link } from 'react-router-dom';
-import { ExecuteActionList } from './ActionPage/ActionFetch';
+import { ExecuteActionList, SetButtonIndex } from './ActionPage/ActionFetch';
 import './../irei_styles.css'
 
 export default function ActionListButton (props) {
@@ -11,6 +11,12 @@ export default function ActionListButton (props) {
     const execute = ()=> {
         ExecuteActionList(actionlist, props.errorfunction, props.errorMessage)
     }
+
+const informPosition = () => {
+    console.log("hi")
+    SetButtonIndex(props.index, props.errorfunction, props.setErrorMessage)
+}
+
 
     return (
         <div>
@@ -24,8 +30,8 @@ export default function ActionListButton (props) {
                 </div>
             </button>
             
-            <Link to={"/ActionListPage"} state={{execute: setActionList}}>
-                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            <Link to={"/ActionListPage"} state={{execute: setActionList}} >
+                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={informPosition}>
                     edit
                 </button>
             </Link>

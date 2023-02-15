@@ -78,7 +78,8 @@ var move = new Map()
 var sList = new Map()
     sList.set("key", "sequential_list");sList.set("name", "kochen"); sList.set("content", [closeGripper, openGripper])
 var pList = new Map()
-    pList.set("key", "parallel_list"); pList.set("name", "backen"); pList.set("content", [closeGripper, openGripper])
-var test = [closeGripper]
+    pList.set("key", "parallel_list"); pList.set("name", "backen"); pList.set("content", [closeGripper, openGripper, sList])
+
+    var test = [closeGripper]
     test.push(openGripper); test.push(custom); test.push(wait); test.push(move); test.push(sList); test.push(pList)
     
