@@ -1,5 +1,6 @@
 
 
+
 export async function passDataDirect(set, fetched, setfetched, adress){
 
     if(fetched) {
@@ -45,3 +46,52 @@ export async function post (content, postAdress){
     return (await response.text()).toString()
 
 }  
+
+
+
+
+export async function passDataForAction(set, fetched, setfetched, adress){
+
+    if(fetched) {
+        return
+        }
+        setfetched (true)
+        const data = await (
+            await fetch(
+            adress
+            )
+        ).json().then(data => {
+            console.log(data)
+            set(convertBackToFrontMapping(data))
+        }
+        )
+}
+
+
+
+export function convertFrontToBackMapping(frontMapping) {
+    var list = Array()
+    for (var x = 0; x< frontMapping.length; x++) {
+        var elem = frontMapping[x]
+        var temp = new Map() 
+        var name = elem.get("name")
+        temp.set(name.split(".")[0], elem.get("robot"))
+        list.push(temp)
+    }
+    return list
+
+}
+
+export function convertBackToFrontMapping(backMapping) {
+    var list = Array()
+   
+    var totalMap = new Map(Object.entries(backMapping))
+    for (let key of totalMap.keys()) {
+        var elem = new Map()
+        elem.set("name", key + ". robot in this list")
+        elem.set("robot", totalMap.get(key))
+        list.push(elem)
+    } 
+    return list
+
+}
