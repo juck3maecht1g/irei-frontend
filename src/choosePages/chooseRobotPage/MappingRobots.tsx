@@ -10,29 +10,16 @@ import { ErrorPopUp } from '../../PopUp/ErrorPopUP';
 
 export default function MappingRobotsPage () {
 
-    const [errorMessage, setErrorMessage] = useState("sorry position could not be saved")
+    const [errorMessage, setErrorMessage] = useState("sorry robots couldnt be changed")
     const [error, setError] = useState(false)
     const errorState = () => {
         setError(current => !current)
-       }
+    }
 
 
 
-    const location = useLocation();
-    const { index } = location.state;
     var [roles, setRoles] = useState([help1, help2, help3, help4])
     // fetch methode vom Backend mit undefined array größe x
-
-
-    SetMappingPos(index, errorState, setErrorMessage)
-    console.log(GetMapping(setRoles))
-
-    
-
- 
-
-
-
 
     const setChoice = (ip, number) => {
         var changed = [...roles]
