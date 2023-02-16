@@ -17,18 +17,12 @@ export default function ChooseListPage (props) {
         setError(current => !current)
        }
 
-
-
-
-
-    const location = useLocation();
-    const { execute } = location.state;
-
     const [lists, setList] = useState([]);
     GetActionListNames(setList)
 
     const sentChoiceBack = (name) => {
-        execute(name);
+        props.execute(name);
+        props.close()
         SetActionList(errorState, name, setErrorMessage); 
     }
 
