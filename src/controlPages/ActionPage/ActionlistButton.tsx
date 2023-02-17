@@ -2,13 +2,19 @@ import React from 'react'
 import {useState} from 'react'
 import { Link } from 'react-router-dom';
 import '../../irei_styles.css'
-import { DeleteAction } from './ActionFetch';
+import { DeleteAction, SetMappingPos } from './ActionFetch';
+import { ErrorPopUp } from '../../PopUp/ErrorPopUP';
 
 /**
  * The ActionListPage is used to edit a list of actions by adding new action and deleting others
  */
 export default function ActionlistButton (props) {
-    
+
+    const [errorMessage, setErrorMessage] = useState("sorry robots couldnt be changed")
+    const [error, setError] = useState(false)
+    const errorState = () => {
+        setError(current => !current)
+    }
     
     const action = props.element;
 
@@ -56,13 +62,14 @@ export default function ActionlistButton (props) {
                     <div>{action.get("name")}</div>
                     <div>parallel_list</div>
                 </button>
-                <Link to={"/MappingRobotsPage"}
-                 state = {{index: props.listPlace}}>
-                    <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                <Link to={"/MappingRobotsPage"}>
+                    <button onClick={() =>SetMappingPos(props.listPlace, errorState, setErrorMessage)} 
+                        className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                         edit mapping
                     </button>
                 </Link>
                 {state && open}
+                <ErrorPopUp active={error} deactivate={errorState} message={errorMessage}/>
             </div>
         )
     }

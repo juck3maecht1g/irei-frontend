@@ -5,10 +5,18 @@ import TopBar from '../../TopBar';
 import Popup from '../../PopUp/PopUp';
 import ChooseRobotsForMappingPage from './ChooseRobotsForMapping';
 import '../../irei_styles.css'
+import { convertBackToFrontMapping, GetMapping, SetMapping, SetMappingPos } from '../../controlPages/ActionPage/ActionFetch';
+import { ErrorPopUp } from '../../PopUp/ErrorPopUP';
 
 export default function MappingRobotsPage () {
-    const location = useLocation();
-    const { index } = location.state;
+
+    const [errorMessage, setErrorMessage] = useState("sorry robots couldnt be changed")
+    const [error, setError] = useState(false)
+    const errorState = () => {
+        setError(current => !current)
+    }
+
+
 
     var [roles, setRoles] = useState([help1, help2, help3, help4])
     // fetch methode vom Backend mit undefined array größe x
@@ -20,12 +28,14 @@ export default function MappingRobotsPage () {
     }
 
     const sentToBackend = () => {
-        var changed = []
+        /*var changed = []
         for (let i=0; i<roles.length; i++) {
             changed.push(roles[i].get("robot"));
         }
         console.log(changed) // changed to Backend
         console.log(index) // changed to Backend
+        */
+        SetMapping(roles, errorState, setErrorMessage)
     }
 
     const buttons = roles.map((element, index) => {
@@ -41,6 +51,7 @@ export default function MappingRobotsPage () {
                     confirm
                 </button>
             </Link>
+            <ErrorPopUp active={error} deactivate={errorState} message={errorMessage}/>
         </div>
     )
 }

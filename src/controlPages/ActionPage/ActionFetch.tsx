@@ -1,6 +1,6 @@
 
 import { useState } from "react"
-import { passDataDirect, post, passDataAsMap } from "../../backendComunication/BasicOpperations"
+import { passDataDirect, post, passDataAsMap, convertBackToFrontMapping, convertFrontToBackMapping, passDataForActionMapping } from "../../backendComunication/BasicOpperations"
 
 const fetchAdressAllActionLists = "http://127.0.0.1:5000/api/get-action_lists"
 const postAdressActionList = "http://127.0.0.1:5000/api/set_action_list"
@@ -12,6 +12,10 @@ const postAdressCreateActionList = "http://127.0.0.1:5000/api/create_action_list
 const postAdressExecuteList = "http://127.0.0.1:5000/api/executeList"
 const postAdressCoordinateType = "http://127.0.0.1:5000/api/set_coordinate_type"
 const fetchAdressPositionList = "http://127.0.0.1:5000/api/get_coordinates"
+const fetchAdressMapping = "http://127.0.0.1:5000/api/get_mapping_table"
+const postAdressMapping = "http://127.0.0.1:5000/api/set_mapping_in_table"
+const postAdressMappingPosition= "http://127.0.0.1:5000/api/set_mapping_pos"
+const postAdressButtonIndex= "http://127.0.0.1:5000/api/set_button_index"
 
 /**gets a list of dictionarrys containing a "name" of the action list and a "key"
  * specifieing if sequential or parallel
@@ -232,3 +236,83 @@ export async function GetPositions(setPositions){ // returns Map list
 
 
 }
+
+/** todo matching naming
+ * 
+ * @param setMapping 
+ */
+export async function GetMapping(setMapping){ // returns Map list
+    var [fetched, setfetched] = useState(false) 
+    await passDataForActionMapping(setMapping, fetched, setfetched, fetchAdressMapping)
+}
+
+
+
+
+export async function SetMappingPos(pos:[],  errorfunction,setErrorMessage){
+    var reload = false
+    await post(pos, postAdressMappingPosition).then(res => {
+        if(res !== "Done") {
+            setErrorMessage(res)
+            errorfunction()
+           reload = false
+        }
+      else {
+       reload = true
+      }
+    })
+
+    return reload
+
+
+}
+
+export async function SetMapping(mappingRobots,  errorfunction,setErrorMessage){
+    mappingRobots = convertFrontToBackMapping(mappingRobots)
+    var message = Array()
+    for (var x = 0; x<mappingRobots.length; x++) {
+        const temp = Object.fromEntries(mappingRobots[x])
+        message.push(temp)
+
+    }
+    var reload = false
+    await post(message, postAdressMapping).then(res => {
+        if(res !== "Done") {
+            setErrorMessage(res)
+            errorfunction()
+           reload = false
+        }
+      else {
+       reload = true
+      }
+    })
+
+    return reload
+
+
+}
+
+
+export async function SetButtonIndex(index,  errorfunction,setErrorMessage){
+    var reload = false
+    console.log(index)
+    await post(index, postAdressButtonIndex).then(res => {
+        if(res !== "Done") {
+            setErrorMessage(res)
+            errorfunction()
+           reload = false
+        }
+      else {
+       reload = true
+      }
+    })
+
+    return reload
+
+
+}
+
+
+
+export { convertBackToFrontMapping }
+

@@ -3,6 +3,7 @@ import {useState} from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import TopBar from '../../TopBar';
 import { GetActionListNames, SetActionList } from './ActionFetch';
+import { ErrorPopUp } from '../../PopUp/ErrorPopUP';
 import './../../theme.css'
 import './../../irei_styles.css'
 
@@ -10,17 +11,19 @@ import './../../irei_styles.css'
  * The ChooseListPage is used to choose an existing list of action 
  */
 export default function ChooseListPage (props) {
-    
-
-    const location = useLocation();
-    const { execute } = location.state;
+    const [errorMessage, setErrorMessage] = useState("sorry position could not be saved")
+    const [error, setError] = useState(false)
+    const errorState = () => {
+        setError(current => !current)
+       }
 
     const [lists, setList] = useState([]);
     GetActionListNames(setList)
 
     const sentChoiceBack = (name) => {
-        execute(name);
-        SetActionList(name); 
+        props.execute(name);
+        props.close()
+        SetActionList(errorState, name, setErrorMessage); 
     }
 
     const buttons = lists.map((number) => {
@@ -36,6 +39,7 @@ export default function ChooseListPage (props) {
         <div>
             <TopBar title="Choose Action List"/>
             {buttons}
+            <ErrorPopUp active={error} deactivate={errorState} message={errorMessage}/>
         </div>
     )
 }

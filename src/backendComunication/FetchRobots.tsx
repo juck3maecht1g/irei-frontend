@@ -1,6 +1,7 @@
 // this file contains multiple methods used to fetch robots from the backend
 
 
+import { useState } from "react"
 import { informLabChoise } from "./FetchAndSetLab"
 
 
