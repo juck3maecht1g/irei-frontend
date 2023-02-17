@@ -10,7 +10,7 @@ import './../../irei_styles.css'
 /**
  * The ChooseListPage is used to choose an existing list of action 
  */
-export default function ChooseListPage (props) {
+export default function ChooseListPage () {
     const [errorMessage, setErrorMessage] = useState("sorry position could not be saved")
     const [error, setError] = useState(false)
     const errorState = () => {
@@ -21,8 +21,6 @@ export default function ChooseListPage (props) {
     GetActionListNames(setList)
 
     const sentChoiceBack = (name) => {
-        props.execute(name);
-        props.close()
         SetActionList(errorState, name, setErrorMessage); 
     }
 
