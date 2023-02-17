@@ -11,7 +11,11 @@ import { SetCoordinateType, GetPositions, appendAction } from '../ActionFetch';
  * a variable for a robot to approach
  */
 export default function ChooseVariablePage (props) {
-
+    const [errorMessage, setErrorMessage] = useState("sorry robots couldnt be changed")
+    const [error, setError] = useState(false)
+    const errorState = () => {
+        setError(current => !current)
+    }
     const location = useLocation();
     const { kind } = location.state;
     const { ip } = location.state;
@@ -26,7 +30,7 @@ export default function ChooseVariablePage (props) {
         } else {
             state = "joint";
         }
-        SetCoordinateType(state);
+        SetCoordinateType(state, errorState, setErrorMessage);
         GetPositions(setPositions)
     }
     
@@ -36,7 +40,7 @@ export default function ChooseVariablePage (props) {
 
     const buttons = arrayPosition.map((number) => {
         return <PositionButton name= {number.value} 
-        position={number.key} 
+        position={number.key} errorState={errorState} setErrorMessage={setErrorMessage}
         kind={kind} ip={ip}/>
     })
 
@@ -58,7 +62,7 @@ function PositionButton (props) {
         help.set("key", props.kind);
         help.set("robot", props.ip);
         help.set("position", props.position)
-        appendAction(help);
+        appendAction(props.errorState, help, props.setErrorMessage);
     } 
 
     return ( 

@@ -4,6 +4,11 @@ import { useLocation, Link } from 'react-router-dom';
 import { appendAction } from '../ActionFetch';
 
 export default function SetCustomPage() {
+    const [errorMessage, setErrorMessage] = useState("sorry robots couldnt be changed")
+    const [error, setError] = useState(false)
+    const errorState = () => {
+        setError(current => !current)
+    }
     const [name, setName] = useState("")
 
     const location = useLocation();
@@ -16,7 +21,7 @@ export default function SetCustomPage() {
         actionParameters.set("key", kind);
         actionParameters.set("robot", ip);
         actionParameters.set("action", name);
-        appendAction(actionParameters);
+        appendAction(errorState, actionParameters, setErrorMessage);
     }
 
     return (
