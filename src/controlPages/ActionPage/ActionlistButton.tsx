@@ -2,8 +2,9 @@ import React from 'react'
 import {useState} from 'react'
 import { Link } from 'react-router-dom';
 import '../../irei_styles.css'
-import { DeleteAction, SetMappingPos } from './ActionFetch';
+import { SetMappingPos } from './ActionFetch';
 import { ErrorPopUp } from '../../PopUp/ErrorPopUP';
+import './Actionlist.css'
 
 /**
  * The ActionListPage is used to edit a list of actions by adding new action and deleting others
@@ -27,7 +28,7 @@ export default function ActionlistButton (props) {
         return action.get("content").map((currElement, index) => {
             var listIndex = [...props.listPlace];
             listIndex.push(index)
-            return <div>
+            return <div className="secondRow">
                 <ActionlistButton key={index} element={currElement} listPlace={listIndex}/>
             </div>
         })}

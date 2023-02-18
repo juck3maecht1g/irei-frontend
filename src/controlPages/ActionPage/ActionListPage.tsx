@@ -4,15 +4,25 @@ import TopBar from '../../TopBar';
 import ActionlistButton from './ActionlistButton';
 import { Link } from 'react-router-dom';
 import '../../irei_styles.css'
-import { GetActionListContent } from './ActionFetch';
+import { GetActionListContent, DeleteAction } from './ActionFetch';
 
 /**
  * The ActionListPage is used to edit a list of actions by adding new action and deleting others
  */
 export default function ActionListPage (props) {
 
-    const [actionlist, setActionlist] = useState([]);
+    const [errorMessage, setErrorMessage] = useState("sorry robots couldnt be changed")
+    const [error, setError] = useState(false)
+    const errorState = () => {
+        setError(current => !current)
+    }
+
+    const [actionlist, setActionlist] = useState(test);
     GetActionListContent(setActionlist)
+
+    const deleteAction = (position) => {
+        DeleteAction(errorState, position, setErrorMessage)
+    }
     
     return ( 
         
@@ -30,7 +40,7 @@ export default function ActionListPage (props) {
                     var listIndex = [index];
                     return <div>
                         <ActionlistButton key={index} element={currElement} listPlace={listIndex}/>
-                        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                        <button onClick={() =>deleteAction(index)} className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                             delete
                         </button>
                     </div>
@@ -71,7 +81,6 @@ var custom = new Map()
     custom.set("key", "custom"); custom.set("robots", [robot])
     custom.set("action", "tischtennis")
 var wait = new Map()
- 
     wait.set("key", "wait"); wait.set("robots", [robot]); wait.set("time", 1235)
 var move = new Map()
     move.set("key", "move"); move.set("robots", [robot]); move.set("position", position)
