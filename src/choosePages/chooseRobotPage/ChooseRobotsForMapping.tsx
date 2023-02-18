@@ -10,6 +10,8 @@ import '../../irei_styles.css'
 export default function ChooseRobotsForMappingPage(props){
 
     var [robots, setRobots] = useState(help);
+
+    GetExpRobots(setRobots)
     //GetExpRobots(setRobots)
 
     const arrRobots = Array.from(robots, function (entry) {

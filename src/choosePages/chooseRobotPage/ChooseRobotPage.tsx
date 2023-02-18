@@ -9,7 +9,11 @@ import {appendAction} from '../../controlPages/ActionPage/ActionFetch';
  * the user wants to work with
  */
 export default function ChooseRobotPage(props){
-
+  const [errorMessage, setErrorMessage] = useState("sorry position could not be saved")
+  const [error, setError] = useState(false)
+  const errorState = () => {
+      setError(current => !current)
+     }
     const location = useLocation();
     const {action} = location.state;
     const {link} = location.state;
@@ -19,7 +23,7 @@ export default function ChooseRobotPage(props){
         var help = new Map();
         help.set("key", action);
         help.set("robot", ip)
-        appendAction(help);
+        appendAction(errorState, help, setErrorMessage);
       }
     }
 

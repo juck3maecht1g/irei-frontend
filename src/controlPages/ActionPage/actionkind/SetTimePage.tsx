@@ -4,6 +4,11 @@ import { Link, useLocation } from 'react-router-dom';
 import { appendAction } from '../ActionFetch';
 
 export default function SetTimePage() {
+    const [errorMessage, setErrorMessage] = useState("sorry robots couldnt be changed")
+    const [error, setError] = useState(false)
+    const errorState = () => {
+        setError(current => !current)
+    }
     const [time, setTime] = useState('0')
 
     const location = useLocation();
@@ -16,7 +21,7 @@ export default function SetTimePage() {
         actionParameters.set("key", kind);
         actionParameters.set("robot", ip);
         actionParameters.set("time", time);
-        appendAction(actionParameters);
+        appendAction(errorState, actionParameters, setErrorMessage);
     }
 
     return (

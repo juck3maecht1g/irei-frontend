@@ -19,7 +19,7 @@ export default function MappingRobotsPage () {
 
 
     var [roles, setRoles] = useState([help1, help2, help3, help4])
-    // fetch methode vom Backend mit undefined array größe x
+    GetMapping(setRoles)
 
     const setChoice = (ip, number) => {
         var changed = [...roles]
