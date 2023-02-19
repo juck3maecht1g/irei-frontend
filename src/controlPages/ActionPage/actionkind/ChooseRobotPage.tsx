@@ -29,8 +29,8 @@ export default function ChooseRobotPage(props){
       }
     }
 
-    var [robots, setRobots] = useState(new Map<string, string>());
-    GetExpRobots(setRobots)
+    var [robots, setRobots] = useState(test); //new Map<string, string>()
+  //  GetExpRobots(setRobots)
 
     const arrRobots = Array.from(robots, function (entry) {
       return { key: entry[0], value: entry[1]};
@@ -70,3 +70,9 @@ function RobotButton (props) {
     </Link>
    );
 }
+
+var test = new Map();
+test.set("123.234.346", "ckara")
+test.set("985.234.346", "andre")
+test.set("444.234.466", "tessa")
+test.set("333.356.346", "hannah")
