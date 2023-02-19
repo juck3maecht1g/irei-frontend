@@ -71,7 +71,7 @@ export default function ChooseDirectoryPage () {
             <div className="grid directory-grid">
                 <div>
                     <p className="irei-path">
-                        {/*getPath*/}todo
+                        {/*getPath*/}todo cwd
                     </p>
                 </div>
 
