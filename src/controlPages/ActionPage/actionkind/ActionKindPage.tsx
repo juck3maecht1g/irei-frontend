@@ -15,23 +15,33 @@ export default function ActionKindPage (props) {
             <Link 
               to = {"/ChooseRobot"}
               state = {{action: "gripperOpen", link:"/ActionListPage"}}>
-                <button>gripper open</button>
+                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                  gripper open
+                </button>
             </Link>
             <Link to = {"/ChooseRobot"}
                   state = {{ action: "gripperClose", link:"/ActionListPage"}}>
-                <button>gripper close</button>
+                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                  gripper close
+                </button>
             </Link>
             <Link to = {"/ChooseRobot"}
                   state = {{ action: "steering", link:"/ChooseVariablePage"}}>
-                <button>steering</button>
+                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                  steering
+                </button>
             </Link>
             <Link to = {"/ChooseRobot"}
-                  state = {{ action: "wait", link:"/setTime"}}>
-                <button>wait</button>
+                  state = {{ action: "wait", link:"/SetTimePage"}}>
+                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                  wait
+                </button>
             </Link>
             <Link to = {"/ChooseRobot"} 
-                  state = {{ action: "custom", link:"/giveName"}}>
-                <button>Custom</button>
+                  state = {{ action: "custom", link:"/SetCustomPage"}}>
+                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                  Custom
+                </button>
             </Link>
         </div>
      );

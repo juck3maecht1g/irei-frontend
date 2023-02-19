@@ -39,6 +39,7 @@ export default function MappingRobotsPage () {
     }
 
     const buttons = roles.map((element, index) => {
+        console.log(element)
         return <MappingRobotsButton index = {index} element={element.get("robot")} action={element.get("name")} chosen={setChoice} />
     })
 

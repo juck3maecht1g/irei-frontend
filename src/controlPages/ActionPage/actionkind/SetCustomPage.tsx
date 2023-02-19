@@ -28,7 +28,7 @@ export default function SetCustomPage() {
         <div>
             <form>
                 <div>
-                    <label>please set a time:</label>
+                    <label>please enter the name of the custom action:</label>
                 </div>
                 <div>
                     <input

@@ -13,8 +13,9 @@ import ChooseListPage from "./controlPages/ActionPage/ChooseListPage";
 import MappingRobotsPage from "./choosePages/chooseRobotPage/MappingRobots";
 
 import ChooseVariablePage from "./controlPages/ActionPage/actionkind/ChooseVariablePage";
-import ChooseRobotPage from "./choosePages/chooseRobotPage/ChooseRobotPage";
+import ChooseRobotPage from "./controlPages/ActionPage/actionkind/ChooseRobotPage";
 import SetTimePage from "./controlPages/ActionPage/actionkind/SetTimePage";
+import SetCustomPage from "./controlPages/ActionPage/actionkind/SetCustomPage";
 
 import ChooseLanguagePage from "./choosePages/chooseLanguagePage/ChooseLanguagePage"
 import ActionKindPage from "./controlPages/ActionPage/actionkind/ActionKindPage";
@@ -42,6 +43,7 @@ export default function App (){
           <Route path="/ChooseRobot" element={<ChooseRobotPage/>} />
           <Route path="/ChooseVariablePage" element={<ChooseVariablePage/>} />
           <Route path="/SetTimePage" element={<SetTimePage/>} />
+          <Route path="/SetCustomPage" element={<SetCustomPage/>} />
         </Routes>
       </BrowserRouter>
     </div>
