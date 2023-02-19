@@ -12,7 +12,9 @@ export default function ActionListButton (props) {
  //   const [choosing, setChoosing] = useState(false)
 
     const execute = ()=> {
+        informPosition()
         ExecuteActionList(actionlist, props.errorfunction, props.errorMessage)
+
     }
 
     const informPosition = () => {
