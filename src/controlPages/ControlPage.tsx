@@ -11,8 +11,22 @@ import './../irei_styles.css'
 import { NamingPopUp } from '../PopUp/NamingPopUp';
 import { ErrorPopUp } from '../PopUp/ErrorPopUP';
 import ActionListButton from './ActionListButton';
+import { post } from '../backendComunication/BasicOpperations';
 
 
+
+
+async function StartRequest (errorfunction, setErrorMessage) {
+    var message = "start_request"
+    const postAdress = "http://127.0.0.1:5000/api/start_request"
+    await post(message, postAdress).then(res => {
+        if(res !== "Done") {
+            setErrorMessage(res)
+            errorfunction()
+        }})
+
+
+}
 //import ApproachPositionActionButton from '../ApproachPositionActionButton';
 
 /**
@@ -25,7 +39,7 @@ function ControlPage (props) {
     const [namePosition, setNamePosition] = useState(false)
     const [nameSave, setNameSave] = useState(false)
     const [error, setError] = useState(false)
-
+   
     const [numberALists, setNumberALists] = useState(6)
     // fetch methode setNumberALists
     var actions = new Array(numberALists)
@@ -48,6 +62,7 @@ function ControlPage (props) {
       setIsStarted(current => !current)
     }
 
+    StartRequest(errorState, setErrorMessage)
 
     return ( 
         <div >
@@ -72,7 +87,7 @@ function ControlPage (props) {
             confirm={informSavePosition} getBaseName={BaseNamePosition} errorMessage={setErrorMessage}/>
 
             <NamingPopUp active = {nameSave} deactivate={nameSaved} forErrors={errorState}
-            confirm={postLoggingStop} getBaseName={BaseNameStop} errorMessage={setErrorMessage}/>
+            confirm={postLoggingStop} getBaseName={BaseNameStop} errorMessage={setErrorMessage} started = {startedLogging}/>
 
             <ErrorPopUp active={error} deactivate={errorState} message={errorMessage}/>
         </div>

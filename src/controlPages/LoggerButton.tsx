@@ -13,18 +13,19 @@ const fetchAdressCancel = "http://127.0.0.1:5000/api/cancel"
 const cancelMessage = "cancel"
 
 
-export function postLoggingStop(errorfunction, name, setErrorMessage, action) {
+export function postLoggingStop(errorfunction, name, setErrorMessage, started) {
   var to_post = new Map()
   to_post.set("marker", stopMessage)
   to_post.set("name", name)
   const result = Object.fromEntries(to_post)
   post(result, fetchAdressStop).then(
     res => {
+      console.log(started)
       if(res !== "Done") {
           setErrorMessage(res)
           errorfunction()
       }else {
-        action();
+        started()
       }
     }
   )

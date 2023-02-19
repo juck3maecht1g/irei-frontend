@@ -1,13 +1,13 @@
 import React from 'react';
 import {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ExecuteActionList, SetButtonIndex } from './ActionPage/ActionFetch';
 import './../irei_styles.css'
 //import ChooseListPage from './ActionPage/ChooseListPage';
 //import Popup from '../PopUp/PopUp';
 
 export default function ActionListButton (props) {
-    
+    const navigate = useNavigate();
     const [actionlist, setActionList] = useState("")
  //   const [choosing, setChoosing] = useState(false)
 
@@ -18,7 +18,11 @@ export default function ActionListButton (props) {
     }
 
     const informPosition = () => {
-        SetButtonIndex(props.index, props.errorfunction, props.setErrorMessage)
+        SetButtonIndex(props.index, props.errorfunction, props.setErrorMessage).then(res => {
+            if(res){
+                navigate("/ChooseListPage")
+            }
+        })
     }
 
 
@@ -34,11 +38,11 @@ export default function ActionListButton (props) {
                 </div>
             </button>
             
-            <Link to={"/ChooseListPage"} >
+            
                 <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={informPosition}>
                     edit
                 </button>
-            </Link>
+          
         </div>
     )
 }

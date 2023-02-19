@@ -10,6 +10,7 @@ export function NamingPopUp(props) {
 //active, confirm, forErrors, getBaseName
     const [name, setName] = useState("")
     props.getBaseName(setName)
+    
     return (
         <PopUp trigger={props.active}>
             <form>
@@ -30,8 +31,13 @@ export function NamingPopUp(props) {
             {(name !== "")? 
             <button className="popup-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
                 onClick={
-                    () => {
+                    () => {console.log(props.started)
+                        if(props.started != "undefined") {
+                            props.confirm(props.forErrors, name, props.errorMessage, props.started)
+                         
+                        } else {
                         props.confirm(props.forErrors, name, props.errorMessage)
+                        }
                         props.deactivate()
                     }
                 }>
