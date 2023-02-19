@@ -40,10 +40,11 @@ export default function ActionListButton (props) {
             </button>
             </div>
             
-            
+            <div>
                 <button className="icon-button irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={informPosition}>
                 <i className="material-icons">edit</i>
                 </button>
+            </div>
         </div>
     )
 }
