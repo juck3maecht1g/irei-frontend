@@ -53,7 +53,8 @@ function ControlPage (props) {
         <div >
             <TopBar title="Control"></TopBar>
 
-            <h1>
+            <h1 className="header">
+                <div className="control-grid">
                 <ResetButton forErrors={errorState} errorMessage={setErrorMessage}/>
                 <SavePositionButton action={namePos}/>
                 <GrippperButton forErrors={errorState} errorMessage={setErrorMessage}/>
@@ -66,6 +67,7 @@ function ControlPage (props) {
                         return <ActionListButton index = {index} errorfunction={errorState} errorMessage={setErrorMessage}/>
                     })
                 }
+                </div>
             </h1>
 
             <NamingPopUp active = {namePosition} deactivate={namePos} forErrors={errorState}
