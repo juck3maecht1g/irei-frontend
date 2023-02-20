@@ -3,7 +3,7 @@ import {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import TopBar from '../../TopBar';
 import DirectoryButton from './DirectoryButton';
-import { GetDirectories, NavigateDown, NavigateUP, Create, BaseNameDir, confirmDirChoise } from '../../backendComunication/FetchAndSetDirExp';
+import { GetDirectories, NavigateDown, NavigateUP, Create, DeleteDirectory, BaseNameDir, confirmDirChoise } from '../../backendComunication/FetchAndSetDirExp';
 import { NamingPopUp } from '../../PopUp/NamingPopUp';
 import { ErrorPopUp } from '../../PopUp/ErrorPopUP';
 import './../../theme.css'
@@ -62,7 +62,7 @@ export default function ChooseDirectoryPage () {
 
     const activatePopup = () => {
         setPopUpName(current => !current)
-    }
+       }
        
 
     return ( 
@@ -74,7 +74,8 @@ export default function ChooseDirectoryPage () {
                         {/*getPath*/}todo cwd
                     </p>
                 </div>
-
+            </div>
+            <div className="grid">
                 <div className="grid">
                     {
                         directories.get("to_navigate")?.map((number) => {
@@ -82,7 +83,6 @@ export default function ChooseDirectoryPage () {
                         })
                     }
                 </div>
-
                 <div className="flexbox">
                     <div>
                         <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
@@ -98,7 +98,7 @@ export default function ChooseDirectoryPage () {
                     <div>
                         <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
                         onClick = {()=> setPopUpName(true)}>
-                            <i className="material-icons">add</i>
+                           <i className="material-icons">add</i>
                         </button>
                     </div>
                     <NamingPopUp active = {popUpName} deactivate={activatePopup} forErrors={errorState}

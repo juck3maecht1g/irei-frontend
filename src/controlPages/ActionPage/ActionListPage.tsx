@@ -17,9 +17,9 @@ export default function ActionListPage (props) {
         setError(current => !current)
     }
 
-    const [actionlist, setActionlist] = useState(test);
+    const [actionlist, setActionlist] = useState(test); //test
     GetActionListContent(setActionlist)
-
+    console.log(actionlist)
     const deleteAction = (position) => {
         DeleteAction(errorState, position, setErrorMessage)
     }
@@ -39,14 +39,10 @@ export default function ActionListPage (props) {
                 actionlist.map((currElement, index) => {
                     var listIndex = [index];
                     return <div className="action-list-grid">
-                        <div>
                         <ActionlistButton key={index} element={currElement} listPlace={listIndex}/>
-                        </div>
-                        <div>
                         <button onClick={() =>deleteAction(index)} className="icon-button irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                             <i className="material-icons">delete</i>
                         </button>
-                        </div>
                     </div>
                 })
             }

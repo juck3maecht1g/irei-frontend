@@ -10,13 +10,13 @@ export default function ActionListButton (props) {
     const navigate = useNavigate();
     const [actionlist, setActionList] = useState("")
  //   const [choosing, setChoosing] = useState(false)
-
+   
     const execute = ()=> {
         informPosition()
         ExecuteActionList(actionlist, props.errorfunction, props.errorMessage)
 
     }
-
+    console.log("c", props.index)
     const informPosition = () => {
         SetButtonIndex(props.index, props.errorfunction, props.setErrorMessage).then(res => {
             if(res){
@@ -28,7 +28,6 @@ export default function ActionListButton (props) {
 
     return (
         <div className="actionlist-button-grid">
-            <div>
             <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
                 onClick={execute}>
                 <div>
@@ -38,13 +37,12 @@ export default function ActionListButton (props) {
                     {actionlist}
                 </div>
             </button>
-            </div>
             
-            <div>
-                <button className="icon-button irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={informPosition}>
+            
+            <button className="icon-button irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={informPosition}>
                 <i className="material-icons">edit</i>
                 </button>
-            </div>
+          
         </div>
     )
 }

@@ -36,7 +36,7 @@ function TopBar(props) {
               <NavigationButton destination="Control" destinationLink="/ControlPage"></NavigationButton>
             </li>
             <li className="mdl-menu__item nav-list-item">
-              <NavigationButton destination="Choose Directory" destinationLink="/ChooseDirectoryPage"></NavigationButton>
+              <NavigationButton destination="Choose Directory" destinationLink="/"></NavigationButton>
             </li>
             <li className="mdl-menu__item nav-list-item">
               <NavigationButton destination="Choose Laboratory" destinationLink="/ChooseLaboratoryPage"></NavigationButton>
@@ -47,7 +47,12 @@ function TopBar(props) {
             <li className="mdl-menu__item nav-list-item">
               <NavigationButton destination="Settings" destinationLink="/Settings"></NavigationButton>
             </li>
-
+            <li className="mdl-menu__item nav-list-item">
+              <NavigationButton destination="Change Gripper Robots" destinationLink="/GripperRobots"></NavigationButton>
+            </li>
+            <li className="mdl-menu__item nav-list-item">
+              <NavigationButton destination="Change Save Position Robot" destinationLink="/SavePositionRobot"></NavigationButton> 
+            </li>
           </ul>
         </div>
 

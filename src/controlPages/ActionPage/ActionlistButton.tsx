@@ -17,13 +17,14 @@ export default function ActionlistButton (props) {
         setError(current => !current)
     }
     
-    const action = props.element;
+    const action = new Map(Object.entries(props.element));
 
     const [state, setState] = useState(false);
 
     
 
     const createButtons = () => {
+        
         if (action.get("content") !== undefined) {
         return action.get("content").map((currElement, index) => {
             var listIndex = [...props.listPlace];

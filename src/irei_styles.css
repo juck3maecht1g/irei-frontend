@@ -35,11 +35,9 @@
     width: 200px;
     height: 40px;
 }
-
 .grid{
     display: grid;
 }
-
 .flexbox {
     display: flex;
     flex-direction: column;
@@ -53,18 +51,16 @@
 }
 .irei-back-button {
     position: fixed;
-    right: 0px;
-    bottom: 0px;
+    right: 15px;
+    bottom: 15px;
+    size: 10%;
     text-align: center;
-    width: 0px;
 }
-
 .test {
     margin-bottom: 200px;
     height:100%;
     width: 100%;
 }
-
 .irei-path {
     width: fit-content;
     position: relative;
@@ -94,7 +90,6 @@
 .header {
     margin: 0;
 }
-
 .settings-grid {
     display: grid;
     grid-template-columns: 1fr 0fr;
