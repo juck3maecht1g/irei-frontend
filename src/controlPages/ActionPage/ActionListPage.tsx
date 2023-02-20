@@ -38,28 +38,24 @@ export default function ActionListPage (props) {
             {
                 actionlist.map((currElement, index) => {
                     var listIndex = [index];
-                    return <div className="action-list-grid">
-                        <div>
+                    return <div>
                         <ActionlistButton key={index} element={currElement} listPlace={listIndex}/>
-                        </div>
-                        <div>
-                        <button onClick={() =>deleteAction(index)} className="icon-button irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                            <i className="material-icons">delete</i>
+                        <button onClick={() =>deleteAction(index)} className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                            delete
                         </button>
-                        </div>
                     </div>
                 })
             }
             <Link to = {"/ActionKindPage"}>
                 <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                <i className="material-icons">add</i>
+                    new action
                 </button>
             </Link>
         </div>
             <div>
                 <Link to = {"/ControlPage"}>
                     <button className="irei-back-button irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                    <i className="material-icons">arrow_back</i>
+                        Controlmenu
                     </button>
                 </Link>
             </div>
