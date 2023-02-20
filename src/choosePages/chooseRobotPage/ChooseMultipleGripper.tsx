@@ -49,8 +49,10 @@ export default function ChooseMultipleGripper (props) {
             <TopBar title="Choose Robots"></TopBar>
             {buttons}
             <Link to = {"/Controlpage"}>
-            <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-             onClick = {confirm}>confirm</button>
+            <button className="icon-button irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+             onClick = {confirm}>
+                <i className="material-icons">check</i>
+                </button>
             </Link>
         </div>
     )

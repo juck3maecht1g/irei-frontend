@@ -35,9 +35,11 @@
     width: 200px;
     height: 40px;
 }
+
 .grid{
     display: grid;
 }
+
 .flexbox {
     display: flex;
     flex-direction: column;
@@ -51,13 +53,44 @@
 }
 .irei-back-button {
     position: fixed;
-    right: 15px;
-    bottom: 15px;
-    size: 10%;
+    right: 0px;
+    bottom: 0px;
     text-align: center;
+    width: 0px;
 }
+
 .test {
     margin-bottom: 200px;
     height:100%;
     width: 100%;
+}
+
+.irei-path {
+    width: fit-content;
+    position: relative;
+    padding-left: 10px;
+    padding-bottom: o;
+    margin: 0;
+}
+
+.action-list-grid {
+    display: grid;
+    grid-template-columns: 0fr 1fr;
+}
+
+.delete-button {
+    width: 0px;
+}
+
+.actionlist-button-grid {
+    grid-template-columns: 0fr 0fr;
+    display: grid;
+}
+
+.icon-button {
+    width: 0px;
+}
+
+.header {
+    margin: 0;
 }

@@ -2,7 +2,7 @@ import React from "react";
 import PopUp from "./PopUp";
 import './../theme.css'
 import './../irei_styles.css'
-import './Popup.css'
+import './popup.css'
 
 export function ErrorPopUp(props) {
 //active deactivate
