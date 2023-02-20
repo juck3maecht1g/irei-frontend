@@ -27,7 +27,7 @@ export default function ActionListButton (props) {
 
 
     return (
-        <div>
+        <div className="actionlist-button-grid">
             <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
                 onClick={execute}>
                 <div>
@@ -39,8 +39,8 @@ export default function ActionListButton (props) {
             </button>
             
             
-                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={informPosition}>
-                    edit
+            <button className="icon-button irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={informPosition}>
+                <i className="material-icons">edit</i>
                 </button>
           
         </div>

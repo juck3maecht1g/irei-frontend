@@ -36,7 +36,7 @@ function TopBar(props) {
               <NavigationButton destination="Control" destinationLink="/ControlPage"></NavigationButton>
             </li>
             <li className="mdl-menu__item nav-list-item">
-              <NavigationButton destination="Choose Directory" destinationLink="/ChooseDirectoryPage"></NavigationButton>
+              <NavigationButton destination="Choose Directory" destinationLink="/"></NavigationButton>
             </li>
             <li className="mdl-menu__item nav-list-item">
               <NavigationButton destination="Choose Laboratory" destinationLink="/ChooseLaboratoryPage"></NavigationButton>

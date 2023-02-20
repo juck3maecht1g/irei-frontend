@@ -68,6 +68,13 @@ export default function ChooseDirectoryPage () {
     return ( 
         <div>
             <TopBar title="Choose Directory"></TopBar>
+            <div className="grid directory-grid">
+                <div>
+                    <p className="irei-path">
+                        {/*getPath*/}todo cwd
+                    </p>
+                </div>
+            </div>
             <div className="grid">
                 <div className="grid">
                     {
@@ -85,13 +92,13 @@ export default function ChooseDirectoryPage () {
                     </div>
                     <div>
                         <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={confirmChoise}>
-                            confirm
+                        <i className="material-icons">check</i>
                         </button>
                     </div>
                     <div>
                         <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
                         onClick = {()=> setPopUpName(true)}>
-                            create
+                           <i className="material-icons">add</i>
                         </button>
                     </div>
                     <NamingPopUp active = {popUpName} deactivate={activatePopup} forErrors={errorState}

@@ -61,3 +61,32 @@
     height:100%;
     width: 100%;
 }
+.irei-path {
+    width: fit-content;
+    position: relative;
+    padding-left: 10px;
+    padding-bottom: o;
+    margin: 0;
+}
+
+.action-list-grid {
+    display: grid;
+    grid-template-columns: 0fr 1fr;
+}
+
+.delete-button {
+    width: 0px;
+}
+
+.actionlist-button-grid {
+    grid-template-columns: 0fr 0fr;
+    display: grid;
+}
+
+.icon-button {
+    width: 0px;
+}
+
+.header {
+    margin: 0;
+}
