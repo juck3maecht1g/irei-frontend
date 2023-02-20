@@ -58,10 +58,8 @@ export default function ChooseExperimentRobots(){
         <Link 
             to = {"/ChooseExperimentRegister"}
         >
-            <button className="icon-button irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-             onClick={confirm}>
-                <i className="material-icons">check</i>
-             </button>
+            <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+             onClick={confirm}>confirm</button>
         </Link>
         <ErrorPopUp active={error} deactivate={errorState} message={errorMessage}/>
         </div>

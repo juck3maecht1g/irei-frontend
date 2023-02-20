@@ -14,19 +14,19 @@ export default function ActionKindPage (props) {
             
             <Link 
               to = {"/ChooseRobot"}
-              state = {{action: "gripperOpen", link:"/ActionListPage"}}>
+              state = {{action: "open_gripper", link:"/ActionListPage"}}>
                 <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                   gripper open
                 </button>
             </Link>
             <Link to = {"/ChooseRobot"}
-                  state = {{ action: "gripperClose", link:"/ActionListPage"}}>
+                  state = {{ action: "close_gripper", link:"/ActionListPage"}}>
                 <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                   gripper close
                 </button>
             </Link>
             <Link to = {"/ChooseRobot"}
-                  state = {{ action: "steering", link:"/ChooseVariablePage"}}>
+                  state = {{ action: "move", link:"/ChooseVariablePage"}}>
                 <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                   steering
                 </button>

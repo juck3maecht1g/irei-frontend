@@ -1,6 +1,6 @@
 
 import { useState } from "react"
-import { passDataDirect, post, passDataAsMap, convertBackToFrontMapping, convertFrontToBackMapping, passDataForActionMapping } from "../../backendComunication/BasicOpperations"
+import { passDataDirect, post, passDataAsMap, convertBackToFrontMapping, convertFrontToBackMapping, passDataForActionMapping, passDatalenght } from "../../backendComunication/BasicOpperations"
 
 const fetchAdressAllActionLists = "http://127.0.0.1:5000/api/get-action_lists"
 const postAdressActionList = "http://127.0.0.1:5000/api/set_action_list"
@@ -16,6 +16,7 @@ const fetchAdressMapping = "http://127.0.0.1:5000/api/get_mapping_table"
 const postAdressMapping = "http://127.0.0.1:5000/api/set_mapping_in_table"
 const postAdressMappingPosition= "http://127.0.0.1:5000/api/set_mapping_pos"
 const postAdressButtonIndex= "http://127.0.0.1:5000/api/set_button_index"
+const fetchAdressALBContent = "http://127.0.0.1:5000/api/get_action_list_button_content"
 
 /**gets a list of dictionarrys containing a "name" of the action list and a "key"
  * specifieing if sequential or parallel
@@ -71,6 +72,7 @@ export async function appendAction( errorfunction, action, setErrorMessage){
  * @param name 
  */
 export async function SetActionList( errorfunction, action, setErrorMessage){
+    console.log(action)
     var toPost =  new Map()
     toPost.set("marker", "set_action_list")
     toPost.set("name", action)
@@ -295,7 +297,7 @@ export async function SetMapping(mappingRobots,  errorfunction,setErrorMessage){
 
 export async function SetButtonIndex(index,  errorfunction,setErrorMessage){
     var reload = false
-    console.log(index)
+    console.log("idex", index)
     await post(index, postAdressButtonIndex).then(res => {
         if(res !== "Done") {
             setErrorMessage(res)
@@ -316,3 +318,7 @@ export async function SetButtonIndex(index,  errorfunction,setErrorMessage){
 
 export { convertBackToFrontMapping }
 
+export async function GetALButtonContent(setButton) {
+    var [fetched, setfetched] = useState(false) 
+    await passDatalenght(setButton, fetched, setfetched, fetchAdressALBContent)
+}

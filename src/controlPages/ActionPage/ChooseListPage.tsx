@@ -31,16 +31,20 @@ export default function ChooseListPage () {
     GetActionListNames(setList)
 
     const sentChoiceBack = (name) => {
-        SetActionList(errorState, name, setErrorMessage); 
+        SetActionList(errorState, name, setErrorMessage).then(res => {
+            if(res) {
+                navigate("/ActionListPage")
+            }
+        }); 
     }
 
     const buttons = lists.map((number) => {
-        return <Link to = {"/ActionListPage"}>
-     <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
+        return  <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
         onClick ={() => sentChoiceBack(number)}>
         {number}
      </button>
-     </Link>
+    
+     
     })
 
     const newList = ( kind) => {
