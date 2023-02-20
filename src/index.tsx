@@ -2,6 +2,7 @@ import React from "react";
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import ControlPage from "./controlPages/ControlPage"
+
 import ChooseDirectoryPage from "./choosePages/chooseDirectoryPage/ChooseDirectoryPage"
 import ChooseLaboratoryPage from "./choosePages/chooseLaboratoryPage/ChooseLaboratoryPage"
 import ChooseExperimentRobots from "./choosePages/chooseLaboratoryPage/ChooseExperimentRobots";
@@ -9,6 +10,8 @@ import ChooseExperimentRegister from "./choosePages/chooseLaboratoryPage/ChooseE
 
 import ActionListPage from "./controlPages/ActionPage/ActionListPage";
 import ChooseListPage from "./controlPages/ActionPage/ChooseListPage";
+import ChooseMultipleGripper from "./choosePages/chooseRobotPage/ChooseMultipleGripper";
+import RobotPositionPage from "./choosePages/chooseRobotPage/RobotPositionPage";
 
 import MappingRobotsPage from "./choosePages/chooseRobotPage/MappingRobots";
 
@@ -29,13 +32,15 @@ export default function App (){
         <Routes >
           <Route index element={<ChooseDirectoryPage/>} />
           <Route path="/ControlPage" element={<ControlPage/>} />
-          <Route path="/ChooseDirectoryPage" element={<ChooseDirectoryPage/>} />
+          <Route path="/GripperRobots" element={<ChooseMultipleGripper/>} />
+          <Route path="/SavePositionRobot" element={<RobotPositionPage/>} />
+
           <Route path="/ChooseLaboratoryPage" element={<ChooseLaboratoryPage/>} />
           <Route path="/ChooseLanguagePage" element={<ChooseLanguagePage/>} />
           <Route path="/ChooseExperimentRobots" element={<ChooseExperimentRobots/>} />
           <Route path="/ChooseExperimentRegister" element={<ChooseExperimentRegister/>} />
 
-          <Route path="/ActionKindPage" element={<ActionKindPage/>} />
+          <Route path="/ActionKindPage" element={<ActionKindPage/>} /> 
           <Route path="/ActionListPage" element={<ActionListPage/>} />
 
           <Route path="/ChooseListPage" element={<ChooseListPage/>} />
