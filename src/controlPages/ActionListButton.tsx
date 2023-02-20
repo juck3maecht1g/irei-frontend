@@ -10,13 +10,13 @@ export default function ActionListButton (props) {
     const navigate = useNavigate();
     const [actionlist, setActionList] = useState("")
  //   const [choosing, setChoosing] = useState(false)
-
+   
     const execute = ()=> {
         informPosition()
         ExecuteActionList(actionlist, props.errorfunction, props.errorMessage)
 
     }
-
+    console.log("c", props.index)
     const informPosition = () => {
         SetButtonIndex(props.index, props.errorfunction, props.setErrorMessage).then(res => {
             if(res){

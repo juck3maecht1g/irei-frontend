@@ -12,6 +12,7 @@ export async function passDataDirect(set, fetched, setfetched, adress){
             adress
             )
         ).json().then(data => {
+            console.log("data", data)
             set(data)
         }
         )
@@ -95,4 +96,21 @@ export function convertBackToFrontMapping(backMapping) {
     } 
     return list
 
+}
+
+export async function passDatalenght(set, fetched, setfetched, adress){
+
+    if(fetched) {
+        return
+        }
+        setfetched (true)
+        const data = await (
+            await fetch(
+            adress
+            )
+        ).json().then(data => {
+            console.log("data", data)
+            set(data.length)
+        }
+        )
 }

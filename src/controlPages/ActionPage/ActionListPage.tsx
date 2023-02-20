@@ -17,9 +17,9 @@ export default function ActionListPage (props) {
         setError(current => !current)
     }
 
-    const [actionlist, setActionlist] = useState(test);
+    const [actionlist, setActionlist] = useState(test); //test
     GetActionListContent(setActionlist)
-
+    console.log(actionlist)
     const deleteAction = (position) => {
         DeleteAction(errorState, position, setErrorMessage)
     }
