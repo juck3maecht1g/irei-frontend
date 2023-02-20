@@ -12,7 +12,7 @@ import { NamingPopUp } from '../PopUp/NamingPopUp';
 import { ErrorPopUp } from '../PopUp/ErrorPopUP';
 import ActionListButton from './ActionListButton';
 import { post } from '../backendComunication/BasicOpperations';
-import { GetALButtonContent } from './ActionPage/ActionFetch';
+import { GetALButtonContent, GetALButtonContentLen } from './ActionPage/ActionFetch';
 
 
 
@@ -41,12 +41,13 @@ function ControlPage (props) {
     const [nameSave, setNameSave] = useState(false)
     const [error, setError] = useState(false)
    
-    const [numberALists, setNumberALists] = useState(6)
+    const [numberALists, setNumberALists] = useState(0)
+    const [aList, setAList] = useState([])
     
-    GetALButtonContent(setNumberALists)
-        
+    GetALButtonContentLen(setNumberALists)
+    GetALButtonContent(setAList)    
     
-
+    console.log("list",aList)
 
     var actions = new Array(numberALists)
     for (let i = 0; i < numberALists; i++) {
@@ -84,7 +85,7 @@ function ControlPage (props) {
                 {
                     actions.map((index) => {
                         console.log("test",index)
-                        return <ActionListButton index = {index} errorfunction={errorState} errorMessage={setErrorMessage}/>
+                        return <ActionListButton index = {index} list= {aList[index]}errorfunction={errorState} errorMessage={setErrorMessage}/>
                     })
                 }
             </h1>

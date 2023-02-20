@@ -318,7 +318,12 @@ export async function SetButtonIndex(index,  errorfunction,setErrorMessage){
 
 export { convertBackToFrontMapping }
 
-export async function GetALButtonContent(setButton) {
+export async function GetALButtonContentLen(setButton) {
     var [fetched, setfetched] = useState(false) 
     await passDatalenght(setButton, fetched, setfetched, fetchAdressALBContent)
+}
+
+export async function GetALButtonContent(setButton) {
+    var [fetched, setfetched] = useState(false) 
+    await passDataDirect(setButton, fetched, setfetched, fetchAdressALBContent)
 }

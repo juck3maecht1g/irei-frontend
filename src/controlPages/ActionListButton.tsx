@@ -10,20 +10,28 @@ export default function ActionListButton (props) {
     const navigate = useNavigate();
     const [actionlist, setActionList] = useState("")
  //   const [choosing, setChoosing] = useState(false)
-   
+   console.log("action",props.list)
     const execute = ()=> {
         informPosition()
-        ExecuteActionList(actionlist, props.errorfunction, props.errorMessage)
+        ExecuteActionList(props.list, props.errorfunction, props.errorMessage)
 
     }
-    console.log("c", props.index)
-    const informPosition = () => {
-        SetButtonIndex(props.index, props.errorfunction, props.setErrorMessage).then(res => {
-            if(res){
-                navigate("/ChooseListPage")
-            }
-        })
+
+
+    const edit = async () => {
+        if(await informPosition()) {
+            navigate("/ChooseListPage")
+        }
     }
+
+    const informPosition = async () => {
+        var reload = false
+        await SetButtonIndex(props.index, props.errorfunction, props.setErrorMessage).then(res => {
+            reload = res
+        })
+        return reload
+    }
+
 
 
     return (
@@ -31,15 +39,15 @@ export default function ActionListButton (props) {
             <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
                 onClick={execute}>
                 <div>
-                    {props.index}
+                    {props.index}{props.list}
                 </div>
                 <div>
-                    {actionlist}
+                    
                 </div>
             </button>
             
             
-            <button className="icon-button irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={informPosition}>
+            <button className="icon-button irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={edit}>
                 <i className="material-icons">edit</i>
                 </button>
           
