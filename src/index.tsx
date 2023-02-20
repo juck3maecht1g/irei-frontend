@@ -17,7 +17,7 @@ import ChooseRobotPage from "./controlPages/ActionPage/actionkind/ChooseRobotPag
 import SetTimePage from "./controlPages/ActionPage/actionkind/SetTimePage";
 import SetCustomPage from "./controlPages/ActionPage/actionkind/SetCustomPage";
 
-import ChooseLanguagePage from "./choosePages/chooseLanguagePage/ChooseLanguagePage"
+import Settings from "./settings/Settings"
 import ActionKindPage from "./controlPages/ActionPage/actionkind/ActionKindPage";
 
 export default function App (){
@@ -31,7 +31,7 @@ export default function App (){
           <Route path="/ControlPage" element={<ControlPage/>} />
           <Route path="/ChooseDirectoryPage" element={<ChooseDirectoryPage/>} />
           <Route path="/ChooseLaboratoryPage" element={<ChooseLaboratoryPage/>} />
-          <Route path="/ChooseLanguagePage" element={<ChooseLanguagePage/>} />
+          <Route path="/Settings" element={<Settings/>} />
           <Route path="/ChooseExperimentRobots" element={<ChooseExperimentRobots/>} />
           <Route path="/ChooseExperimentRegister" element={<ChooseExperimentRegister/>} />
 

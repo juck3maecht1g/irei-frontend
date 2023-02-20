@@ -42,10 +42,10 @@ function TopBar(props) {
               <NavigationButton destination="Choose Laboratory" destinationLink="/ChooseLaboratoryPage"></NavigationButton>
             </li>
             <li className="mdl-menu__item nav-list-item">
-              <NavigationButton destination="Choose Language" destinationLink="/ChooseLanguagePage"></NavigationButton>
+              <NavigationButton destination="Choose Experiment" destinationLink="/ChooseExperimentRegister"></NavigationButton>
             </li>
             <li className="mdl-menu__item nav-list-item">
-              <NavigationButton destination="Choose Experiment" destinationLink="/ChooseExperimentRegister"></NavigationButton>
+              <NavigationButton destination="Settings" destinationLink="/Settings"></NavigationButton>
             </li>
 
           </ul>
