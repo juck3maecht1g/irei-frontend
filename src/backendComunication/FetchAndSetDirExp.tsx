@@ -103,7 +103,7 @@ export async function NavigateDown(action, name, setErrorMessage){
 
 }
 
-const markerCreate = "crerate"
+const markerCreate = "create"
 export async function Create(action, name, setErrorMessage){
     var message =  new Map()
     message.set("marker", markerCreate)
@@ -168,4 +168,6 @@ export async function confirmDirChoise(action,setErrorMessage) {
     return reload
 
 }
+
+
 
