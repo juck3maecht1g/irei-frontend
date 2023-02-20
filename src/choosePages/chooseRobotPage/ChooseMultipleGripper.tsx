@@ -60,8 +60,8 @@ export default function ChooseMultipleGripper (props) {
             <Link to = {"/Controlpage"}>
             <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
              onClick = {confirm}>
-             <i className="material-icons">check</i>
-          </button>
+                <i className="material-icons">check</i>
+             </button>
             </Link>
             <ErrorPopUp active={error} deactivate={errorState} message={errorMessage}/>
         </div>
