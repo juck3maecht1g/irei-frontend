@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
 import TopBar from '../../../TopBar';
-import { SetCoordinateType, GetPositions, appendAction } from '../ActionFetch';
+import { SetCoordinateType, GetPositions, appendAction, GetCoordinates } from '../ActionFetch';
 
 
 /**
@@ -20,8 +20,12 @@ export default function ChooseVariablePage (props) {
     const { kind } = location.state;
     const { ip } = location.state;
 
-    const [positions, setPositions] = useState(new Map())
+    const [arrayPosition, setPositions] = useState([ new Map()])
 
+    GetCoordinates(setPositions).then(res => {
+      
+    })
+   
     var state = "joint";
     
     const changeType = () => {
@@ -34,14 +38,18 @@ export default function ChooseVariablePage (props) {
         GetPositions(setPositions)
     }
     
-    const arrayPosition = Array.from( positions, function (entry) {
-        return { key: entry[0], value: entry[1]}})
+   
+
+    
+    //const arrayPosition = Array.from( positions, function (entry) {
+        //return { key: entry[0], value: entry[1]}})
 
 
     const buttons = arrayPosition.map((number) => {
-        return <PositionButton name= {number.value} 
-        position={number.key} errorState={errorState} setErrorMessage={setErrorMessage}
-        kind={kind} ip={ip}/>
+        console.log(number)
+        return <PositionButton name= {number.get("name")} 
+        position={number.get("coordinate")} errorState={errorState} setErrorMessage={setErrorMessage}
+        kind={kind} ip={ip} state={state}/>
     })
 
     return (
@@ -64,12 +72,14 @@ function PositionButton (props) {
         help.set("position", props.position)
         appendAction(props.errorState, help, props.setErrorMessage);
     } 
-
+    console.log("props", props)
     return ( 
     <Link to = {"/ActionListPage"}>
       <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
       onClick = {sent}>
         {props.name}
+        {"\n"}
+        {props.position.get("values")}
       </button>
     </Link>
      );

@@ -114,3 +114,27 @@ export async function passDatalenght(set, fetched, setfetched, adress){
         }
         )
 }
+
+
+export async function passDataCoordinates(set, fetched, setfetched, adress){
+
+    if(fetched) {
+        return
+        }
+        setfetched (true)
+        const data = await (
+            await fetch(
+            adress
+            )
+        ).json().then(data => {
+            console.log("dataCoord", data)
+            var toReturn = new Array()
+            for(var elem of data) {
+                console.log(elem)
+                toReturn.push(new Map(Object.entries(elem)))
+            }
+            console.log("return", toReturn)
+            set(toReturn)
+        }
+        )
+}

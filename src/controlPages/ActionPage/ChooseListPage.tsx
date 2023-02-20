@@ -64,10 +64,10 @@ export default function ChooseListPage () {
                         confirm={saveName} getBaseName={(key)=>{return ""}} errorMessage={setErrorMessage}/>
             <ErrorPopUp active={error} deactivate={errorState} message={errorMessage}/>
             <Popup trigger={(name !== "")}>
-                <button onClick = {()=>{newList("parralel")}}>
-                    parralel
+                <button onClick = {()=>{newList("parallel_list")}}>
+                    parallel
                 </button>
-                <button onClick = {()=>{newList("sequential")}}>
+                <button onClick = {()=>{newList("sequential_list")}}>
                     sequential
                 </button>
             </Popup>
