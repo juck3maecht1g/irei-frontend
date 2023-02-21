@@ -22,9 +22,12 @@ export default function SetCustomPage() {
         actionParameters.set("key", kind);
         actionParameters.set("robot", ip);
         actionParameters.set("action", name);
-        appendAction(errorState, actionParameters, setErrorMessage);
-        navigate("/ActionListPage");
-        window.location.reload();
+        appendAction(errorState, actionParameters, setErrorMessage).then(res => {
+            if(res) {
+                navigate("/ActionListPage");
+                window.location.reload();
+            }
+        });
     }
 
     return (

@@ -51,9 +51,13 @@ export default function ChooseVariablePage (props) {
             help.set("key", kind);
             help.set("robot", ip);
             help.set("position", number.get("name"))
-            appendAction(errorState, help, setErrorMessage);
-            navigate("/ActionListPage");
-            window.location.reload();
+            appendAction(errorState, help, setErrorMessage).then(res => {
+                if(res) {
+                    navigate("/ActionListPage");
+                    window.location.reload();
+                }
+            });
+          
         } }>
           {number.get("name")}
           {"\n"}

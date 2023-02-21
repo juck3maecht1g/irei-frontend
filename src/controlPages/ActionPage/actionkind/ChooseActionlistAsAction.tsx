@@ -29,9 +29,11 @@ export default function ChooseActionlistAsAction () {
         var action = new Map();
         action.set("key", "list")
         action.set("name", name)
-        appendAction(errorState, action, setErrorMessage)
-        navigate("/ActionListPage")
-        window.location.reload();
+        appendAction(errorState, action, setErrorMessage).then(res => {
+            if(res) { navigate("/ActionListPage")
+        window.location.reload();}
+        })
+       
         // fehlt noch bzw stimmt es so??????
     }
 

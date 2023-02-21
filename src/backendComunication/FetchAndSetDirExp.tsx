@@ -9,6 +9,7 @@ const postAdressCreateDirectory = "http://127.0.0.1:5000/api/create_dirctory"
 const postAdressDeleteDirectory = "http://127.0.0.1:5000/api/delete_dirctory"
 const postAdressConfirmDirChoisey = "http://127.0.0.1:5000/api/confirm_dir_coise"
 const fetchAdressName = "http://127.0.0.1:5000/api/get_base_name_dir"
+const fetchAdressPath = "http://127.0.0.1:5000/api/file_name"
 
 // contains dummy
 
@@ -58,6 +59,13 @@ export async function GetDirectories(setDirectories){
     
 }
 
+export async function GetPath(setPath){
+    var [fetched, setfetched] = useState(false) 
+   passDataDirect(setPath, fetched, setfetched, fetchAdressPath)
+    
+
+    
+}
 
 
 const markerNavUP = "navigate_up"

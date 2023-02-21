@@ -13,14 +13,14 @@ import { ErrorPopUp } from '../PopUp/ErrorPopUP';
 import ActionListButton from './ActionListButton';
 import { post } from '../backendComunication/BasicOpperations';
 import { GetALButtonContent, GetALButtonContentLen } from './ActionPage/ActionFetch';
-
-
+const postAdressDecALB = "http://127.0.0.1:5000/api/decrease_shortcuts"
+const postAdressIncALB = "http://127.0.0.1:5000/api/increase_shortcuts"
+const postAdressStart = "http://127.0.0.1:5000/api/start_request"
 
 
 async function StartRequest (errorfunction, setErrorMessage) {
     var message = "start_request"
-    const postAdress = "http://127.0.0.1:5000/api/start_request"
-    await post(message, postAdress).then(res => {
+    await post(message, postAdressStart).then(res => {
         if(res !== "Done") {
             setErrorMessage(res)
             errorfunction()
@@ -48,13 +48,21 @@ function ControlPage (props) {
     GetALButtonContent(setAList)    
 
     const increaseListButtons = () => {
-        //methode im Backend +1
-        window.location.reload()
+        increaseALB(errorState, setErrorMessage).then(res => {
+            if(res) {
+                
+                window.location.reload();
+            }
+        });
     }
 
     const decreaseListButtons = () => {
-        //methode im Backend -1
-        window.location.reload()
+        decreaseALB(errorState, setErrorMessage).then(res => {
+            if(res) {
+                
+                window.location.reload();
+            }
+        });
 
     }
     
@@ -126,3 +134,45 @@ export default ControlPage;
 
 
 
+async function increaseALB(errorFunktion, setErrorMessage){
+    var message =  new Map()
+    message.set("marker", "increase_shortcuts")
+    var reload = false
+    const result = Object.fromEntries(message)
+    await post(result, postAdressIncALB).then(res => {
+        if(res !== "Done") {
+            setErrorMessage(res)
+            errorFunktion()
+            console.log(1)
+           reload = false
+        }
+      else {
+       reload = true
+      }
+    })
+
+    return reload
+
+  }
+
+
+  async function decreaseALB(errorFunktion, setErrorMessage){
+    var message =  new Map()
+    message.set("marker", "decrease_shortcuts")
+    var reload = false
+    const result = Object.fromEntries(message)
+    await post(result, postAdressDecALB).then(res => {
+        if(res !== "Done") {
+            setErrorMessage(res)
+            errorFunktion()
+            console.log(1)
+           reload = false
+        }
+      else {
+       reload = true
+      }
+    })
+
+    return reload
+
+  }

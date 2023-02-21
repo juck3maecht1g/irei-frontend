@@ -28,7 +28,11 @@ export default function ActionListPage (props) {
     GetActionListContent(setActionlist)
     console.log(actionlist)
     const deleteAction = (position) => {
-        DeleteAction(errorState, position, setErrorMessage)
+        DeleteAction(errorState, position, setErrorMessage).then(res => {
+            if(res) {
+                window.location.reload();
+            }
+        });
     }
     
     return ( 

@@ -3,7 +3,7 @@ import {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import TopBar from '../../TopBar';
 import DirectoryButton from './DirectoryButton';
-import { GetDirectories, NavigateDown, NavigateUP, Create, DeleteDirectory, BaseNameDir, confirmDirChoise } from '../../backendComunication/FetchAndSetDirExp';
+import { GetDirectories, NavigateDown, NavigateUP, Create, DeleteDirectory, BaseNameDir, confirmDirChoise, GetPath } from '../../backendComunication/FetchAndSetDirExp';
 import { NamingPopUp } from '../../PopUp/NamingPopUp';
 import { ErrorPopUp } from '../../PopUp/ErrorPopUP';
 import './../../theme.css'
@@ -19,6 +19,7 @@ export default function ChooseDirectoryPage () {
     const [errorMessage, setErrorMessage] = useState("sorry something went wrong")
     const [error, setError] = useState(false)
     var [popUpName, setPopUpName] = useState(false);
+    var [path, setPath] = useState("");
     GetDirectories(setDirectories);
 
     const errorState = () => {
@@ -59,6 +60,10 @@ export default function ChooseDirectoryPage () {
         )
     }
 
+    const getPath = () => {
+        GetPath(setPath)
+    }
+    getPath()
 
     const activatePopup = () => {
         setPopUpName(current => !current)
@@ -71,7 +76,7 @@ export default function ChooseDirectoryPage () {
             <div className="grid directory-grid">
                 <div>
                     <p className="irei-path">
-                        {/*getPath*/}todo cwd
+                        {path}
                     </p>
                 </div>
             </div>

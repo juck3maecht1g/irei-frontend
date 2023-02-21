@@ -29,10 +29,12 @@ export default function ChooseRobotPage(props){
         var ipList = [ip]
         console.log("ip",ipList)
         help.set("robot", ipList)
-        appendAction(errorState, help, setErrorMessage);
+        appendAction(errorState, help, setErrorMessage).then(res => {
+          if(res) {  navigate(link, { state: {kind: props.actionKind, ip: [props.data_key]} });
+      window.location.reload();}
+        });
       }
-      navigate(link, { state: {kind: props.actionKind, ip: [props.data_key]} });
-      window.location.reload();
+    
     }
 
     var [robots, setRobots] = useState(new Map<string, string>()); 
