@@ -28,6 +28,7 @@ export default function ChooseActionlistAsAction () {
         action.set("name", name)
         appendAction(errorState, name, setErrorMessage)
         navigate("/ActionListPage")
+        window.location.reload();
         // fehlt noch bzw stimmt es so??????
     }
 

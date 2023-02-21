@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { appendAction } from '../ActionFetch';
 
 export default function SetCustomPage() {
+    const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState("sorry robots couldnt be changed")
     const [error, setError] = useState(false)
     const errorState = () => {
@@ -22,6 +23,8 @@ export default function SetCustomPage() {
         actionParameters.set("robot", ip);
         actionParameters.set("action", name);
         appendAction(errorState, actionParameters, setErrorMessage);
+        navigate("/ActionListPage");
+        window.location.reload();
     }
 
     return (
@@ -38,12 +41,10 @@ export default function SetCustomPage() {
                         onChange = {(e) => setName(e.target.value)}
                     />
                 </div>
-                <Link to = {"/ActionListPage"}>
-                    <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
                     onClick = {sentToBackend}> 
                     confirm 
                 </button>
-                </Link>
             </form>
         </div>
     )
