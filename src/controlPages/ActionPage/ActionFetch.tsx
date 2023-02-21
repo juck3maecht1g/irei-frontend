@@ -1,6 +1,6 @@
 
 import { useState } from "react"
-import { passDataDirect, post, passDataAsMap, convertBackToFrontMapping, convertFrontToBackMapping, passDataForActionMapping, passDatalenght } from "../../backendComunication/BasicOpperations"
+import { passDataDirect, post, passDataAsMap, convertBackToFrontMapping, convertFrontToBackMapping, passDataForActionMapping, passDatalenght, passDataCoordinates } from "../../backendComunication/BasicOpperations"
 
 const fetchAdressAllActionLists = "http://127.0.0.1:5000/api/get-action_lists"
 const postAdressActionList = "http://127.0.0.1:5000/api/set_action_list"
@@ -17,6 +17,7 @@ const postAdressMapping = "http://127.0.0.1:5000/api/set_mapping_in_table"
 const postAdressMappingPosition= "http://127.0.0.1:5000/api/set_mapping_pos"
 const postAdressButtonIndex= "http://127.0.0.1:5000/api/set_button_index"
 const fetchAdressALBContent = "http://127.0.0.1:5000/api/get_action_list_button_content"
+const fetchAdressCoordinates = "http://127.0.0.1:5000/api/get_coordinates"
 
 /**gets a list of dictionarrys containing a "name" of the action list and a "key"
  * specifieing if sequential or parallel
@@ -318,7 +319,21 @@ export async function SetButtonIndex(index,  errorfunction,setErrorMessage){
 
 export { convertBackToFrontMapping }
 
-export async function GetALButtonContent(setButton) {
+export async function GetALButtonContentLen(setButton) {
     var [fetched, setfetched] = useState(false) 
     await passDatalenght(setButton, fetched, setfetched, fetchAdressALBContent)
 }
+
+export async function GetALButtonContent(setButton) {
+    var [fetched, setfetched] = useState(false) 
+    await passDataDirect(setButton, fetched, setfetched, fetchAdressALBContent)
+}
+
+
+
+export async function GetCoordinates(setCoordinates){ // returns Map list
+    var [fetched, setfetched] = useState(false) 
+    await passDataCoordinates(setCoordinates, fetched, setfetched, fetchAdressCoordinates)
+}
+
+
