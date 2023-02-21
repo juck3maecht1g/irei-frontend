@@ -24,7 +24,10 @@ export default function ChooseRobotPage(props){
       if (link === "/ActionListPage") {
         var help = new Map();
         help.set("key", action);
-        help.set("robot", ip)
+        // dirty
+        var ipList = [ip]
+        console.log("ip",ipList)
+        help.set("robot", ipList)
         appendAction(errorState, help, setErrorMessage);
       }
     }
@@ -61,7 +64,7 @@ function RobotButton (props) {
 
   return ( 
     <Link to = {props.linkTo}
-          state = {{kind: props.actionKind, ip: props.data_key}}>
+          state = {{kind: props.actionKind, ip: [props.data_key]}}>
         <button onClick = {() => props.action(props.data_key)}
         className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
           <div>{props.name}</div>
