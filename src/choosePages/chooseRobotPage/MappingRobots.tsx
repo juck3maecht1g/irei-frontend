@@ -9,7 +9,6 @@ import { convertBackToFrontMapping, GetMapping, SetMapping, SetMappingPos } from
 import { ErrorPopUp } from '../../PopUp/ErrorPopUP';
 
 export default function MappingRobotsPage () {
-
     const [errorMessage, setErrorMessage] = useState("sorry robots couldnt be changed")
     const [error, setError] = useState(false)
     const errorState = () => {

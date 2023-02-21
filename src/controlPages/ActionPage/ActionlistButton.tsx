@@ -1,6 +1,6 @@
 import React from 'react'
 import {useState} from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../../irei_styles.css'
 import { SetMappingPos } from './ActionFetch';
 import { ErrorPopUp } from '../../PopUp/ErrorPopUP';
@@ -10,7 +10,7 @@ import './Actionlist.css'
  * The ActionListPage is used to edit a list of actions by adding new action and deleting others
  */
 export default function ActionlistButton (props) {
-
+    var navigate = useNavigate()
     const [errorMessage, setErrorMessage] = useState("sorry robots couldnt be changed")
     const [error, setError] = useState(false)
     const errorState = () => {
@@ -21,7 +21,13 @@ export default function ActionlistButton (props) {
 
     const [state, setState] = useState(false);
 
-    
+    const sentPos = (index) => {
+        SetMappingPos(index, errorState, setErrorMessage).then(res => {
+            if (res) {
+                navigate("/MappingRobotsPage", {state:{index: props.listPlace}})
+            }
+        })
+    }
 
     const createButtons = () => {
         
@@ -47,12 +53,11 @@ export default function ActionlistButton (props) {
                     <div>{action.get("name")}</div>
                     <div>sequential_list</div>
                 </button>
-                <Link to={"/MappingRobotsPage"}
-                 state = {{index: props.listPlace}}>
-                    <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={() => {
+                        sentPos(props.listPlace)
+                    }}>
                         edit mapping
                     </button>
-                </Link>
                 {state && open}
             </div>
         )

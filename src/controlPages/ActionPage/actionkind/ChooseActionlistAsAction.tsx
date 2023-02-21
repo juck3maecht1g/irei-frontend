@@ -19,6 +19,9 @@ export default function ChooseActionlistAsAction () {
         setError(current => !current)
        }
 
+
+
+    
     const [lists, setList] = useState([]);
     GetActionListNames(setList)
 
@@ -26,9 +29,9 @@ export default function ChooseActionlistAsAction () {
         var action = new Map();
         action.set("key", "list")
         action.set("name", name)
-        appendAction(errorState, name, setErrorMessage)
+        appendAction(errorState, action, setErrorMessage)
         navigate("/ActionListPage")
-        // fehlt noch bzw stimmt es so??????
+       
     }
 
     const buttons = lists.map((number) => {
