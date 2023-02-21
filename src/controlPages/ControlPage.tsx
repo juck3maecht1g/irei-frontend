@@ -46,8 +46,19 @@ function ControlPage (props) {
     
     GetALButtonContentLen(setNumberALists)
     GetALButtonContent(setAList)    
+
+    const increaseListButtons = () => {
+        //methode im Backend +1
+        window.location.reload()
+    }
+
+    const decreaseListButtons = () => {
+        //methode im Backend -1
+        window.location.reload()
+
+    }
     
-    console.log("list",aList)
+ //   console.log("list",aList)
 
     var actions = new Array(numberALists)
     for (let i = 0; i < numberALists; i++) {
@@ -82,6 +93,14 @@ function ControlPage (props) {
                 <LoggerButton state={started} action={startedLogging} stoped={nameSaved} errorfunction={errorState} errorMessage={setErrorMessage}/>
                 <EmergencyExit errorfunction={errorState} errorMessage={setErrorMessage}/>
                 <ModeButton forErrors={errorState} errorMessage={setErrorMessage}/>
+                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                onClick={(increaseListButtons)}>
+                    +
+                </button> 
+                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                onClick={decreaseListButtons}>
+                    -
+                </button>
                 {
                     actions.map((index) => {
                         console.log("test",index)

@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { appendAction } from '../ActionFetch';
 
 export default function SetTimePage() {
+    const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState("sorry robots couldnt be changed")
     const [error, setError] = useState(false)
     const errorState = () => {
@@ -22,6 +23,8 @@ export default function SetTimePage() {
         actionParameters.set("robot", ip);
         actionParameters.set("time", time);
         appendAction(errorState, actionParameters, setErrorMessage);
+        navigate("/ActionListPage");
+        window.location.reload();
     }
 
     return (
@@ -38,12 +41,10 @@ export default function SetTimePage() {
                         onChange = {(e) => setTime(e.target.value)}
                     />
                 </div>
-                <Link to = {"/ActionListPage"}>
-                    <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
+                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
                         onClick = {sentToBackend}>
                         confirm 
-                    </button>
-                </Link>
+                </button>
             </form>
         </div>
     )

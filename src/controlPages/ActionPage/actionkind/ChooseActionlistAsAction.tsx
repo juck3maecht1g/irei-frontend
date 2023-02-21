@@ -31,7 +31,8 @@ export default function ChooseActionlistAsAction () {
         action.set("name", name)
         appendAction(errorState, action, setErrorMessage)
         navigate("/ActionListPage")
-       
+        window.location.reload();
+        // fehlt noch bzw stimmt es so??????
     }
 
     const buttons = lists.map((number) => {

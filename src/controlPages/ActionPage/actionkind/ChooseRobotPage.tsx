@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GetExpRobots } from '../../../backendComunication/FetchRobots';
 import TopBar from '../../../TopBar';
 import {appendAction} from '../ActionFetch';
@@ -11,6 +11,7 @@ import './../../../irei_styles.css'
  * the user wants to work with
  */
 export default function ChooseRobotPage(props){
+  const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("sorry robots couldnt be changed")
   const [error, setError] = useState(false)
   const errorState = () => {
@@ -30,6 +31,8 @@ export default function ChooseRobotPage(props){
         help.set("robot", ipList)
         appendAction(errorState, help, setErrorMessage);
       }
+      navigate(link, { state: {kind: props.actionKind, ip: [props.data_key]} });
+      window.location.reload();
     }
 
     var [robots, setRobots] = useState(new Map<string, string>()); 
@@ -63,14 +66,11 @@ export default function ChooseRobotPage(props){
 function RobotButton (props) {
 
   return ( 
-    <Link to = {props.linkTo}
-          state = {{kind: props.actionKind, ip: [props.data_key]}}>
-        <button onClick = {() => props.action(props.data_key)}
+    <button onClick = {() => props.action(props.data_key)}
         className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
           <div>{props.name}</div>
           <div>{props.data_key}</div>
-        </button>
-    </Link>
+    </button>
    );
 }
 /*
