@@ -43,6 +43,11 @@ export default function ActionKindPage (props) {
                   Custom
                 </button>
             </Link>
+            <Link to = {"/AddList"}>
+                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                  actionlist
+                </button>
+            </Link>
         </div>
      );
 }

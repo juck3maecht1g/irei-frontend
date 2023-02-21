@@ -68,7 +68,7 @@ export default function ChooseMultipleGripper (props) {
     )
 } 
 
-/*
+/* // nur zum testen muss noch gelöscht werden
 var test = new Map();
 test.set("123.234.346", "clara")
 test.set("985.234.346", "andre")
