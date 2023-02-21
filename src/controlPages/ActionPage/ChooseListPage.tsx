@@ -49,8 +49,10 @@ export default function ChooseListPage () {
 
     const newList = ( kind) => {
         console.log(name)
-        CreatetActionList(name, kind, errorState, setErrorMessage)
-        navigate("/ActionListPage")
+        CreatetActionList(name, kind, errorState, setErrorMessage).then(res => {
+            sentChoiceBack(name)
+        })
+       
     }
 
     return (

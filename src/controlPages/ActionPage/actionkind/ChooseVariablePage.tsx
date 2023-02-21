@@ -47,9 +47,20 @@ export default function ChooseVariablePage (props) {
 
     const buttons = arrayPosition.map((number) => {
         console.log(number)
-        return <PositionButton name= {number.get("name")} 
-        position={number.get("coordinate")} errorState={errorState} setErrorMessage={setErrorMessage}
-        kind={kind} ip={ip} state={state}/>
+        return  <Link to = {"/ActionListPage"}>
+        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+        onClick = {() => {
+            var help = new Map();
+            help.set("key", kind);
+            help.set("robot", ip);
+            help.set("position", number.get("name"))
+            appendAction(errorState, help, setErrorMessage);
+        } }>
+          {number.get("name")}
+          {"\n"}
+          {number.get("coordinates")}
+        </button>
+      </Link>
     })
 
     return (
@@ -63,24 +74,24 @@ export default function ChooseVariablePage (props) {
     );
 }
 
-function PositionButton (props) {
+// function PositionButton (props) {
 
-    const sent = () => {
-        var help = new Map();
-        help.set("key", props.kind);
-        help.set("robot", props.ip);
-        help.set("position", props.position)
-        appendAction(props.errorState, help, props.setErrorMessage);
-    } 
-    console.log("props", props)
-    return ( 
-    <Link to = {"/ActionListPage"}>
-      <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-      onClick = {sent}>
-        {props.name}
-        {"\n"}
-        {props.position.get("values")}
-      </button>
-    </Link>
-     );
-  }
+//     const sent = () => {
+//         var help = new Map();
+//         help.set("key", props.kind);
+//         help.set("robot", props.ip);
+//         help.set("position", props.position)
+//         appendAction(props.errorState, help, props.setErrorMessage);
+//     } 
+//     console.log("props", props)
+//     return ( 
+//     <Link to = {"/ActionListPage"}>
+//       <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+//       onClick = {sent}>
+//         {props.name}
+//         {"\n"}
+//         {props.position.get("values")}
+//       </button>
+//     </Link>
+//      );
+//   }
