@@ -19,6 +19,7 @@ import ChooseVariablePage from "./controlPages/ActionPage/actionkind/ChooseVaria
 import ChooseRobotPage from "./controlPages/ActionPage/actionkind/ChooseRobotPage";
 import SetTimePage from "./controlPages/ActionPage/actionkind/SetTimePage";
 import SetCustomPage from "./controlPages/ActionPage/actionkind/SetCustomPage";
+import ChooseActionlistAsAction from "./controlPages/ActionPage/actionkind/ChooseActionlistAsAction";
 
 import Settings from "./settings/Settings"
 import ActionKindPage from "./controlPages/ActionPage/actionkind/ActionKindPage";
@@ -49,6 +50,7 @@ export default function App (){
           <Route path="/ChooseVariablePage" element={<ChooseVariablePage/>} />
           <Route path="/SetTimePage" element={<SetTimePage/>} />
           <Route path="/SetCustomPage" element={<SetCustomPage/>} />
+          <Route path="/AddList" element={<ChooseActionlistAsAction/>} />
         </Routes>
       </BrowserRouter>
     </div>
