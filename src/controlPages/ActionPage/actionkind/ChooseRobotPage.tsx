@@ -37,7 +37,7 @@ export default function ChooseRobotPage(props){
     
     }
 
-    var [robots, setRobots] = useState(new Map<string, string>()); 
+    var [robots, setRobots] = useState(test);  //new Map<string, string>()); 
     GetExpRobots(setRobots)
 
     const arrRobots = Array.from(robots, function (entry) {
@@ -75,6 +75,7 @@ function RobotButton (props) {
     </button>
    );
 }
+
 /*
 var test = new Map();
 test.set("123.234.346", "ckara")
