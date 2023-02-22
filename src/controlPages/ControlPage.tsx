@@ -105,13 +105,13 @@ function ControlPage (props) {
                 <LoggerButton state={started} action={startedLogging} stoped={nameSaved} errorfunction={errorState} errorMessage={setErrorMessage}/>
                 <EmergencyExit errorfunction={errorState} errorMessage={setErrorMessage}/>
                 <ModeButton forErrors={errorState} errorMessage={setErrorMessage}/>
-                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                <button className="icon-button irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
                 onClick={(increaseListButtons)}>
-                    +
+                    <i className="material-icons">add</i>
                 </button> 
-                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                <button className="icon-button irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
                 onClick={decreaseListButtons}>
-                    -
+                    <i className="material-icons">remove</i>
                 </button>
                 {
                     actions.map((index) => {

@@ -12,9 +12,15 @@
     position: absolute;
     right: 16px;
 }
+.title {
+    text-transform: uppercase;
+    font-size: large;
+}
 .title_wrapper {
     position: absolute;
-    width: 90%;
+    box-sizing: border-box;
+    left: 16px;
+    top:35%;
 }
 #nav-list-container {
     right: 0px;
@@ -94,4 +100,11 @@
     display: grid;
     grid-template-columns: 1fr 0fr;
     
+}
+.form-settings {
+    text-align:center;
+    margin-top: 30px;
+}
+.input {
+    width:200px
 }

@@ -23,6 +23,7 @@ import ChooseActionlistAsAction from "./controlPages/ActionPage/actionkind/Choos
 
 import Settings from "./settings/Settings"
 import ActionKindPage from "./controlPages/ActionPage/actionkind/ActionKindPage";
+import BackButton from "./BackButton";
 
 export default function App (){
 
@@ -31,6 +32,16 @@ export default function App (){
     <div>
       <BrowserRouter>
         <Routes >
+          <Route element = {<BackButton />}>
+          <Route path="/ActionKindPage" element={<ActionKindPage/>} /> 
+            <Route path="/ChooseListPage" element={<ChooseListPage/>} />
+            <Route path="/MappingRobotsPage" element={<MappingRobotsPage/>} />
+            <Route path="/ChooseRobot" element={<ChooseRobotPage/>} />
+            <Route path="/ChooseVariablePage" element={<ChooseVariablePage/>} />
+            <Route path="/SetTimePage" element={<SetTimePage/>} />
+            <Route path="/SetCustomPage" element={<SetCustomPage/>} />
+            <Route path="/AddList" element={<ChooseActionlistAsAction/>} />
+          </Route>
           <Route index element={<ChooseDirectoryPage/>} />
           <Route path="/ControlPage" element={<ControlPage/>} />
           <Route path="/GripperRobots" element={<ChooseMultipleGripper/>} />
@@ -41,16 +52,9 @@ export default function App (){
           <Route path="/ChooseExperimentRobots" element={<ChooseExperimentRobots/>} />
           <Route path="/ChooseExperimentRegister" element={<ChooseExperimentRegister/>} />
 
-          <Route path="/ActionKindPage" element={<ActionKindPage/>} /> 
           <Route path="/ActionListPage" element={<ActionListPage/>} />
 
-          <Route path="/ChooseListPage" element={<ChooseListPage/>} />
-          <Route path="/MappingRobotsPage" element={<MappingRobotsPage/>} />
-          <Route path="/ChooseRobot" element={<ChooseRobotPage/>} />
-          <Route path="/ChooseVariablePage" element={<ChooseVariablePage/>} />
-          <Route path="/SetTimePage" element={<SetTimePage/>} />
-          <Route path="/SetCustomPage" element={<SetCustomPage/>} />
-          <Route path="/AddList" element={<ChooseActionlistAsAction/>} />
+
         </Routes>
       </BrowserRouter>
     </div>

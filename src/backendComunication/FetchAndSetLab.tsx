@@ -1,3 +1,4 @@
+import React from "react"
 import { post } from "./BasicOpperations";
 
 const postAdressLab = "http://127.0.0.1:5000/api/setCurrentLab"

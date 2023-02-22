@@ -17,6 +17,7 @@ export default function ChooseVariablePage (props) {
     const errorState = () => {
         setError(current => !current)
     }
+
     const location = useLocation();
     const { kind } = location.state;
     const { ip } = location.state;
@@ -27,13 +28,13 @@ export default function ChooseVariablePage (props) {
       
     })
    
-    var state = "joint";
+    var [state, setJoint] = useState("joint");
     
     const changeType = () => {
         if (state === "kartesisch") {
-            state = "kartesisch";
+            setJoint("kartesisch");
         } else {
-            state = "joint";
+            setJoint("joint");
         }
         SetCoordinateType(state, errorState, setErrorMessage);
         GetPositions(setPositions)
@@ -44,7 +45,6 @@ export default function ChooseVariablePage (props) {
 
 
     const buttons = arrayPosition.map((number) => {
-        console.log(number)
         return  <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
         onClick = {() => {
             var help = new Map();
@@ -68,7 +68,8 @@ export default function ChooseVariablePage (props) {
     return (
         <div>
             <TopBar title="Choose Position" />
-            <button onClick = {changeType}>
+            <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
+            onClick = {changeType}>
                 {state? "joint" : "kartesisch"}
             </button>
             { buttons}

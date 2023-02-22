@@ -1,9 +1,9 @@
+import React from "react"
 import {useState} from 'react';
 import './theme.css'
 import './irei_styles.css'
 import 'material-icons'
 import NavigationButton from './NavigationButton'
-import React from 'react';
 
 function TopBar(props) {
 
@@ -44,14 +44,14 @@ function TopBar(props) {
             <li className="mdl-menu__item nav-list-item">
               <NavigationButton destination="Choose Experiment" destinationLink="/ChooseExperimentRegister"></NavigationButton>
             </li>
-            <li className="mdl-menu__item nav-list-item">
+            {/*<li className="mdl-menu__item nav-list-item">
               <NavigationButton destination="Settings" destinationLink="/Settings"></NavigationButton>
-            </li>
+            </li>*/}
             <li className="mdl-menu__item nav-list-item">
               <NavigationButton destination="Change Gripper Robots" destinationLink="/GripperRobots"></NavigationButton>
             </li>
             <li className="mdl-menu__item nav-list-item">
-              <NavigationButton destination="Change Save Position Robot" destinationLink="/SavePositionRobot"></NavigationButton> 
+              <NavigationButton destination="Change Position Robots" destinationLink="/SavePositionRobot"></NavigationButton> 
             </li>
           </ul>
         </div>
