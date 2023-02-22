@@ -32,7 +32,7 @@ export async function SetExpRobots(action, robots, setErrorMessage){
 
   }
 export async function SetChangeGripperRobots(action, robots, setErrorMessage){
-  var ipList = []
+  var ipList = [""]
     for(var key of robots.keys()){
       ipList.push(key)
     }
@@ -57,7 +57,7 @@ export async function SetChangeGripperRobots(action, robots, setErrorMessage){
 
 }
 export async function SetSavePositionRobot(action, robots, setErrorMessage){
-  var ipList = []
+  var ipList = [""]
     for(var key of robots.keys()){
       ipList.push(key)
     }

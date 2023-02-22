@@ -12,10 +12,12 @@ export default function SetCustomPage() {
     }
     const [name, setName] = useState("")
 
+
+    
     const location = useLocation();
     const { kind } = location.state;
     const { ip } = location.state;
-
+    console.log("custumLoc", kind)
 
     const sentToBackend = () => {
         var actionParameters = new Map<string, string>();
@@ -23,6 +25,7 @@ export default function SetCustomPage() {
         actionParameters.set("robot", ip);
         actionParameters.set("action", name);
         appendAction(errorState, actionParameters, setErrorMessage).then(res => {
+            console.log(res)
             if(res) {
                 navigate("/ActionListPage");
                 window.location.reload();

@@ -35,6 +35,7 @@ async function StartRequest (errorfunction, setErrorMessage) {
  * or to control Robots in the current scene
  */
 function ControlPage (props) {
+    var running = false
     const [errorMessage, setErrorMessage] = useState("sorry position could not be saved")
     const [started, setIsStarted] = useState(false);
     const [namePosition, setNamePosition] = useState(false)
@@ -87,7 +88,10 @@ function ControlPage (props) {
     const startedLogging = () => {
       setIsStarted(current => !current)
     }
-
+    if(!running) {
+        running = true
+        StartRequest(errorState, setErrorMessage)
+    }
     StartRequest(errorState, setErrorMessage)
 
     return ( 

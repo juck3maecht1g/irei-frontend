@@ -15,16 +15,17 @@ export default function SetTimePage() {
     const location = useLocation();
     const { kind } = location.state;
     const { ip } = location.state;
-
+console.log("custumLoc", kind)
 
     const sentToBackend = () => {
+        console.log("hi")
         var actionParameters = new Map<string, string>();
         actionParameters.set("key", kind);
         actionParameters.set("robot", ip);
         actionParameters.set("time", time);
         appendAction(errorState, actionParameters, setErrorMessage).then(res => {
             if(res) {
-                navigate("/ActionListPage");
+                navigate("/ActionListPage")
                 window.location.reload();
             }
         });
