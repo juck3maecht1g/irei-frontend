@@ -67,8 +67,37 @@ export default function ChooseDirectoryPage () {
 
     const activatePopup = () => {
         setPopUpName(current => !current)
-       }
-       
+    }
+
+    const [top, setTop] = useState(false)
+    //fetch if top direkt hier
+
+    const notTop = <div>
+        <div>
+            <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                        onClick = {navUp}>
+                            navigate up
+            </button>
+        </div>
+        <div>
+            <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={confirmChoise}>
+                <i className="material-icons">check</i>
+            </button>
+        </div>
+    </div>
+
+    const isTop = <div>
+        <div>
+            <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" disabled>
+                            navigate up
+            </button>
+        </div>
+        <div>
+            <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" disabled>
+                <i className="material-icons">check</i>
+            </button>
+        </div>
+    </div>
 
     return ( 
         <div>
@@ -89,17 +118,7 @@ export default function ChooseDirectoryPage () {
                     }
                 </div>
                 <div className="flexbox">
-                    <div>
-                        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                        onClick = {navUp}>
-                            navigate up
-                        </button>
-                    </div>
-                    <div>
-                        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={confirmChoise}>
-                        <i className="material-icons">check</i>
-                        </button>
-                    </div>
+                    {top? isTop:notTop}
                     <div>
                         <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
                         onClick = {()=> setPopUpName(true)}>

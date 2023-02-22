@@ -2,13 +2,13 @@ import React from "react"
 import { post } from "./BasicOpperations"
 
 const postAdressExpRobots = "http://127.0.0.1:5000/api/setRobotsExp"
-const postAdressChangeGripperRobots= "http://127.0.0.1:5000/api/api/setRobotsGripper"
-const postAdressSavePositionRobots = "http://127.0.0.1:5000/api/api/setSavePosition"
+const postAdressChangeGripperRobots= "http://127.0.0.1:5000/api/setRobotsGripper"
+const postAdressSavePositionRobots = "http://127.0.0.1:5000/api/setSavePosition"
 
 
 
 export async function SetExpRobots(action, robots, setErrorMessage){
-    var ipList = []
+    var ipList = [""]
     for(var key of robots.keys()){
       ipList.push(key)
     }

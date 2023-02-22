@@ -45,10 +45,29 @@ export async function post (content, postAdress){
         },
         body : JSON.stringify(content)
     })
+   
     return (await response.text()).toString()
 
 }  
 
+
+export async function post2 (content, postAdress){
+    console.log("COntent", content)
+    console.log( JSON.stringify(content))
+    console.log("ADTRESS", postAdress)
+        console.log("ves")
+
+    var response = await fetch(postAdress, {
+        'method': 'POST',
+        headers : {
+        'Content-Type': 'application/json'
+        },
+        body : JSON.stringify(content)
+    })
+    response = await response
+    return await (await (await response.text()).toString())
+
+}  
 
 
 

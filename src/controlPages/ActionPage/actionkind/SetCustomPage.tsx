@@ -19,19 +19,20 @@ export default function SetCustomPage() {
     
     const location = useLocation();
     const { kind } = location.state;
-    const { ip } = location.state; 
-
+    const { ip } = location.state;
 
     const sentToBackend = () => {
+        console.log("nameContent", name)
         var actionParameters = new Map<string, string>();
         actionParameters.set("key", kind);
         actionParameters.set("robot", ip);
-        actionParameters.set("action", name);
+        actionParameters.set("action",name);
+        
         appendAction(errorState, actionParameters, setErrorMessage).then(res => {
             console.log(res)
             if(res) {
                 navigate("/ActionListPage");
-                window.location.reload();
+                // window.location.reload();
             }
         }); 
     }
@@ -46,13 +47,14 @@ export default function SetCustomPage() {
                 <div>
                     <input 
                         type= "text"
-                        required
+                        //required
                         value= {name}
                         onChange = {(e) => setName(e.target.value)}
                     />
                 </div>
                 <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                    onClick = {sentToBackend}> 
+                    onClick = {
+                        sentToBackend}> 
                     confirm 
                 </button>
             </form>
