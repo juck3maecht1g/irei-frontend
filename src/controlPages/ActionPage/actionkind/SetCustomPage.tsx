@@ -2,6 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { appendAction } from '../ActionFetch';
+import TopBar from '../../../TopBar';
+import './../../../theme.css'
+import './../../../irei_styles.css'
 
 export default function SetCustomPage() {
     const navigate = useNavigate();
@@ -14,7 +17,7 @@ export default function SetCustomPage() {
 
     const location = useLocation();
     const { kind } = location.state;
-    const { ip } = location.state;
+    const { ip } = location.state; 
 
 
     const sentToBackend = () => {
@@ -27,17 +30,18 @@ export default function SetCustomPage() {
                 navigate("/ActionListPage");
                 window.location.reload();
             }
-        });
+        }); 
     }
 
     return (
         <div>
-            <form>
+            <TopBar title="Custom Name"></TopBar>
+            <form className= "form-settings">
                 <div>
                     <label>please enter the name of the custom action:</label>
                 </div>
                 <div>
-                    <input
+                    <input 
                         type= "text"
                         required
                         value= {name}

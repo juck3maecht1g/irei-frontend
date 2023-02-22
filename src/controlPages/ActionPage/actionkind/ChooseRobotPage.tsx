@@ -76,10 +76,9 @@ function RobotButton (props) {
    );
 }
 
-/*
+
 var test = new Map();
 test.set("123.234.346", "ckara")
 test.set("985.234.346", "andre")
 test.set("444.234.466", "tessa")
 test.set("333.356.346", "hannah")
-*/

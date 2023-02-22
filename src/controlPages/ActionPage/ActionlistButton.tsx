@@ -47,13 +47,14 @@ export default function ActionlistButton (props) {
 
     if (action.get("key") === "sequential_list") { 
         return (
+            
             <div>
-                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                <button className="irei-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent"
                     onClick = {() => setState(prevState => !prevState)}>
                     <div>{action.get("name")}</div>
                     <div>sequential_list</div>
                 </button>
-                    <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={() => {
+                    <button className="irei-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent" onClick={() => {
                         sentPos(props.listPlace)
                     }}>
                         edit mapping
@@ -64,14 +65,14 @@ export default function ActionlistButton (props) {
     } else if (action.get("key") === "parallel_list") {
         return (
             <div>
-                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                <button className="irei-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent"
                     onClick = {() => setState(prevState => !prevState)}>
                     <div>{action.get("name")}</div>
                     <div>parallel_list</div>
                 </button>
                 <Link to={"/MappingRobotsPage"}>
                     <button onClick={() =>SetMappingPos(props.listPlace, errorState, setErrorMessage)} 
-                        className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                        className="irei-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent">
                         edit mapping
                     </button>
                 </Link>
@@ -82,7 +83,7 @@ export default function ActionlistButton (props) {
     }
 
     return (
-        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"> 
+        <button className = "irei-button mdl-button mdl-js-button mdl-button--raised mdl-button--accent"> 
             <div>{action.get("key")}</div>
             <div>{props.second}</div>
         </button>

@@ -51,7 +51,7 @@ function TopBar(props) {
               <NavigationButton destination="Change Gripper Robots" destinationLink="/GripperRobots"></NavigationButton>
             </li>
             <li className="mdl-menu__item nav-list-item">
-              <NavigationButton destination="Change Save Position Robot" destinationLink="/SavePositionRobot"></NavigationButton> 
+              <NavigationButton destination="Change Position Robots" destinationLink="/SavePositionRobot"></NavigationButton> 
             </li>
           </ul>
         </div>

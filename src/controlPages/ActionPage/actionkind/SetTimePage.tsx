@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { appendAction } from '../ActionFetch';
+import TopBar from '../../../TopBar';
 
 export default function SetTimePage() {
     const navigate = useNavigate();
@@ -32,7 +33,8 @@ export default function SetTimePage() {
 
     return (
         <div>
-            <form>
+            <TopBar title="Custom Name"></TopBar>
+            <form className= "form-settings">
                 <div>
                     <label>please set a time:</label>
                 </div>

@@ -16,8 +16,8 @@ function BackButton () {
     let navigate = useNavigate();
     return (
         <>
-          <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  
-          onClick={() => navigate(-1)}>Back</button>
+          <button className="irei-back-button icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  
+          onClick={() => navigate(-1)}><i className="material-icons">arrow_back</i></button>
         </>
     );
 }
