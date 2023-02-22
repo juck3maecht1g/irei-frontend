@@ -157,3 +157,25 @@ export async function passDataCoordinates(set, fetched, setfetched, adress){
         }
         )
 }
+
+
+
+export async function passDataMatches(set,reference, fetched, setfetched, adress){
+
+    if(fetched) {
+        return
+        }
+        setfetched (true)
+        const data = await (
+            await fetch(
+            adress
+            )
+        ).json().then(data => {
+           if(data == reference){
+            set(true)
+           }else {
+            set(false)
+           }
+        }
+        )
+}

@@ -3,7 +3,7 @@ import {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import TopBar from '../../TopBar';
 import DirectoryButton from './DirectoryButton';
-import { GetDirectories, NavigateDown, NavigateUP, Create, DeleteDirectory, BaseNameDir, confirmDirChoise, GetPath } from '../../backendComunication/FetchAndSetDirExp';
+import { GetDirectories, NavigateDown, NavigateUP, Create, DeleteDirectory, BaseNameDir, confirmDirChoise, GetPath, IsTop } from '../../backendComunication/FetchAndSetDirExp';
 import { NamingPopUp } from '../../PopUp/NamingPopUp';
 import { ErrorPopUp } from '../../PopUp/ErrorPopUP';
 import './../../theme.css'
@@ -70,7 +70,7 @@ export default function ChooseDirectoryPage () {
     }
 
     const [top, setTop] = useState(false)
-    //fetch if top direkt hier
+    IsTop(setTop)
 
     const notTop = <div>
         <div>

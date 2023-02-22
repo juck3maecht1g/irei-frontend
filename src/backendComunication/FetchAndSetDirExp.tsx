@@ -1,6 +1,6 @@
 import React from "react"
 import { useState } from "react"
-import { post, passDataAsMap, passDataDirect } from "./BasicOpperations"
+import { post, passDataAsMap, passDataDirect, passDataMatches } from "./BasicOpperations"
 const fetchAdressGetExperiments = "http://127.0.0.1:5000/api/getRegExp"
 const postAdressChosenExperiment = "http://127.0.0.1:5000/api/setup_exp"
 const fetchAdressGetDirectories = "http://127.0.0.1:5000/api/get_content"
@@ -11,6 +11,7 @@ const postAdressDeleteDirectory = "http://127.0.0.1:5000/api/delete_dirctory"
 const postAdressConfirmDirChoisey = "http://127.0.0.1:5000/api/confirm_dir_coise"
 const fetchAdressName = "http://127.0.0.1:5000/api/get_base_name_dir"
 const fetchAdressPath = "http://127.0.0.1:5000/api/file_name"
+const fetchAdressTop = "http://127.0.0.1:5000/api/is_top"
 
 // contains dummy
 
@@ -177,4 +178,11 @@ export async function confirmDirChoise(action,setErrorMessage) {
     return reload
 
 }
+
+export async function IsTop(setTop) {
+    var [fetched, setFetched] = useState(false) 
+    var reference = "true"
+   await passDataMatches(setTop, reference, fetched, setFetched, fetchAdressTop)
+}
+
 

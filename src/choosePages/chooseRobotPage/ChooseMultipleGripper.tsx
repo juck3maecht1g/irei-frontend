@@ -23,7 +23,7 @@ export default function ChooseMultipleGripper (props) {
     GetGripperRobots(setPreChosen);
 
     const arrPossible = Array.from(possibleRobots, function (entry) {
-        return { key: entry[0], value: entry[1]};
+        return { key: entry[1], value: entry[0]};
     });
 
     var chosen = new Map<string, string>() // the chosen robots 

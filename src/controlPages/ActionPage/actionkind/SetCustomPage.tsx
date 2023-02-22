@@ -32,7 +32,7 @@ export default function SetCustomPage() {
             console.log(res)
             if(res) {
                 navigate("/ActionListPage");
-                // window.location.reload();
+                window.location.reload();
             }
         }); 
     }
@@ -52,7 +52,7 @@ export default function SetCustomPage() {
                         onChange = {(e) => setName(e.target.value)}
                     />
                 </div>
-                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button"
                     onClick = {
                         sentToBackend}> 
                     confirm 
