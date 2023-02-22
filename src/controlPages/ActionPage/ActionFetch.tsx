@@ -1,4 +1,4 @@
-
+import React from "react"
 import { useState } from "react"
 import { passDataDirect, post, passDataAsMap, convertBackToFrontMapping, convertFrontToBackMapping, passDataForActionMapping, passDatalenght, passDataCoordinates } from "../../backendComunication/BasicOpperations"
 

@@ -1,9 +1,9 @@
+import React from "react"
 import {useState} from 'react';
 import './theme.css'
 import './irei_styles.css'
 import 'material-icons'
 import NavigationButton from './NavigationButton'
-import React from 'react';
 
 function TopBar(props) {
 

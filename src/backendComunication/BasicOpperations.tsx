@@ -1,4 +1,4 @@
-
+import React from "react"
 
 
 export async function passDataDirect(set, fetched, setfetched, adress){
