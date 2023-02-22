@@ -58,7 +58,7 @@ export default function ActionListPage (props) {
                 })
             }
             <Link to = {"/ActionKindPage"}>
-                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                <button className="irei-back-button icon-button irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                 <i className="material-icons">add</i>
                 </button>
             </Link>

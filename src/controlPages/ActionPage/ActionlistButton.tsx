@@ -47,7 +47,6 @@ export default function ActionlistButton (props) {
 
     if (action.get("key") === "sequential_list") { 
         return (
-            
             <div>
                 <button className="irei-button mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent"
                     onClick = {() => setState(prevState => !prevState)}>
