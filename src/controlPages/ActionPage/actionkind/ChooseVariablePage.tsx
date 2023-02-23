@@ -21,7 +21,7 @@ export default function ChooseVariablePage (props) {
 
     const location = useLocation();
     const { kind } = location.state;
-    const { ip } = location.state; 
+    const { ip } = location.state;  
 
     const [arrayPosition, setPositions] = useState([ new Map()])
 
@@ -32,10 +32,10 @@ export default function ChooseVariablePage (props) {
     var [state, setState] = useState("joint");
     
     const changeType = () => {
-        if (state === "kartesisch") {
-            setState("kartesisch");
-        } else {
+        if (state === "cartesian") {
             setState("joint");
+        } else {
+            setState("cartesian");
         }
         SetCoordinateType(state, errorState, setErrorMessage);
         GetPositions(setPositions)
