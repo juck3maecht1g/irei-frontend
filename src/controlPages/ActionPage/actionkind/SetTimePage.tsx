@@ -37,7 +37,7 @@ console.log("custumLoc", kind)
             <TopBarActionCreate title="Custom Name"/>
             <form className= "form-settings">
                 <div>
-                    <label>please set a time in ms:</label>
+                    <label>please set a time in seconds:</label>
                 </div>
                 <div>
                     <input

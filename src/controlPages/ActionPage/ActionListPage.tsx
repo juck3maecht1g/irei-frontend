@@ -60,7 +60,7 @@ export default function ActionListPage () {
         
             <Link to = {"/ActionKindPage"}>
                 <button className="icon-button  mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                <i className="material-icons">add</i>
+                <i className="material-icons">playlist_add</i>
                 </button>
             </Link>
         

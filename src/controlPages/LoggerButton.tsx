@@ -78,9 +78,10 @@ export default function LoggerButton (props) {
   const start = (
     <div>
        <TopBarControl title="Control"/>
-      <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
+      <button id="start-log"className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
         onClick={startLogging}>
-        Start
+        
+        <i className='material-icons'>play_arrow</i>Start
       </button>
     </div>
       
@@ -90,17 +91,19 @@ export default function LoggerButton (props) {
     <div>
       <TopBar title="Control"/>
       <div className='flexbox'>
-      <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+      <button id="stop-log" className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
         onClick={
         () => {
           props.stoped()
         }
         }>
-        Stop
+        
+        <i className='material-icons'>stop</i>Stop
       </button>
-      <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+      <button id="abbort-log" className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
        onClick={cancelLogging}>
-        Abort
+        
+        <i className='material-icons'>cancel</i>Abort
       </button>
     </div>
     </div>

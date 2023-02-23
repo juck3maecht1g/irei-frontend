@@ -16,7 +16,7 @@ export function NamingPopUp(props) {
             <form>
                 <div>
                     <label>
-                        please enter a name or accept the default name:
+                        please enter a name {/*or accept the default name*/}:
                     </label>
                 </div>
                 <div>
@@ -32,7 +32,7 @@ export function NamingPopUp(props) {
             <button className="icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
                 onClick={
                     () => {console.log(props.started)
-                        if(props.started != "undefined") {
+                        if(props.started !== "undefined") {
                             props.confirm(props.forErrors, name, props.errorMessage, props.started)
                          
                         } else {

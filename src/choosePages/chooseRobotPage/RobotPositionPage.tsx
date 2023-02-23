@@ -37,7 +37,7 @@ export default function RobotPositionPage(props){
     })
 
     return (
-      <div>
+      <div className='choose-flexbox'>
         <TopBar title="Choose Robot"/>
         {buttons}
       </div>

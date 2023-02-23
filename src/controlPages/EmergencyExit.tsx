@@ -19,6 +19,7 @@ export default function EmergencyExit (props) {
 }
     return <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
                 onClick={informEmergencyStop}>
-                emergency stop
+                
+                <i className='material-icons'>front_hand</i>emergency stop
             </button>
 }

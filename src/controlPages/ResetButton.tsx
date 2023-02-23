@@ -27,7 +27,8 @@ function ResetButton (props) {
     return ( 
         <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
             onClick={()=> {informReset(props.errorMessage, props.forErrors)}}>
-            reset
+            
+            <i className="material-icons">repeat</i>reset
         </button>
      );
 }

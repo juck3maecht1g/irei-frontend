@@ -25,7 +25,8 @@ function GripperButton (props) {
             onClick={
                 ()=> {informexecChangeGripper(props.errorMessage, props.forErrors)}
             }>
-            gripper
+            
+            <i className='material-icons'>precision_manufacturing</i>gripper
         </button>
      );
 }

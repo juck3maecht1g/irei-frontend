@@ -27,7 +27,8 @@ function SavePositionButton (props) {
     return ( 
         <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
             onClick={props.action}>
-            save position
+            
+            <i className='material-icons'>archive</i>save position
         </button>
      );
 }

@@ -9,3 +9,12 @@
     padding:20px;
     cursor: pointer;
 }
+#abbort-log {
+    background-color: orange;
+}
+#stop-log {
+    background-color: pink;
+}
+#start-log {
+    background-color: rgb(1, 192, 1);
+}

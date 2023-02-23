@@ -75,7 +75,7 @@ export function TopBarAll (props) {
               <NavigationButton destination="Change Gripper Robots" destinationLink="/GripperRobots"></NavigationButton>
             </li>
             <li className="mdl-menu__item nav-list-item">
-              <NavigationButton destination="Change Position Robots" destinationLink="/SavePositionRobot"></NavigationButton> 
+              <NavigationButton destination="Change Position Robot" destinationLink="/SavePositionRobot"></NavigationButton> 
             </li>
         </TopBar>
     )
@@ -100,7 +100,7 @@ export function TopBarControl (props) {
               <NavigationButton destination="Change Gripper Robots" destinationLink="/GripperRobots"></NavigationButton>
             </li>
             <li className="mdl-menu__item nav-list-item">
-              <NavigationButton destination="Change Position Robots" destinationLink="/SavePositionRobot"></NavigationButton> 
+              <NavigationButton destination="Change Position Robot" destinationLink="/SavePositionRobot"></NavigationButton> 
             </li>
         </TopBar>
     )

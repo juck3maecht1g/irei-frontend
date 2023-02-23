@@ -10,9 +10,9 @@ export function ErrorPopUp(props) {
 
     return (
         <PopUp trigger={props.active}>
-            <form>
+            <form >
                 <div>
-                    <label>
+                    <label id="message">
                         {props.message}
                     </label>
                 </div>
@@ -23,7 +23,6 @@ export function ErrorPopUp(props) {
             >
                 <i className="material-icons">check</i>
             </button>
-            : <></>
         </PopUp>
     )
 }
