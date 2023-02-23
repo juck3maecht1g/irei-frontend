@@ -48,6 +48,7 @@ export default function App (){
             <Route path="/GripperRobots" element={<ChooseMultipleGripper/>} />
             <Route path="/SavePositionRobot" element={<RobotPositionPage/>} />
           </Route>
+          
           <Route index element={<ChooseDirectoryPage/>} />
           <Route path="/ControlPage" element={<ControlPage/>} />
 
