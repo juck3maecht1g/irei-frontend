@@ -20,6 +20,12 @@ export default function ActionListButton (props) {
 
     const edit = async () => {
         if(await informPosition()) {
+            navigate("/ActionListPage")
+        }
+    }
+
+    const swap = async () => {
+        if(await informPosition()) {
             navigate("/ChooseListPage")
         }
     }
@@ -49,7 +55,10 @@ export default function ActionListButton (props) {
             
             <button className="icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={edit}>
                 <i className="material-icons">edit</i>
-                </button>
+            </button>
+            <button className="icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={swap}>
+                <i className="material-icons">settings</i> 
+            </button>
           
         </div>
     )
