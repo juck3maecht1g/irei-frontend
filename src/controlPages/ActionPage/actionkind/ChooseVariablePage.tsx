@@ -32,13 +32,17 @@ export default function ChooseVariablePage (props) {
     var [state, setState] = useState("joint");
     
     const changeType = () => {
+        console.log(state)
         if (state === "kartesisch") {
             setState("kartesisch");
         } else {
             setState("joint");
         }
-        SetCoordinateType(state, errorState, setErrorMessage);
-        GetPositions(setPositions)
+        console.log("here")
+        //SetCoordinateType(state, errorState, setErrorMessage);
+        console.log("where")
+        //GetPositions(setPositions)
+        console.log("done")
     }
     
     //const arrayPosition = Array.from( positions, function (entry) {
