@@ -32,15 +32,18 @@ export default function ChooseVariablePage (props) {
     var [state, setState] = useState("joint");
     
     const changeType = () => {
+        var send = state
         if (state === "cartesian") {
             setState("joint");
+            send = "joint"
         } else {
             setState("cartesian");
+            send = "cartesian"
         }
         console.log("here")
-        //SetCoordinateType(state, errorState, setErrorMessage);
+        SetCoordinateType(send, errorState, setErrorMessage);
         console.log("where")
-        //GetPositions(setPositions)
+        GetPositions(setPositions)
         console.log("done")
     }
     

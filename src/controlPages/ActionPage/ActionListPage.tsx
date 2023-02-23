@@ -9,7 +9,7 @@ import { GetActionListContent, DeleteAction, SetMappingPos } from './ActionFetch
 /**
  * The ActionListPage is used to edit a list of actions by adding new action and deleting others
  */
-export default function ActionListPage (props) {
+export default function ActionListPage () {
     var navigate = useNavigate()
     const [errorMessage, setErrorMessage] = useState("sorry robots couldnt be changed")
     const [error, setError] = useState(false)
@@ -19,7 +19,7 @@ export default function ActionListPage (props) {
     const sentPos = (index) => {
         SetMappingPos(index, errorState, setErrorMessage).then(res => {
             if (res) {
-                navigate("/MappingRobotsPage", {state:{index: props.listPlace}})
+                navigate("/MappingRobotsPage")
             }
         })
     }
