@@ -12,7 +12,7 @@ import './../../irei_styles.css'
  * The ChooseExperimentRegister is used to choose 
  * the experiment class the user wants to execute
  */
-export default function ChooseExperimentRegister() {
+export default function ChooseExperimentRegistered() {
     const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState("sorry something went wrong")
     const [error, setError] = useState(false)

@@ -18,10 +18,10 @@ export function ErrorPopUp(props) {
                 </div>
                 
             </form>
-            <button className="popup-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+            <button className="icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
                 onClick={props.deactivate} 
             >
-                ok
+                <i className="material-icons">check</i>
             </button>
             : <></>
         </PopUp>

@@ -173,7 +173,7 @@ async function increaseALB(errorFunktion, setErrorMessage){
             setErrorMessage(res)
             errorFunktion()
             console.log(1)
-           reload = false
+            reload = false
         }
       else {
        reload = true

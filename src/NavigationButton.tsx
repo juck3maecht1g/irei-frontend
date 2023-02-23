@@ -7,7 +7,7 @@ function NavigationButton(props) {
     
     return ( 
         <Link to={props.destinationLink} state={{ from: "Burgermenu"}} //erst noch mit links maybe weg
-                className="navigation-button navigation-button mdl-button 
+                className="navigation-button mdl-button 
                     mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
             {props.destination}
         </Link>

@@ -52,10 +52,10 @@ export default function SetCustomPage() {
                         onChange = {(e) => setName(e.target.value)}
                     />
                 </div>
-                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button"
+                <button className="icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button"
                     onClick = {
                         sentToBackend}> 
-                    confirm 
+                    <i className='material-icons'>check</i>
                 </button>
             </form>
         </div>
