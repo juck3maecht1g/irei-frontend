@@ -1,12 +1,11 @@
 import React from 'react';
-import {useState} from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ExecuteActionList, SetButtonIndex } from './ActionPage/ActionFetch';
 import './../irei_styles.css'
 
 export default function ActionListButton (props) {
     const navigate = useNavigate();
-    const [actionlist, setActionList] = useState("")
+    //const [actionlist, setActionList] = useState("")
 
     const execute = ()=> {
         informPosition()
