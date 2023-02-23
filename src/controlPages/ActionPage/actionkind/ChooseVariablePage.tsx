@@ -11,6 +11,7 @@ import { SetCoordinateType, GetPositions, appendAction, GetCoordinates } from '.
  * a variable for a robot to approach
  */
 export default function ChooseVariablePage (props) {
+    
     const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState("sorry robots couldnt be changed")
     const [error, setError] = useState(false)
@@ -20,7 +21,7 @@ export default function ChooseVariablePage (props) {
 
     const location = useLocation();
     const { kind } = location.state;
-    const { ip } = location.state;
+    const { ip } = location.state; 
 
     const [arrayPosition, setPositions] = useState([ new Map()])
 
@@ -28,13 +29,13 @@ export default function ChooseVariablePage (props) {
       
     })
    
-    var [state, setJoint] = useState("joint");
+    var [state, setState] = useState("joint");
     
     const changeType = () => {
         if (state === "kartesisch") {
-            setJoint("kartesisch");
+            setState("kartesisch");
         } else {
-            setJoint("joint");
+            setState("joint");
         }
         SetCoordinateType(state, errorState, setErrorMessage);
         GetPositions(setPositions)
@@ -65,17 +66,19 @@ export default function ChooseVariablePage (props) {
         </button>
     })
 
+    const jointButton = <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick = {changeType}> joint </button>
+    const cartButton = <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onClick = {changeType}> cartesian </button>
+
     return (
         <div>
             <TopBar title="Choose Position" />
-            <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
-            onClick = {changeType}>
-                {state? "joint" : "kartesisch"}
-            </button>
+            {state==="joint"? jointButton:cartButton}
             { buttons}
         </div>
     );
 }
+
+
 
 // function PositionButton (props) {
 
