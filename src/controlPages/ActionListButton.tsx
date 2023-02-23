@@ -3,14 +3,11 @@ import {useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ExecuteActionList, SetButtonIndex } from './ActionPage/ActionFetch';
 import './../irei_styles.css'
-//import ChooseListPage from './ActionPage/ChooseListPage';
-//import Popup from '../PopUp/PopUp';
 
 export default function ActionListButton (props) {
     const navigate = useNavigate();
     const [actionlist, setActionList] = useState("")
- //   const [choosing, setChoosing] = useState(false)
-   console.log("action",props.list)
+
     const execute = ()=> {
         informPosition()
         ExecuteActionList(props.list, props.errorfunction, props.errorMessage)
@@ -39,6 +36,13 @@ export default function ActionListButton (props) {
     }
 
 
+    const disabledEdit = <button className="icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={edit}>
+    <i className="material-icons">edit</i>
+    </button>
+
+    const editButton = <button className="icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={edit}>
+    <i className="material-icons">edit</i>
+    </button>
 
     return (
         <div className="flexbox">
@@ -47,15 +51,8 @@ export default function ActionListButton (props) {
                 <div>
                    {props.list}
                 </div>
-                <div>
-                    
-                </div>
             </button>
-            
-            
-            <button className="icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={edit}>
-                <i className="material-icons">edit</i>
-            </button>
+            {props.list === "Name"? disabledEdit:editButton}
             <button className="icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={swap}>
                 <i className="material-icons">settings</i> 
             </button>
@@ -63,6 +60,9 @@ export default function ActionListButton (props) {
         </div>
     )
 }
+
+
+
 /*
 <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
                     onClick={()=>setChoosing(true)}>
