@@ -41,16 +41,17 @@ export default function App (){
             <Route path="/SetTimePage" element={<SetTimePage/>} />
             <Route path="/SetCustomPage" element={<SetCustomPage/>} />
             <Route path="/AddList" element={<ChooseActionlistAsAction/>} />
+
+            <Route path="/ChooseLaboratoryPage" element={<ChooseLaboratoryPage/>} />
+            <Route path="/ChooseExperimentRobots" element={<ChooseExperimentRobots/>} />
+            <Route path="/ChooseExperimentRegister" element={<ChooseExperimentRegistered/>} />
+            <Route path="/GripperRobots" element={<ChooseMultipleGripper/>} />
+            <Route path="/SavePositionRobot" element={<RobotPositionPage/>} />
           </Route>
           <Route index element={<ChooseDirectoryPage/>} />
           <Route path="/ControlPage" element={<ControlPage/>} />
-          <Route path="/GripperRobots" element={<ChooseMultipleGripper/>} />
-          <Route path="/SavePositionRobot" element={<RobotPositionPage/>} />
 
-          <Route path="/ChooseLaboratoryPage" element={<ChooseLaboratoryPage/>} />
           <Route path="/Settings" element={<Settings/>} />
-          <Route path="/ChooseExperimentRobots" element={<ChooseExperimentRobots/>} />
-          <Route path="/ChooseExperimentRegister" element={<ChooseExperimentRegistered/>} />
 
           <Route path="/ActionListPage" element={<ActionListPage/>} />
 
