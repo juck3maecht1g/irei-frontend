@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GetExpRobots } from '../../backendComunication/FetchRobots';
 import TopBar from '../../TopBar';
 import { SetSavePositionRobot } from '../../backendComunication/SetRobots';
@@ -9,6 +9,7 @@ import { SetSavePositionRobot } from '../../backendComunication/SetRobots';
  * the user wants to work with
  */
 export default function RobotPositionPage(props){
+  var navigate = useNavigate()
   const [errorMessage, setErrorMessage] = useState("sorry position could not be saved")
   const [error, setError] = useState(false)
   const errorState = () => {
@@ -16,7 +17,12 @@ export default function RobotPositionPage(props){
     }
 
     const changerobots = (ip) => {
-      SetSavePositionRobot(errorState, ip, setErrorMessage)
+      console.log("hi")
+      SetSavePositionRobot(errorState, ip, setErrorMessage).then(res => {
+        if(res){
+          navigate("/Controlpage")
+        }
+      })
     }
 
     var [robots, setRobots] = useState(test); //new Map<string, string>()
@@ -45,13 +51,13 @@ export default function RobotPositionPage(props){
 function RobotButton (props) {
 
   return (   // noch zurückschicken wenn Gripper
-    <Link to = {"/Controlpage"}>
+    
         <button onClick = {()=>props.execute(props.data_key)}
         className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
           <div>{props.name}</div>
           <div>{props.data_key}</div>
         </button>
-    </Link>
+  
    );
 }
 

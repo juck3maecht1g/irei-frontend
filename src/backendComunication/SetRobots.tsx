@@ -58,12 +58,13 @@ export async function SetChangeGripperRobots(action, robots, setErrorMessage){
 
 }
 export async function SetSavePositionRobot(action, robots, setErrorMessage){
-  var ipList = [""]
-    for(var key of robots.keys()){
-      ipList.push(key)
-    }
+  var ipList = Array()
+  
+      ipList.push(robots)
+    
+    
     var message =  new Map()
-    message.set("marker", "SetSavePositionRobot")
+    message.set("marker", "SetSavePositionRobots")
     message.set("robot_ip", ipList)
     var reload = false
     const result = Object.fromEntries(message)
