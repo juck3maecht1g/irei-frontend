@@ -1,5 +1,5 @@
 import React from 'react';
-import TopBar from '../../../TopBar';
+import { TopBarActionCreate } from '../../../TopBar';
 import { Link } from 'react-router-dom';
 
 
@@ -10,7 +10,7 @@ export default function ActionKindPage (props) {
 
     return ( 
         <div>
-            <TopBar title="Choose action kind"></TopBar>
+            <TopBarActionCreate title="Choose action kind"/>
             
             <Link 
               to = {"/ChooseRobot"}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GetExpRobots } from '../../../backendComunication/FetchRobots';
-import TopBar from '../../../TopBar';
+import { TopBarActionCreate } from '../../../TopBar';
 import {appendAction} from '../ActionFetch';
 import './../../../theme.css'
 import './../../../irei_styles.css'
@@ -59,7 +59,7 @@ export default function ChooseRobotPage(props){
 
     return (
       <div>
-        <TopBar title="Choose Robot"/>
+        <TopBarActionCreate title="Choose Robot"/>
         <div className='choose-flexbox'>
         {buttons}
         </div>

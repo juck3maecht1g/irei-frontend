@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import LoggerButton, { BaseNameStop , postLoggingStop}  from './LoggerButton';
-import TopBar from './../TopBar'
 import GrippperButton from "./GripperButton"
 import ResetButton from './ResetButton';
 import SavePositionButton, { BaseNamePosition, informSavePosition } from './SavePositionButton';
@@ -96,11 +95,10 @@ function ControlPage (props) {
 
     return ( 
         <div >
-            <TopBar title="Control"></TopBar>
-
+            <LoggerButton state={started} action={startedLogging} stoped={nameSaved} errorfunction={errorState} errorMessage={setErrorMessage}/>
             <h1 className="header">
                 <div className='flexbox'>
-                <LoggerButton state={started} action={startedLogging} stoped={nameSaved} errorfunction={errorState} errorMessage={setErrorMessage}/>
+                
                 <EmergencyExit errorfunction={errorState} errorMessage={setErrorMessage}/>
                 <ResetButton forErrors={errorState} errorMessage={setErrorMessage}/>
                 <SavePositionButton action={namePos}/>

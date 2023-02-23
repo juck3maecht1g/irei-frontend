@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState} from 'react';
-import TopBar from '../../TopBar';
+import { TopBarChooseList } from '../../TopBar';
 import ActionlistButton from './ActionlistButton';
 import { Link, useNavigate } from 'react-router-dom';
 import '../../irei_styles.css'
@@ -39,7 +39,7 @@ export default function ActionListPage () {
         
         <div>
         <div className="test">
-            <TopBar title="Actionlist"></TopBar>
+            <TopBarChooseList title="Actionlist" />
                 <Link to={"/MappingRobotsPage"}
                     state = {{index: [-1]}}>
                     <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={() => {sentPos([-1])}}>
