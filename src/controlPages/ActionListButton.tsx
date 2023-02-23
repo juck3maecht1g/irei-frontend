@@ -39,7 +39,7 @@ export default function ActionListButton (props) {
             <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
                 onClick={execute}>
                 <div>
-                    {props.index}{props.list}
+                   {props.list}
                 </div>
                 <div>
                     

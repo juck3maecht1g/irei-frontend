@@ -50,7 +50,7 @@ export default function App (){
           <Route path="/ChooseLaboratoryPage" element={<ChooseLaboratoryPage/>} />
           <Route path="/Settings" element={<Settings/>} />
           <Route path="/ChooseExperimentRobots" element={<ChooseExperimentRobots/>} />
-          <Route path="/ChooseExperimentRegistered" element={<ChooseExperimentRegistered/>} />
+          <Route path="/ChooseExperimentRegister" element={<ChooseExperimentRegistered/>} />
 
           <Route path="/ActionListPage" element={<ActionListPage/>} />
 
