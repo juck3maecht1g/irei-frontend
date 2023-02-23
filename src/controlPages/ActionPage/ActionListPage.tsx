@@ -51,21 +51,24 @@ export default function ActionListPage (props) {
                     var listIndex = [index];
                     return <div className="action-list-grid">
                         <ActionlistButton key={index} element={currElement} listPlace={listIndex}/>
-                        <button onClick={() =>deleteAction(index)} className="icon-button irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                        <button onClick={() =>deleteAction(index)} className="icon-button  mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                             <i className="material-icons">delete</i>
                         </button>
                     </div>
                 })
             }
+        
             <Link to = {"/ActionKindPage"}>
-                <button className="irei-back-button icon-button irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                <button className="icon-button  mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                 <i className="material-icons">add</i>
                 </button>
             </Link>
+        
+            
         </div>
             <div>
                 <Link to = {"/ControlPage"}>
-                    <button className="irei-back-button icon-button irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    <button className="irei-back-button icon-button  mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                     <i className="material-icons">arrow_back</i>
                     </button>
                 </Link>

@@ -35,6 +35,7 @@ async function StartRequest (errorfunction, setErrorMessage) {
  * or to control Robots in the current scene
  */
 function ControlPage (props) {
+    var running = false
     const [errorMessage, setErrorMessage] = useState("sorry position could not be saved")
     const [started, setIsStarted] = useState(false);
     const [namePosition, setNamePosition] = useState(false)
@@ -87,34 +88,40 @@ function ControlPage (props) {
     const startedLogging = () => {
       setIsStarted(current => !current)
     }
-
+    if(!running) {
+        running = true
+        StartRequest(errorState, setErrorMessage)
+    }
     StartRequest(errorState, setErrorMessage)
 
     return ( 
         <div >
             <TopBar title="Control"></TopBar>
 
-            <h1>
+            <h1 className="header">
+                <div className='flexbox'>
+                <LoggerButton state={started} action={startedLogging} stoped={nameSaved} errorfunction={errorState} errorMessage={setErrorMessage}/>
+                <EmergencyExit errorfunction={errorState} errorMessage={setErrorMessage}/>
                 <ResetButton forErrors={errorState} errorMessage={setErrorMessage}/>
                 <SavePositionButton action={namePos}/>
                 <GrippperButton forErrors={errorState} errorMessage={setErrorMessage}/>
-                <LoggerButton state={started} action={startedLogging} stoped={nameSaved} errorfunction={errorState} errorMessage={setErrorMessage}/>
-                <EmergencyExit errorfunction={errorState} errorMessage={setErrorMessage}/>
                 <ModeButton forErrors={errorState} errorMessage={setErrorMessage}/>
-                <button className="icon-button irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                onClick={(increaseListButtons)}>
-                    <i className="material-icons">add</i>
-                </button> 
-                <button className="icon-button irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                onClick={decreaseListButtons}>
-                    <i className="material-icons">remove</i>
-                </button>
+                </div>
+                
                 {
                     actions.map((index) => {
                         console.log("test",index)
                         return <ActionListButton index = {index} list= {aList[index]}errorfunction={errorState} errorMessage={setErrorMessage}/>
                     })
                 }
+                <button className="icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                onClick={(increaseListButtons)}>
+                    <i className="material-icons">add</i>
+                </button> 
+                <button className="icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                onClick={decreaseListButtons}>
+                    <i className="material-icons">remove</i>
+                </button>
             </h1>
 
             <NamingPopUp active = {namePosition} deactivate={namePos} forErrors={errorState}
@@ -166,7 +173,7 @@ async function increaseALB(errorFunktion, setErrorMessage){
             setErrorMessage(res)
             errorFunktion()
             console.log(1)
-           reload = false
+            reload = false
         }
       else {
        reload = true

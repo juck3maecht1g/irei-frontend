@@ -1,6 +1,6 @@
 import React from "react"
 import { useState } from "react"
-import { passDataDirect, post, passDataAsMap, convertBackToFrontMapping, convertFrontToBackMapping, passDataForActionMapping, passDatalenght, passDataCoordinates } from "../../backendComunication/BasicOpperations"
+import { passDataDirect, post, passDataAsMap, convertBackToFrontMapping, convertFrontToBackMapping, passDataForActionMapping, passDatalenght, passDataCoordinates, post2 } from "../../backendComunication/BasicOpperations"
 
 const fetchAdressAllActionLists = "http://127.0.0.1:5000/api/get-action_lists"
 const postAdressActionList = "http://127.0.0.1:5000/api/set_action_list"
@@ -50,10 +50,11 @@ export async function appendAction( errorfunction, action, setErrorMessage){
     toPost.set("marker", "append_action")
     const result = Object.fromEntries(toPost)
     var reload = false
-    await post(result, postAdressAppendAction).then(res => {
+   
+    await post2(result, postAdressAppendAction).then(res => {
         if(res !== "Done") {
             setErrorMessage(res)
-            action()
+            errorfunction()
            reload = false
         }
       else {

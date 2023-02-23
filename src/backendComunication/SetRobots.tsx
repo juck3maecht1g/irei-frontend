@@ -2,13 +2,13 @@ import React from "react"
 import { post } from "./BasicOpperations"
 
 const postAdressExpRobots = "http://127.0.0.1:5000/api/setRobotsExp"
-const postAdressChangeGripperRobots= "http://127.0.0.1:5000/api/api/setRobotsGripper"
-const postAdressSavePositionRobots = "http://127.0.0.1:5000/api/api/setSavePosition"
+const postAdressChangeGripperRobots= "http://127.0.0.1:5000/api/setRobotsGripper"
+const postAdressSavePositionRobots = "http://127.0.0.1:5000/api/setSavePosition"
 
 
 
 export async function SetExpRobots(action, robots, setErrorMessage){
-    var ipList = []
+    var ipList = [""]
     for(var key of robots.keys()){
       ipList.push(key)
     }
@@ -33,7 +33,7 @@ export async function SetExpRobots(action, robots, setErrorMessage){
 
   }
 export async function SetChangeGripperRobots(action, robots, setErrorMessage){
-  var ipList = []
+  var ipList = [""]
     for(var key of robots.keys()){
       ipList.push(key)
     }
@@ -58,12 +58,13 @@ export async function SetChangeGripperRobots(action, robots, setErrorMessage){
 
 }
 export async function SetSavePositionRobot(action, robots, setErrorMessage){
-  var ipList = []
-    for(var key of robots.keys()){
-      ipList.push(key)
-    }
+  var ipList = Array()
+  
+      ipList.push(robots)
+    
+    
     var message =  new Map()
-    message.set("marker", "SetSavePositionRobot")
+    message.set("marker", "SetSavePositionRobots")
     message.set("robot_ip", ipList)
     var reload = false
     const result = Object.fromEntries(message)

@@ -29,7 +29,7 @@ export function NamingPopUp(props) {
                 </div>
             </form>
             {(name !== "")? 
-            <button className="popup-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
+            <button className="icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
                 onClick={
                     () => {console.log(props.started)
                         if(props.started != "undefined") {
@@ -41,19 +41,19 @@ export function NamingPopUp(props) {
                         props.deactivate()
                     }
                 }>
-                confirm
+                <i className="material-icons">check</i>
             </button>
             
             
             : <></>
         } 
-        <button className="popup-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
+        <button className="icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
             onClick={
                     () => {
                     props.deactivate()
                 }
             }>
-                cancel
+                <i className="material-icons">close</i>
         </button>    
         </PopUp>
         )

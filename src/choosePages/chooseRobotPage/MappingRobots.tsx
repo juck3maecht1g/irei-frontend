@@ -1,11 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import TopBar from '../../TopBar';
 import Popup from '../../PopUp/PopUp';
 import ChooseRobotsForMappingPage from './ChooseRobotsForMapping';
 import '../../irei_styles.css'
-import { convertBackToFrontMapping, GetMapping, SetMapping, SetMappingPos } from '../../controlPages/ActionPage/ActionFetch';
+import { GetMapping, SetMapping} from '../../controlPages/ActionPage/ActionFetch';
 import { ErrorPopUp } from '../../PopUp/ErrorPopUP';
 
 export default function MappingRobotsPage () {
@@ -15,15 +15,16 @@ export default function MappingRobotsPage () {
         setError(current => !current)
     }
 
+    const [index, setIndex] = useState(-1);
 
-
-    var [roles, setRoles] = useState([help1, help2, help3, help4])
+    var [roles, setRoles] = useState([])
     GetMapping(setRoles)
 
-    const setChoice = (ip, number) => {
+    const setChoice = (ip) => {
         var changed = [...roles]
-        changed[number].set("robot", ip);
+        changed[index].set("robot", ip);
         setRoles(changed)
+        setIndex(-1);
     }
 
     const sentToBackend = () => {
@@ -38,8 +39,11 @@ export default function MappingRobotsPage () {
     }
 
     const buttons = roles.map((element, index) => {
-        console.log(element)
-        return <MappingRobotsButton index = {index} element={element.get("robot")} action={element.get("name")} chosen={setChoice} />
+        return <MappingRobotsButton key={index} 
+        index = {index} 
+        element={element.get("robot")} 
+        action={element.get("name")} 
+        giveKey={setIndex} />
     })
 
     return (
@@ -47,38 +51,47 @@ export default function MappingRobotsPage () {
             <TopBar title= "mapping of robots"/>
             {buttons}
             <Link to={"/ActionListPage"}>
-                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={sentToBackend}>
+                <button className="icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={sentToBackend}>
                 <i className="material-icons">check</i>
                 </button>
             </Link>
             <ErrorPopUp active={error} deactivate={errorState} message={errorMessage}/>
+            <Popup trigger = {index >= 0}>
+                <ChooseRobotsForMappingPage execute={setChoice}/>
+                <button className="icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                onClick={()=>setIndex(-1)}> 
+                    <i className="material-icons">close</i> 
+                </button>
+            </Popup>
         </div>
     )
 }
 
 function MappingRobotsButton (props) {
-    const [open, setOpen] = useState(false);
-
-
-    const setChoice = (ip, number) => {
-        props.chosen(ip,number)
-        setOpen(false);
+    const handleClick = () => {
+        console.log(props.index)
+        props.giveKey(props.index)
     }
 
     return (
         <div>
-            {props.index} 
-            <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick = {() => setOpen(true)}>
-                {props.element}
-            </button>
-            {props.action}
-            <Popup trigger = {open}>
-            <ChooseRobotsForMappingPage number = {props.index} execute={setChoice}/>
-             </Popup>
+            <div className='mapping-grid'>
+                <p className='mapping-index'>
+                    {props.index}:
+                </p>
+                <button className="ip-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={handleClick}>
+                    {props.element}
+                </button>
+                <p className='mapping-action'>
+                    {props.action}
+                </p>
+            </div>
+            
         </div>
     )
 }
 
+/*
 const help1 = new Map();
 help1.set("name", "gripperOpen")
 help1.set("robot", "234.846.984")
@@ -93,4 +106,4 @@ help3.set("robot", "129.666.876")
 
 const help4 = new Map();
 help4.set("name", "wait")
-help4.set("robot", "657.674.111")
+help4.set("robot", "657.674.111") */

@@ -9,7 +9,7 @@ import '../../irei_styles.css'
  */
 export default function ChooseRobotsForMappingPage(props){
 
-    var [robots, setRobots] = useState(help);
+    var [robots, setRobots] = useState(new Map());
 
     GetExpRobots(setRobots)
     //GetExpRobots(setRobots)
@@ -19,7 +19,7 @@ export default function ChooseRobotsForMappingPage(props){
     });
 
     const handleClick = (ip) => {
-        props.execute( ip,props.number)
+        props.execute( ip)
     }
 
     const buttons = arrRobots.map((number) => {
@@ -52,10 +52,11 @@ function RobotButton (props) {
    );
 }
 
+/*
 const help = new Map();
 help.set("123.123.234", "julie")
 help.set("673.986.638", "maja")
 help.set("894.234.467", "dominik")
 help.set("235.474.458", "niclas")
 help.set("777.345.658", "jule")
-help.set("346.346.476", "andre")
+help.set("346.346.476", "andre")*/

@@ -11,28 +11,32 @@ import './../../../irei_styles.css'
  * the user wants to work with
  */
 export default function ChooseRobotPage(props){
+  
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("sorry robots couldnt be changed")
   const [error, setError] = useState(false)
   const errorState = () => {
       setError(current => !current)
   }
+ 
     const location = useLocation();
     const {action} = location.state;
     const {link} = location.state;
-
     const sentToBackend = (ip) => {
       if (link === "/ActionListPage") {
         var help = new Map();
         help.set("key", action);
         // dirty
         var ipList = [ip]
-        console.log("ip",ipList)
         help.set("robot", ipList)
         appendAction(errorState, help, setErrorMessage).then(res => {
           if(res) {  navigate(link, { state: {kind: props.actionKind, ip: [props.data_key]} });
       window.location.reload();}
         });
+      }
+      else {
+        // console.log("STUFF", {state: {kind: props.actionKind, ip: [props.data_key]}}, link)
+        // navigate(link,{state: {kind: props.actionKind, ip: [props.data_key]} })
       }
     
     }
@@ -56,7 +60,9 @@ export default function ChooseRobotPage(props){
     return (
       <div>
         <TopBar title="Choose Robot"/>
+        <div className='choose-flexbox'>
         {buttons}
+        </div>
       </div>
     )
 }
@@ -66,13 +72,16 @@ export default function ChooseRobotPage(props){
  * the Robot which is displayed from this Button
  */
 function RobotButton (props) {
-
+  console.log("link", props.linkTo)
   return ( 
+    <Link to = {props.linkTo}
+    state = {{kind: props.actionKind, ip: [props.data_key]}}>
     <button onClick = {() => props.action(props.data_key)}
         className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
           <div>{props.name}</div>
           <div>{props.data_key}</div>
     </button>
+    </Link>
    );
 }
 
