@@ -67,11 +67,17 @@ function MappingRobotsButton (props) {
 
     return (
         <div>
-            {props.index} 
-            <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick = {() => setOpen(true)}>
-                {props.element}
-            </button>
-            {props.action}
+            <div className='mapping-grid'>
+                <p className='mapping-index'>
+                {props.index}:
+                </p>
+                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick = {() => setOpen(true)}>
+                    {props.element}
+                </button>
+                <p className='mapping-action'>
+                {props.action}
+                </p>
+            </div>
             <Popup trigger = {open}>
             <ChooseRobotsForMappingPage number = {props.index} execute={setChoice}/>
              </Popup>

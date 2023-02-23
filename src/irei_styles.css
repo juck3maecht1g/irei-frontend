@@ -25,11 +25,11 @@
 #nav-list-container {
     right: 0px;
     top: 32px;
-    width: 200px;
+    width: 250px;
     height: 208px;
 }
 #nav-list {
-    width: 200px;
+    width: 250px;
 }
 .nav-list-item {
     padding: 0;
@@ -37,8 +37,11 @@
     height: 50px;
 }
 .irei-button {
-    margin: 10px;
-    width: 200px;
+    min-width: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     height: 40px;
 }
 .grid{
@@ -46,8 +49,8 @@
 }
 .flexbox {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 .navigation-button{
     width: 200px;
@@ -73,6 +76,7 @@
     padding-left: 10px;
     padding-bottom: o;
     margin: 0;
+    word-break: break-all;
 }
 
 .action-list-grid {
@@ -84,13 +88,13 @@
     width: 0px;
 }
 
-.actionlist-button-grid {
-    grid-template-columns: 0fr 0fr;
-    display: grid;
-}
-
 .icon-button {
     width: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 40px;
 }
 
 .header {
@@ -107,4 +111,30 @@
 }
 .input {
     width:200px
+}
+.child{
+    box-sizing: border-box;
+}
+.choose-flexbox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+.mapping-grid {
+    display: grid;
+    grid-template-columns: 0fr 0fr 0fr;
+}
+.mapping-index {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.mapping-action {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }

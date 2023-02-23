@@ -45,14 +45,16 @@ export default function ChooseLaboratoryPage() {
 
 
        return ( 
-      <div>
+      <div >
         <TopBar title="Choose Laboratory"></TopBar>
+        <div className='choose-flexbox'>
         {
           arrLabs.map((number) => {
             return <ChooseLaboratoryButton name={number.key} action={action}
             buttons = {robots} />
           })
         }
+        </div>
          <ErrorPopUp active={error} deactivate={errorState} message={errorMessage}/>
       </div>
     );

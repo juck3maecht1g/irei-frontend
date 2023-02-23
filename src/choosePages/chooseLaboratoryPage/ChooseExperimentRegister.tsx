@@ -39,7 +39,9 @@ export default function ChooseExperimentRegister() {
     return (
         <div>
             <TopBar title="Choose Experiment"></TopBar>
+            <div className='choose-flexbox'>
             {buttons}
+            </div>
             <ErrorPopUp active={error} deactivate={errorState} message={errorMessage}/>
         </div>
     )
