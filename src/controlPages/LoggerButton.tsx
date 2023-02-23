@@ -74,16 +74,14 @@ export default function LoggerButton (props) {
   }
 
   const start = (
-    <div>
       <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
         onClick={startLogging}>
         Start
       </button>
-    </div>
   )
 
   const stop = (
-    <div>
+    <div className='flexbox'>
       <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
         onClick={
         () => {

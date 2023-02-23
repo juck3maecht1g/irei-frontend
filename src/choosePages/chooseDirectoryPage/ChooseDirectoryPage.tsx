@@ -72,7 +72,13 @@ export default function ChooseDirectoryPage () {
     const [top, setTop] = useState(false)
     IsTop(setTop)
 
-    const notTop = <div>
+    const notTop = <div className="flexbox">
+        <div>
+            <button className="icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+            onClick = {()=> setPopUpName(true)}>
+                <i className="material-icons">add</i>
+            </button>
+        </div>
         <div>
             <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
                         onClick = {navUp}>
@@ -80,20 +86,26 @@ export default function ChooseDirectoryPage () {
             </button>
         </div>
         <div>
-            <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={confirmChoise}>
+            <button className="icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={confirmChoise}>
                 <i className="material-icons">check</i>
             </button>
         </div>
     </div>
 
-    const isTop = <div>
+    const isTop = <div className="flexbox">
+        <div>
+            <button className="icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+            onClick = {()=> setPopUpName(true)}>
+                <i className="material-icons">add</i>
+            </button>
+        </div>
         <div>
             <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" disabled>
                             navigate up
             </button>
         </div>
         <div>
-            <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" disabled>
+            <button className="icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" disabled>
                 <i className="material-icons">check</i>
             </button>
         </div>
@@ -102,35 +114,31 @@ export default function ChooseDirectoryPage () {
     return ( 
         <div>
             <TopBar title="Choose Directory"></TopBar>
-            <div className="grid directory-grid">
-                <div>
-                    <p className="irei-path">
-                        {path}
-                    </p>
-                </div>
-            </div>
-            <div className="grid">
-                <div className="grid">
+            <div >
+                <div className="choose-flexbox">
                     {
                         directories.get("to_navigate")?.map((number) => {
                         return <DirectoryButton name={number} action={navDown}/>
                         })
                     }
                 </div>
-                <div className="flexbox">
-                    {top? isTop:notTop}
+                <div className="grid directory-grid">
                     <div>
-                        <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                        onClick = {()=> setPopUpName(true)}>
-                           <i className="material-icons">add</i>
-                        </button>
+                        <p className="irei-path">
+                            cwd: {path}
+                        </p>
                     </div>
+                </div>
+                <div >
+                    
+                    {top? isTop:notTop}
                     <NamingPopUp active = {popUpName} deactivate={activatePopup} forErrors={errorState}
                         confirm={createDir} getBaseName={BaseNameDir} errorMessage={setErrorMessage}/>
                     <ErrorPopUp active={error} deactivate={errorState} message={errorMessage}/>
                     
                 </div>
             </div>
+            
         </div>
      );
 }

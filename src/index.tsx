@@ -6,7 +6,7 @@ import ControlPage from "./controlPages/ControlPage"
 import ChooseDirectoryPage from "./choosePages/chooseDirectoryPage/ChooseDirectoryPage"
 import ChooseLaboratoryPage from "./choosePages/chooseLaboratoryPage/ChooseLaboratoryPage"
 import ChooseExperimentRobots from "./choosePages/chooseLaboratoryPage/ChooseExperimentRobots";
-import ChooseExperimentRegister from "./choosePages/chooseLaboratoryPage/ChooseExperimentRegister";
+import ChooseExperimentRegistered from "./choosePages/chooseLaboratoryPage/ChooseExperimentRegistered";
 
 import ActionListPage from "./controlPages/ActionPage/ActionListPage";
 import ChooseListPage from "./controlPages/ActionPage/ChooseListPage";
@@ -50,7 +50,7 @@ export default function App (){
           <Route path="/ChooseLaboratoryPage" element={<ChooseLaboratoryPage/>} />
           <Route path="/Settings" element={<Settings/>} />
           <Route path="/ChooseExperimentRobots" element={<ChooseExperimentRobots/>} />
-          <Route path="/ChooseExperimentRegister" element={<ChooseExperimentRegister/>} />
+          <Route path="/ChooseExperimentRegistered" element={<ChooseExperimentRegistered/>} />
 
           <Route path="/ActionListPage" element={<ActionListPage/>} />
 

@@ -37,7 +37,7 @@ console.log("custumLoc", kind)
             <TopBar title="Custom Name"></TopBar>
             <form className= "form-settings">
                 <div>
-                    <label>please set a time:</label>
+                    <label>please set a time in ms:</label>
                 </div>
                 <div>
                     <input
@@ -47,9 +47,9 @@ console.log("custumLoc", kind)
                         onChange = {(e) => setTime(e.target.value)}
                     />
                 </div>
-                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  type ="button"
+                <button className="icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  type ="button"
                         onClick = {sentToBackend}>
-                        confirm 
+                        <i className='material-icons'>check</i>
                 </button>
             </form>
         </div>

@@ -58,18 +58,20 @@ export default function ChooseListPage () {
     return (
         <div>
             <TopBar title="Choose Action List"/>
+            <div className='choose-flexbox'>
             {buttons}
+            </div>
             <button onClick={()=>{deactivatePopup(true)}} className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"> 
-                new actionlist 
+                <i className='material-icons'>add</i>
             </button>
             <NamingPopUp active = {popUpNameActive} deactivate={()=>{deactivatePopup(false)}} forErrors={errorState}
                         confirm={saveName} getBaseName={(key)=>{return ""}} errorMessage={setErrorMessage}/>
             <ErrorPopUp active={error} deactivate={errorState} message={errorMessage}/>
             <Popup trigger={(name !== "")}>
-                <button onClick = {()=>{newList("parallel_list")}}>
+                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick = {()=>{newList("parallel_list")}}>
                     parallel
                 </button>
-                <button onClick = {()=>{newList("sequential_list")}}>
+                <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick = {()=>{newList("sequential_list")}}>
                     sequential
                 </button>
             </Popup>

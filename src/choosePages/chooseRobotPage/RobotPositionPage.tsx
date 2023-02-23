@@ -53,7 +53,7 @@ function RobotButton (props) {
   return (   // noch zurückschicken wenn Gripper
     
         <button onClick = {()=>props.execute(props.data_key)}
-        className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
           <div>{props.name}</div>
           <div>{props.data_key}</div>
         </button>
