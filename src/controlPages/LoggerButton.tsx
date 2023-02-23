@@ -3,6 +3,8 @@ import { passDataDirect, post } from '../backendComunication/BasicOpperations';
 import './Control.css';
 import './../theme.css'
 import './../irei_styles.css'
+import {TopBarControl }from './../TopBar';
+import TopBar from './../TopBar';
 
 const fetchAdressStop = "http://127.0.0.1:5000/api/stop"
 const fetchAdressName = "http://127.0.0.1:5000/api/get_base_name_stop"
@@ -74,14 +76,20 @@ export default function LoggerButton (props) {
   }
 
   const start = (
+    <div>
+       <TopBarControl title="Control"/>
       <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" 
         onClick={startLogging}>
         Start
       </button>
+    </div>
+      
   )
 
   const stop = (
-    <div className='flexbox'>
+    <div>
+      <TopBar title="Control"/>
+      <div className='flexbox'>
       <button className="irei-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
         onClick={
         () => {
@@ -95,6 +103,8 @@ export default function LoggerButton (props) {
         Abort
       </button>
     </div>
+    </div>
+    
   )
 
   return (

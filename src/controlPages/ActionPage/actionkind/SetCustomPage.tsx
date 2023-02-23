@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { appendAction } from '../ActionFetch';
-import TopBar from '../../../TopBar';
+import {TopBarActionCreate} from '../../../TopBar';
 import './../../../theme.css'
 import './../../../irei_styles.css'
 
@@ -39,7 +39,7 @@ export default function SetCustomPage() {
 
     return (
         <div>
-            <TopBar title="Custom Name"></TopBar>
+            <TopBarActionCreate title="Custom Name"/>
             <form className= "form-settings">
                 <div>
                     <label>please enter the name of the custom action:</label>

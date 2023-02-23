@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-import TopBar from '../../TopBar';
+import { TopBarChooseList } from '../../TopBar';
 import { GetActionListNames, SetActionList, CreatetActionList } from './ActionFetch';
 import { NamingPopUp } from '../../PopUp/NamingPopUp';
 import { ErrorPopUp } from '../../PopUp/ErrorPopUP';
@@ -57,7 +57,7 @@ export default function ChooseListPage () {
 
     return (
         <div>
-            <TopBar title="Choose Action List"/>
+            <TopBarChooseList title="Choose Action List"/>
             <div className='choose-flexbox'>
             {buttons}
             </div>

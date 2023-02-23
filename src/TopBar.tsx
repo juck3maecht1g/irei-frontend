@@ -3,8 +3,8 @@ import {useState} from 'react';
 import './theme.css'
 import './irei_styles.css'
 import 'material-icons'
-import NavigationButton from './NavigationButton'
 import { Link } from "react-router-dom";
+import NavigationButton from './NavigationButton';
 
 function TopBar(props) {
 
@@ -40,6 +40,22 @@ function TopBar(props) {
             </Link>
             </li>*/}
 
+            {props.children}
+          </ul>
+        </div>
+
+      </div>
+      
+    </div>
+    
+  )
+}
+
+export default TopBar
+
+export function TopBarAll (props) {
+    return (
+        <TopBar title={props.title}>
             <li className="mdl-menu__item nav-list-item">
               <NavigationButton destination="Control" destinationLink="/ControlPage"></NavigationButton>
             </li>
@@ -61,14 +77,54 @@ function TopBar(props) {
             <li className="mdl-menu__item nav-list-item">
               <NavigationButton destination="Change Position Robots" destinationLink="/SavePositionRobot"></NavigationButton> 
             </li>
-          </ul>
-        </div>
-
-      </div>
-      
-    </div>
-    
-  )
+        </TopBar>
+    )
 }
 
-export default TopBar
+export function TopBarControl (props) {
+    return (
+        <TopBar title={props.title}>
+            <li className="mdl-menu__item nav-list-item">
+              <NavigationButton destination="Choose Directory" destinationLink="/"></NavigationButton>
+            </li>
+            <li className="mdl-menu__item nav-list-item">
+              <NavigationButton destination="Choose Laboratory" destinationLink="/ChooseLaboratoryPage"></NavigationButton>
+            </li>
+            <li className="mdl-menu__item nav-list-item">
+              <NavigationButton destination="Choose Experiment" destinationLink="/ChooseExperimentRegistered"></NavigationButton>
+            </li>
+            {/*<li className="mdl-menu__item nav-list-item">
+              <NavigationButton destination="Settings" destinationLink="/Settings"></NavigationButton>
+            </li>*/}
+            <li className="mdl-menu__item nav-list-item">
+              <NavigationButton destination="Change Gripper Robots" destinationLink="/GripperRobots"></NavigationButton>
+            </li>
+            <li className="mdl-menu__item nav-list-item">
+              <NavigationButton destination="Change Position Robots" destinationLink="/SavePositionRobot"></NavigationButton> 
+            </li>
+        </TopBar>
+    )
+}
+
+export function TopBarChooseList (props) {
+    return (
+        <TopBar title={props.title}>
+            <li className="mdl-menu__item nav-list-item">
+              <NavigationButton destination="Control" destinationLink="/ControlPage"></NavigationButton>
+            </li>
+        </TopBar>
+    )
+}
+
+export function TopBarActionCreate (props) {
+  return (
+      <TopBar title={props.title}>
+          <li className="mdl-menu__item nav-list-item">
+            <NavigationButton destination="Control" destinationLink="/ControlPage"></NavigationButton>
+          </li>
+          <li className="mdl-menu__item nav-list-item">
+            <NavigationButton destination="ActionList" destinationLink="/ActionListPage"></NavigationButton>
+          </li>
+      </TopBar>
+  )
+}

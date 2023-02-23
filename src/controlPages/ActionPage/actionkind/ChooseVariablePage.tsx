@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
-import TopBar from '../../../TopBar';
+import {TopBarActionCreate} from '../../../TopBar';
 import { SetCoordinateType, GetPositions, appendAction, GetCoordinates } from '../ActionFetch';
 
 
@@ -71,7 +71,7 @@ export default function ChooseVariablePage (props) {
 
     return (
         <div>
-            <TopBar title="Choose Position" />
+            <TopBarActionCreate title="Choose Position" />
             {state==="joint"? jointButton:cartButton}
             { buttons}
         </div>

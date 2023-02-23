@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-import TopBar from '../../../TopBar';
+import { TopBarActionCreate } from '../../../TopBar';
 import { GetActionListNames, appendAction} from '../ActionFetch';
 import { ErrorPopUp } from '../../../PopUp/ErrorPopUP';
 import '../../../theme.css'
@@ -17,10 +17,7 @@ export default function ChooseActionlistAsAction () {
 
     const errorState = () => {
         setError(current => !current)
-       }
-
-
-
+    }
     
     const [lists, setList] = useState([]);
     GetActionListNames(setList)
@@ -48,7 +45,7 @@ export default function ChooseActionlistAsAction () {
 
     return (
         <div>
-            <TopBar title="Choose Action List"/>
+            <TopBarActionCreate title="Choose Action List"/>
             {buttons}
             <ErrorPopUp active={error} deactivate={errorState} message={errorMessage}/>
         </div>
