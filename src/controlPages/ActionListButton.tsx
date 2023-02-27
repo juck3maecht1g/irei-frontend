@@ -35,7 +35,7 @@ export default function ActionListButton (props) {
     }
 
 
-    const disabledEdit = <button className="icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={edit}>
+    const disabledEdit = <button className="icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" disabled>
     <i className="material-icons">edit</i>
     </button>
 
@@ -51,7 +51,7 @@ export default function ActionListButton (props) {
                    {props.list}
                 </div>
             </button>
-            {props.list === "Name"? disabledEdit:editButton}
+            {props.list == "name"? disabledEdit:editButton}
             <button className="icon-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={swap}>
                 <i className="material-icons">settings</i> 
             </button>
